@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :friendships
   has_many :stats
-  has_many :sessions, through: :session_participants, dependant: :destroy
+  has_many :sessions, through: :session_participants, dependent: :destroy
 end
