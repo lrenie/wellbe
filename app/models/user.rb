@@ -7,4 +7,11 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :stats
   has_many :sessions, through: :session_participants, dependent: :destroy
+
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :mail, presence: true
+  validates :password, presence: true
+  validates :mail, uniqueness: true
+  validates :last_name, uniqueness: true
 end
