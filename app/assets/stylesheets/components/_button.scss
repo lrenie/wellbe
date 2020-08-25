@@ -1,0 +1,36 @@
+/*BUTTON PRIMARY*/
+.btn-1{
+  padding: 10px 30px;
+  background: linear-gradient(87.34deg, #B67CFF 0%, #7100FF 100%);
+  border-radius: 50px;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+/*BUTTON SECONDARY*/
+.btn-2{
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: 1.5px solid #00DBD8;
+  color: #00DBD8;
+  &:hover {
+    text-decoration: none;
+    color: #00DBD8;
+  }
+}
+
+/*BUTTON BLACK GHOST DE LA HOME PAGE*/
+.btn-3{
+  padding: 10px 30px;
+  color: #08050B;
+  border: 1px solid #08050B;
+  border-radius: 50px;
+  background-color: transparent;
+  &:hover {
+    text-decoration: none;
+    color: #08050B;
+  }
+}
