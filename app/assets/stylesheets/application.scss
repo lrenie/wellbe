@@ -19,29 +19,54 @@
 }
 .container-s {
   margin: 40px auto;
-}
-/*classe text par default*/
+
+// POLICE =====
 h1 {
   font-size: 50.52px;
   color: $noir;
+  margin: 0px;
 }
 
 h2 {
   font-size: 37.9px;
   color: $noir;
+  margin: 0px;
 }
 
 h3 {
   font-size: 28.43px;
   color: $noir;
+  margin: 0px;
 }
 
 h4 {
   font-size: 21.33px;
   color: $noir;
+  margin: 0px;
 }
 
 p {
   font-size: 16px;
   color: $noir;
+  margin: 0px;
+}
+
+// PADDING =====
+.p-b-20 {
+  padding-bottom: 20px;
+}
+
+.p-x-20 {
+  padding: 20px 0px;
+}
+
+// FLEX =====
+.flex-g-1 {
+  flex-grow: 1;
+}
+
+.flex-b-e {
+  display: flex;
+  justify-content: between;
+  align-items: end;
 }

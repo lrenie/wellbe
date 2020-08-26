@@ -1,0 +1,96 @@
+// GLOBAL =====
+.bg-blanc {
+  background-color: white;
+}
+
+// CHOICE =====
+.card-choice-session {
+  position: relative;
+  border-radius: 15px;
+  width: 540px;
+  height: 414px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  .photo {
+    background-position: center;
+    width: 100%;
+    height: 66%;
+    background-size: cover;
+  }
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    font-size: 30px;
+    padding: 0px 0px 10px 30px;
+    font-family: Nunito;
+  }
+  p {
+    padding: 0px 0px 0px 30px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+  }
+  a {
+    margin: 0px 30px 0px 0px;
+    align-self: flex-end;
+  }
+  .bg-blanc {
+    height: 34%;
+  }
+}
+
+.stretch {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.border-blue {
+  background-color: $secondary;
+  width: 100%;
+  height: 5px;
+}
+
+.gradiant-white {
+  position: absolute;
+  bottom: 34%;
+  background: linear-gradient(360deg, #FFFFFF 0%, rgba(208, 208, 208, 0) 100%);
+  width: 100%;
+  height: 90px;
+}
+  // SOLO =====
+  #solo {
+    background-image: url('sessions/solo.jpg');
+  }
+
+  // MULTI =====
+  #multi {
+    background-image: url('sessions/multi.jpg');
+  }
+// ==========
+
+// BODY-AREA =====
+.card-body-area {
+  position: relative;
+  border-radius: 7px;
+  height: 120px;
+  width: 140px;
+  background-image: url('body_area/general.jpg');
+  background-size: cover;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  .white-box {
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    width: 100%;
+    height: 33%;
+  }
+  p {
+    font-weight: 600;
+    font-family: Nunito;
+    padding: 5px 10px;
+  }
+}
+
