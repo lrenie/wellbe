@@ -26,7 +26,7 @@ BodyArea.destroy_all
 puts "Creating body areas..."
 BodyArea1 = { name: "haut du corps"}
 BodyArea2 = { name: "bas du coprs"}
-BodyArea3 = { name: "general"}
+BodyArea3 = { name: "général"}
 bodyareas = []
 [BodyArea1, BodyArea2, BodyArea3].each_with_index do |attributes, index|
  current_bodyarea = BodyArea.create!(attributes)
@@ -75,8 +75,8 @@ puts "Created #{Strech.count} Streches"
 puts "Cleaning sessions..."
 Session.destroy_all
 puts "Creating sessions..."
-Session1 = { difficulty: "facile", favorite_status: "false", mode: "solo", video: "false", total_time: 15, user: users[0], warm_up: warmups[0], exercise: exercises[0], strech: stretches[0] }
-Session2 = { difficulty: "moyen", favorite_status: "false", mode: "multi", video: "true", total_time: 20, user: users[1], warm_up: warmups[1], exercise: exercises[1], strech: stretches[1] }
+Session1 = { difficulty: "débutant", favorite_status: "false", mode: "solo", video: "false", total_time: 15, user: users[0], warm_up: warmups[0], exercise: exercises[0], strech: stretches[0] }
+Session2 = { difficulty: "avancé", favorite_status: "false", mode: "multi", video: "true", total_time: 20, user: users[1], warm_up: warmups[1], exercise: exercises[1], strech: stretches[1] }
 sessions = []
 [Session1, Session2].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
