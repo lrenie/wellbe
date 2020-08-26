@@ -10,3 +10,15 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navbar-home {
+  background-color: transparent;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
