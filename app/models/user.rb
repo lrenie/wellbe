@@ -10,8 +10,5 @@ class User < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :mail, presence: true
-  validates :password, presence: true
-  validates :mail, uniqueness: true
   validates :last_name, uniqueness: true
 end

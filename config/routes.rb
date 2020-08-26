@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-
-  ressources :sessions, only: [:choice, :new]
+  resources :users, only: [:show]
+    resources :sessions, only: [:choice, :new]
 end
 
-  
