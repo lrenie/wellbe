@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
   def choice
-    @sessions = Session.all
+    @sessions = Session.last(4)
   end
 end

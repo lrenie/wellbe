@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  ressources :sessions, only: [:choice, :new]
+  resources :sessions, only: [:new]
+  get '/sessions/choice', to: 'sessions#choice'
 end
 
   
