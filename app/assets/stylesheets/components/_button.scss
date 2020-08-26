@@ -14,11 +14,11 @@
 .btn-2{
   padding: 10px 30px;
   border-radius: 50px;
-  border: 1.5px solid #00DBD8;
-  color: #00DBD8;
+  border: 1.5px solid $secondary;
+  color: $secondary;
   &:hover {
     text-decoration: none;
-    color: #00DBD8;
+    color: $secondary;
   }
 }
 
