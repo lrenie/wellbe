@@ -26,7 +26,7 @@ BodyArea.destroy_all
 puts "Creating body areas..."
 BodyArea1 = { name: "haut du corps"}
 BodyArea2 = { name: "bas du coprs"}
-BodyArea3 = { name: "complet"}
+BodyArea3 = { name: "general"}
 bodyareas = []
 [BodyArea1, BodyArea2, BodyArea3].each_with_index do |attributes, index|
  current_bodyarea = BodyArea.create!(attributes)
