@@ -1,19 +1,28 @@
-<p>Mes dernières sessions</p>
-<% @last_sessions.each do |session| %>
-    <%= session.exercise.body_area.name%>
-    <%= session.total_time%>
-    <%= session.date%>
-    <%= session.difficulty%>
-    <%= session.user.first_name%>
-    <br>
-<% end %>
-<p>Mes favoris</p>
+<%= render "shared/navbar_global" %>
 
-<% @fav_sessions.each do |session| %>
-    <%= session.exercise.body_area.name%>
-    <%= session.total_time%>
-    <%= session.date%>
-    <%= session.difficulty%>
-    <%= session.user.first_name%>
-    <br>
-<% end %>
+<div class="container-l">
+
+<h2>Nouvelle session</h2>
+
+    <h2>Mes dernières sessions</h2>
+    <% @last_sessions.each do |session| %>
+        <%= session.exercise.body_area.name%>
+        <%= session.total_time%>
+        <%= session.date%>
+        <%= session.difficulty%>
+        <%= session.user.first_name%>
+        <br>
+    <% end %>
+
+    <h2>Mes favoris</h2>
+
+    <% @fav_sessions.each do |session| %>
+        <%= session.exercise.body_area.name%>
+        <%= session.total_time%>
+        <%= session.date%>
+        <%= session.difficulty%>
+        <%= session.user.first_name%>
+        <br>
+    <% end %>
+
+</div>
