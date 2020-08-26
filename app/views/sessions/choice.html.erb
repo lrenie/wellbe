@@ -1,1 +1,19 @@
-<%= @sessions %>
+<p>Mes dernières sessions</p>
+<% @last_sessions.each do |session| %>
+    <%= session.exercise.body_area.name%>
+    <%= session.total_time%>
+    <%= session.date%>
+    <%= session.difficulty%>
+    <%= session.user.first_name%>
+    <br>
+<% end %>
+<p>Mes favoris</p>
+
+<% @fav_sessions.each do |session| %>
+    <%= session.exercise.body_area.name%>
+    <%= session.total_time%>
+    <%= session.date%>
+    <%= session.difficulty%>
+    <%= session.user.first_name%>
+    <br>
+<% end %>

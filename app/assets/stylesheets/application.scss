@@ -12,8 +12,15 @@
 @import "components/index";
 @import "pages/index";
 
+/*classe container*/
+.container-l {
+  margin: 100px auto;
+}
+.container-s {
+  margin: 40px auto;
 
 // POLICE =====
+
 h1 {
   font-size: 50.52px;
   color: $noir;
