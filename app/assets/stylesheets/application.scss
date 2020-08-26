@@ -12,10 +12,35 @@
 @import "components/index";
 @import "pages/index";
 
-/*css de la classe container large*/
+/*classe container*/
 .container-l {
   margin: 100px auto;
 }
 .container-s {
   margin: 40px auto;
+
+/*classe text par default*/
+h1 {
+  font-size: 50.52px;
+  color: $noir;
+}
+
+h2 {
+  font-size: 37.9px;
+  color: $noir;
+}
+
+h3 {
+  font-size: 28.43px;
+  color: $noir;
+}
+
+h4 {
+  font-size: 21.33px;
+  color: $noir;
+}
+
+p {
+  font-size: 16px;
+  color: $noir;
 }
