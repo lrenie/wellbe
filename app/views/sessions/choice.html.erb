@@ -2,7 +2,15 @@
 
 <div class="container-l">
 
-<h2>Nouvelle session</h2>
+  <h2>Nouvelle session</h2>
+
+  <div class="container-s">
+    <div class="cards_session">
+      <%= render "shared/card_solo_session"%>
+      <%= render "shared/card_multi_session"%>
+    </div>
+  </div>
+
 
     <h2>Mes dernières sessions</h2>
     <% @last_sessions.each do |session| %>
@@ -24,5 +32,4 @@
         <%= session.user.first_name%>
         <br>
     <% end %>
-
 </div>
