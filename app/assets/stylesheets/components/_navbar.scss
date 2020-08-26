@@ -22,3 +22,29 @@
   padding-left: 100px;
   padding-right: 100px;
 }
+
+#navbar_global {
+  background-color: white;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.icone {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #00DBD8;
+}
+
+#navbar_global > div > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
