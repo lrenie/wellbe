@@ -12,6 +12,11 @@ class SessionsController < ApplicationController
     @session = Session.new
     authorize @session
   end
+
+  def show
+    @session = Session.find(params[:id])
+    raise
+  end
 end
 
 # private
