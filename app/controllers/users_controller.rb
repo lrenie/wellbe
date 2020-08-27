@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         @time = @time + stat.time
         @kcal = @kcal + stat.kcal
       end
+      @sessions_count = @user.sessions.count
     end
   end
 end

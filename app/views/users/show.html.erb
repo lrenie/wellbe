@@ -1,3 +1,51 @@
-<%= @user.first_name %>
-<%= @time %>
-<%= @kcal %>
+<div class="container-l">
+  <div class="cover-user">
+    <%= cl_image_tag @user.cover.key %>
+    <div class="avatar-user"><%= cl_image_tag @user.avatar.key %></div>
+    <h2 class="text-cover-hover">Changer la photo de couverture</h2>
+  </div>
+  <div class="name-user"><%= @user.first_name %><%= " " %><%= @user.last_name %></div>
+
+  <div class="trait"></div>
+  <div class="list-user-profil">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">Statistiques</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link " id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="calendar" aria-selected="true">Calendrier</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link " id="sessions-tab" data-toggle="tab" href="#sessions" role="tab" aria-controls="sessions" aria-selected="true">Sessions favorites</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link " id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="true">Amis</a>
+      </li>
+    </ul>
+  </div>
+  <div class="container-s">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="stat" role="tabpanel" aria-labelledby="stat-tab">
+        <h1>Mes statistiques</h1>
+        <div>
+          <div>calories brulées </div>
+          <%= @kcal %>
+          <div>sessions realisées</div>
+          <%= @sessions_count %>
+          <div>temps d activité/mois</div>
+          <%= @time %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
+        Contenu Calendrier
+      </div>
+      <div class="tab-pane fade" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
+        Contenu Sessions
+      </div>
+      <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
+        Contenu Amis
+      </div>
+    </div>
+  </div>
+</div>
+
