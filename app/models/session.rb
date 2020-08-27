@@ -4,7 +4,9 @@ class Session < ApplicationRecord
   belongs_to :exercise
   belongs_to :strech
   has_many :users, through: :session_participant, dependent: :destroy
+
   has_many :session_participants
+
 
   validates :difficulty, presence: true
   validates :mode, presence: true
