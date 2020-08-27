@@ -21,16 +21,16 @@ puts "Cleaning users..."
 User.destroy_all
 
   
-cover = URI.open('https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
-avatar = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
-user = User.new
-user.first_name = "bob"
-user.last_name = "johnny"
-user.email = "bob.j@hotmail.fr"
-user.password = "123456"
-user.cover.attach(io: cover, filename: 'cover.jpg', content_type: 'image/jpg')
-user.avatar.attach(io: avatar, filename: 'avatar.jpg', content_type: 'image/jpg')
-user.save!
+# cover = URI.open('https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
+# avatar = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
+# user = User.new
+# user.first_name = "bob"
+# user.last_name = "johnny"
+# user.email = "bob.j@hotmail.fr"
+# user.password = "123456"
+# user.cover.attach(io: cover, filename: 'cover.jpg', content_type: 'image/jpg')
+# user.avatar.attach(io: avatar, filename: 'avatar.jpg', content_type: 'image/jpg')
+# user.save!
 
 puts "Creating body areas..."
 BodyArea1 = { name: "haut du corps"}
