@@ -1,8 +1,11 @@
 body > div.container-l > h2 {
     font-weight: bold;
+    margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .cards_session {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-bottom: 22px;
 }
