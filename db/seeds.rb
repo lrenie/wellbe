@@ -57,8 +57,21 @@ puts "Creating users..."
 User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Cheewy", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 users = []
+photos = [
+"http://fr.web.img3.acsta.net/r_640_360/newsv7/19/12/19/18/02/0758868.jpg",
+"https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg"
+]
+covers = [
+  "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
+  "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg"
+]
+
 [User1, User2].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
+ file_avatar = URI.open(photos[index])
+ file_cover = URI.open(covers[index])
+ current_user.avatar.attach(io: file_avatar, filename: 'image.png', content_type: 'image/png')
+ current_user.cover.attach(io: file_cover, filename: 'image.png', content_type: 'image/png')
  users << current_user
 end
 puts "Created #{User.count} users"
