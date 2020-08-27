@@ -22,7 +22,7 @@
 
 #navbar_global {
   background-color: white;
-  height: 70px;
+  height: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +30,12 @@
   top: 0px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.trace-gradiant {
+  width: 100vw;
+  height: 5px;
+  background: linear-gradient(89.99deg, #B67CFF 0%, #00DBD8 100%);
 }
 
 .icone {
