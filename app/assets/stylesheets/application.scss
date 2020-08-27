@@ -11,17 +11,30 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+// TRAIT ======
+
+.trait{
+  border-bottom: 2px solid rgb(208, 208, 208);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 @import "pages/sessions_choice.scss";
 
 /*classe container*/
 .container-l {
-  margin: 100px auto;
+  width: 86%;
+  margin: 0 auto;
 }
 .container-s {
+
   margin: 40px auto;
+  width: 94%;
 }
 
-// POLICE =====
 h1 {
   font-size: 50.52px;
   color: $noir;
@@ -61,13 +74,25 @@ p {
   padding: 20px 0px;
 }
 
+// WIDTH =====
+.width-100 {
+  width: 100%;
+}
+
 // FLEX =====
 .flex-g-1 {
   flex-grow: 1;
 }
 
+.flex-b-c{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex-b-e {
   display: flex;
-  justify-content: between;
+  justify-content: space-between;
   align-items: end;
 }
+
