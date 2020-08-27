@@ -1,6 +1,6 @@
 class Exercise < ApplicationRecord
   belongs_to :body_area
-  has_many :sessions, dependent: :destroy
+  has_many :session_exercises, dependent: :destroy
 
   validates :name, presence: true
   validates :name, uniqueness: true

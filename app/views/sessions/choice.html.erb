@@ -14,7 +14,7 @@
 
     <h2>Mes dernières sessions</h2>
     <% @last_sessions.each do |session| %>
-        <%= session.exercise.body_area.name%>
+        <%= session.session_exercises.exercises%>
         <%= session.total_time%>
         <%= session.date%>
         <%= session.difficulty%>
@@ -25,7 +25,7 @@
     <h2>Mes favoris</h2>
 
     <% @fav_sessions.each do |session| %>
-        <%= session.exercise.body_area.name%>
+        <%= session.session_exercises.exercises%>
         <%= session.total_time%>
         <%= session.date%>
         <%= session.difficulty%>

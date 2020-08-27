@@ -29,8 +29,9 @@
   margin-top: 5%;
 }
 .container-s {
+
+  margin: 40px auto;
   width: 94%;
-  margin: 0 auto;
 }
 
 h1 {
@@ -72,14 +73,29 @@ p {
   padding: 20px 0px;
 }
 
+// WIDTH =====
+.width-100 {
+  width: 100%;
+}
+
 // FLEX =====
 .flex-g-1 {
   flex-grow: 1;
 }
 
+.flex-b-c{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex-b-e {
   display: flex;
-  justify-content: between;
+  justify-content: space-between;
   align-items: end;
 }
 
+// DECORATION =====
+.d-none {
+  text-decoration: none;
+}

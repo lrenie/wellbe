@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
 
   def new
     @session = Session.new
-    authorize @session
+  end
+
+  def show
+    @session = Session.find(params[:id])
+    @time = @session.total_time
   end
 end
 
