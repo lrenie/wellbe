@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_094858) do
+ActiveRecord::Schema.define(version: 2020_08_27_130441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,17 +89,13 @@ ActiveRecord::Schema.define(version: 2020_08_27_094858) do
     t.boolean "video"
     t.integer "total_time"
     t.bigint "user_id", null: false
-    t.bigint "warm_up_id", null: false
-    t.bigint "exercise_id", null: false
-    t.bigint "strech_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "session_exercise_id"
-    t.index ["exercise_id"], name: "index_sessions_on_exercise_id"
+    t.bigint "body_area_id"
+    t.index ["body_area_id"], name: "index_sessions_on_body_area_id"
     t.index ["session_exercise_id"], name: "index_sessions_on_session_exercise_id"
-    t.index ["strech_id"], name: "index_sessions_on_strech_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
-    t.index ["warm_up_id"], name: "index_sessions_on_warm_up_id"
   end
 
   create_table "stats", force: :cascade do |t|
@@ -109,16 +105,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_094858) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_stats_on_user_id"
-  end
-
-  create_table "streches", force: :cascade do |t|
-    t.string "name"
-    t.integer "time"
-    t.integer "kcal"
-    t.bigint "body_area_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["body_area_id"], name: "index_streches_on_body_area_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,16 +121,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_094858) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "warm_ups", force: :cascade do |t|
-    t.string "name"
-    t.integer "time"
-    t.integer "kcal"
-    t.bigint "body_area_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["body_area_id"], name: "index_warm_ups_on_body_area_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "exercises", "body_areas"
   add_foreign_key "friendships", "users", column: "recipient_id"
@@ -153,11 +129,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_094858) do
   add_foreign_key "session_exercises", "sessions"
   add_foreign_key "session_participants", "sessions"
   add_foreign_key "session_participants", "users"
-  add_foreign_key "sessions", "exercises"
-  add_foreign_key "sessions", "streches"
+  add_foreign_key "sessions", "body_areas"
   add_foreign_key "sessions", "users"
-  add_foreign_key "sessions", "warm_ups"
   add_foreign_key "stats", "users"
-  add_foreign_key "streches", "body_areas"
-  add_foreign_key "warm_ups", "body_areas"
 end
