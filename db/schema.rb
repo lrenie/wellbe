@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_094749) do
+
+ActiveRecord::Schema.define(version: 2020_08_27_130441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_094749) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "body_area_id"
+    t.index ["body_area_id"], name: "index_sessions_on_body_area_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -125,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_094749) do
   add_foreign_key "session_exercises", "sessions"
   add_foreign_key "session_participants", "sessions"
   add_foreign_key "session_participants", "users"
+  add_foreign_key "sessions", "body_areas"
   add_foreign_key "sessions", "users"
   add_foreign_key "stats", "users"
 end
