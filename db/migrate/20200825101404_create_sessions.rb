@@ -8,9 +8,9 @@ class CreateSessions < ActiveRecord::Migration[6.0]
       t.boolean :video
       t.integer :total_time
       t.references :user, null: false, foreign_key: true
-      t.references :warm_up, null: false, foreign_key: true
-      t.references :exercise, null: false, foreign_key: true
-      t.references :strech, null: false, foreign_key: true
+      # t.references :warm_up, null: false, foreign_key: true
+      # t.references :exercise, null: false, foreign_key: true
+      # t.references :strech, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -46,8 +46,17 @@
   color: #00DBD8;
 }
 
+.icone-style {
+  border: solid 0.2px #00DBD8;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+}
+
 #navbar_global > div > img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
 }
