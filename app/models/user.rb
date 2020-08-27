@@ -5,13 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :friendships
+
   has_many :stats, dependent: :destroy
   has_many :session_participants, dependent: :destroy
   has_many :sessions, through: :session_participants, dependent: :destroy
   has_one_attached :avatar
   has_one_attached :cover
 
+
   validates :last_name, presence: true
   validates :first_name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :email, uniqueness: true
   validates :last_name, uniqueness: true
 end

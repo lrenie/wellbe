@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_093448) do
+
+ActiveRecord::Schema.define(version: 2020_08_26_123917) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,13 +70,13 @@ ActiveRecord::Schema.define(version: 2020_08_26_093448) do
     t.bigint "session_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favorite_status"
     t.index ["session_id"], name: "index_session_participants_on_session_id"
     t.index ["user_id"], name: "index_session_participants_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
     t.string "difficulty"
-    t.boolean "favorite_status"
     t.string "mode"
     t.datetime "date"
     t.boolean "video"
