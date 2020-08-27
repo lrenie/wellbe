@@ -1,5 +1,6 @@
 class Session < ApplicationRecord
   belongs_to :user
+  belongs_to :body_area
 
   has_many :session_exercises, dependent: :destroy
   # has_many :users, through: :session_participant, dependent: :destroy
