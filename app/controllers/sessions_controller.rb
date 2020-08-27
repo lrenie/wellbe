@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 
   def new
     @session = Session.new
-    authorize @session
   end
 
   def show
