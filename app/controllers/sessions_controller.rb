@@ -7,6 +7,16 @@ class SessionsController < ApplicationController
       @fav_sessions << Session.find(fav.session_id)
     end
   end
+
+  def new
+    @session = Session.new
+    authorize @session
+  end
+
+  def show
+    @session = Session.find(params[:id])
+    raise
+  end
 end
 
 # private
