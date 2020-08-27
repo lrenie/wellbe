@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_08_26_123917) do
-
+ActiveRecord::Schema.define(version: 2020_08_27_130441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_123917) do
     t.bigint "strech_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "body_area_id"
+    t.index ["body_area_id"], name: "index_sessions_on_body_area_id"
     t.index ["exercise_id"], name: "index_sessions_on_exercise_id"
     t.index ["strech_id"], name: "index_sessions_on_strech_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_123917) do
   add_foreign_key "friendships", "users", column: "sender_id"
   add_foreign_key "session_participants", "sessions"
   add_foreign_key "session_participants", "users"
+  add_foreign_key "sessions", "body_areas"
   add_foreign_key "sessions", "exercises"
   add_foreign_key "sessions", "streches"
   add_foreign_key "sessions", "users"
