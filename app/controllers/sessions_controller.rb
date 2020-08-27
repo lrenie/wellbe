@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   def show
     @session = Session.find(params[:id])
-    raise
+    @time = @session.total_time
   end
 end
 
