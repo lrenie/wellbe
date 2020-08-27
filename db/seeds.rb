@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+require "open-uri"
+
+
+
 puts "Cleaning users..."
 User.destroy_all
 puts "Creating users..."
@@ -19,13 +24,22 @@ end
 puts "Created #{User.count} users"
 
   
-
+cover = URI.open('https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
+avatar = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
+user = User.new
+user.first_name = "bob"
+user.last_name = "johnny"
+user.email = "bob.j@hotmail.fr"
+user.password = "123456"
+user.cover.attach(io: cover, filename: 'cover.jpg', content_type: 'image/jpg')
+user.avatar.attach(io: avatar, filename: 'avatar.jpg', content_type: 'image/jpg')
+user.save!
 
 puts "Cleaning body areas..."
 BodyArea.destroy_all
 puts "Creating body areas..."
 BodyArea1 = { name: "haut du corps"}
-BodyArea2 = { name: "bas du coprs"}
+BodyArea2 = { name: "bas du corps"}
 BodyArea3 = { name: "général"}
 bodyareas = []
 [BodyArea1, BodyArea2, BodyArea3].each_with_index do |attributes, index|
@@ -75,10 +89,13 @@ puts "Created #{Strech.count} Streches"
 puts "Cleaning sessions..."
 Session.destroy_all
 puts "Creating sessions..."
-Session1 = { difficulty: "débutant", favorite_status: "false", mode: "solo", video: "false", total_time: 15, user: users[0], warm_up: warmups[0], exercise: exercises[0], strech: stretches[0] }
-Session2 = { difficulty: "avancé", favorite_status: "false", mode: "multi", video: "true", total_time: 20, user: users[1], warm_up: warmups[1], exercise: exercises[1], strech: stretches[1] }
+Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], warm_up: warmups[0], exercise: exercises[0], strech: stretches[0] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[1], warm_up: warmups[1], exercise: exercises[1], strech: stretches[1] }
+Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], warm_up: warmups[0], exercise: exercises[1], strech: stretches[1] }
+Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], warm_up: warmups[1], exercise: exercises[0], strech: stretches[0] }
+Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], warm_up: warmups[1], exercise: exercises[0], strech: stretches[0] }
 sessions = []
-[Session1, Session2].each_with_index do |attributes, index|
+[Session1, Session2, Session3, Session4, Session5].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
  sessions << current_session
 end
@@ -87,14 +104,18 @@ puts "Created #{Session.count} Sessions"
 puts "Cleaning session participants..."
 SessionParticipant.destroy_all
 puts "Creating session participants..."
-Session_participant1 = { user: users[0], session: sessions[0] }
-Session_participant2 = { user: users[1], session: sessions[1] }
+Session_participant1 = { user: users[0], session: sessions[0], favorite_status: true }
+Session_participant2 = { user: users[1], session: sessions[1], favorite_status: false }
+Session_participant3 = { user: users[0], session: sessions[2], favorite_status: true }
+Session_participant4 = { user: users[0], session: sessions[3], favorite_status: false }
+Session_participant5 = { user: users[0], session: sessions[3], favorite_status: false}
 session_participants = []
-[Session_participant1, Session_participant2].each_with_index do |attributes, index|
+[Session_participant1, Session_participant2, Session_participant3, Session_participant4, Session_participant5].each_with_index do |attributes, index|
  current_session_participant = SessionParticipant.create!(attributes)
  session_participants << current_session_participant
 end
 puts "Created #{SessionParticipant.count} Session Participants" 
+
 
 
 

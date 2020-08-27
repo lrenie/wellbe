@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_131209) do
+
+ActiveRecord::Schema.define(version: 2020_08_26_123917) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "body_areas", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -47,13 +70,13 @@ ActiveRecord::Schema.define(version: 2020_08_25_131209) do
     t.bigint "session_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favorite_status"
     t.index ["session_id"], name: "index_session_participants_on_session_id"
     t.index ["user_id"], name: "index_session_participants_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
     t.string "difficulty"
-    t.boolean "favorite_status"
     t.string "mode"
     t.datetime "date"
     t.boolean "video"
@@ -113,6 +136,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_131209) do
     t.index ["body_area_id"], name: "index_warm_ups_on_body_area_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "exercises", "body_areas"
   add_foreign_key "friendships", "users", column: "recipient_id"
   add_foreign_key "friendships", "users", column: "sender_id"
