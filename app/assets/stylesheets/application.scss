@@ -14,6 +14,18 @@
 
 // TRAIT ======
 
+.min_height_100 {
+  min-height: 100vh;
+}
+
+.padding-container {
+  padding: 0px 0px 100px 0px;
+}
+
+body {
+  background-color: white;
+}
+
 .trait{
   border-bottom: 2px solid rgb(208, 208, 208);
   margin-top: 20px;
@@ -27,14 +39,13 @@
 }
 
 .container-s {
-  margin: 40px auto;
+  padding: 40px auto;
   width: 94%;
 }
 
 .container-white {
   background-color: white;
   padding: 20px 40px;
-  margin-top: 20px;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
 }

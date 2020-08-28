@@ -12,8 +12,13 @@
   </head>
 
   <body>
-
-    <%= yield %>
+    <% if current_page?("/") %>
+      <div class="min_height_100">
+    <% else %>
+      <div class="min_height_100 padding-container">
+    <% end %>
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
 
   </body>
