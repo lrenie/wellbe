@@ -3,7 +3,12 @@
   <div class="icone">
     <%= link_to current_user do %>
       <% if current_user%>
-      <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+      <div class="flex-b-c">
+        <div class="avatar-navbar">
+          <%= current_user.first_name %>
+        </div>
+        <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+      </div>
       <% else %>
       <% cl_image_tag "lourd.jpg" %>
       <% end %>

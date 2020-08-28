@@ -27,7 +27,7 @@
 }
 
 .icone {
-  width: 220px;
+  width: 300px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -47,4 +47,15 @@
   width: 40px;
   height: 40px;
   border-radius: 50px;
+}
+
+.avatar-navbar {
+  margin-right: 10px;
+  text-decoration: none;
+  color: $noir;
+  font-family: Nunito;
+  font-size: 16px;
+  &:hover {
+    text-decoration: none;
+  }
 }
