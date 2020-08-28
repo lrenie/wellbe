@@ -1,12 +1,22 @@
 <%= render "shared/navbar_global" %>
 <div class="body"></div>
-<div class="container-l container-white">
- <div class="cover-user">
+<div class="container-l">
+  <div class="cover-user">
     <%= cl_image_tag @user.cover.key %>
-    <div class="avatar-user"><%= cl_image_tag @user.avatar.key %></div>
-    <h2 class="text-cover-hover">Changer la photo de couverture</h2>
+    <div class="avatar-user width-100">
+      <div class="flex-c-c width-100">
+       <%= cl_image_tag @user.avatar.key %>
+      </div>
+    </div>
+    <div class="text-cover-home flex-b-c">
+      <i class="fas fa-camera m-r-10"></i>
+      <p class="flex-g-1">Changer la photo de couverture</h2>
+    </div>
   </div>
-  <div class="name-user"><%= @user.first_name %><%= " " %><%= @user.last_name %></div>
+  <div class="name-user">
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+
+    </div>
 
   <div class="trait"></div>
   <div class="list-user-profil">
@@ -28,14 +38,32 @@
   <div class="container-s container-white">
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="stat" role="tabpanel" aria-labelledby="stat-tab">
-        <h1>Mes statistiques</h1>
-        <div>
-          <div>calories brulées </div>
-          <%= @kcal %>
-          <div>sessions realisées</div>
-          <%= @sessions_count %>
-          <div>temps d activité/mois</div>
-          <%= @time %>
+        <h3 class="roboto">Mes statistiques</h3>
+        <div class="flex-b-c">
+          <div class="stat-card">
+            <p>calories brulées</p>
+            <div class="stat-card-num ">
+              <div class="cercle-violet flex-c-c">
+                <%= @kcal %>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <p>sessions realisées</p>
+            <div class="stat-card-num ">
+              <div class="cercle-violet flex-c-c">
+                <%= @sessions_count %>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <p>temps d'activité/mois</p>
+            <div class="stat-card-num ">
+              <div class="cercle-violet flex-c-c">
+                <%= @time %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">

@@ -44,12 +44,16 @@ body {
 }
 
 .container-white {
-  height: 85vh;
   background-color: rgb(255, 255, 255);
   padding: 20px 40px;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
   margin-top: 30px;
+}
+
+// POLICE =====
+.roboto {
+  font-family: Roboto;
 }
 
 h1 {
@@ -131,4 +135,22 @@ p {
 // DECORATION =====
 .d-none {
   text-decoration: none;
+}
+
+// OVERFLOW HIDDEN =====
+.over-hide {
+  overflow: hidden;
+}
+
+// Z INDEX =====
+.z-i-1 {
+  z-index: 1;
+}
+
+.z-i-2 {
+  z-index: 2;
+}
+
+.z-i-3 {
+  z-index: 3;
 }

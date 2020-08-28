@@ -213,3 +213,25 @@
     }
   }
 }
+
+// STATISTIQUES =====
+.stat-card {
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  width: 200px;
+  height: 250px;
+  padding: 10px 20px;
+  text-align: center;
+  .cercle-violet {
+    height: 80px;
+    width: 80px;
+    border: 2px solid #B67CFF;
+    border-radius: 50px;
+  }
+  .stat-card-num {
+    color: #B67CFF;
+    font-size: 28.43px;
+    text-align: center;
+  }
+}
