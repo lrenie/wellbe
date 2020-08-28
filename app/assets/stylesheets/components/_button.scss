@@ -1,12 +1,15 @@
 /*BUTTON PRIMARY*/
 .btn-1{
+  background: linear-gradient(90deg, #B67CFF 0%, #7100FF 50%, #B67CFF 100%);
+  background-size: 200% auto;
   padding: 10px 30px;
-  background: linear-gradient(87.34deg, #B67CFF 0%, #7100FF 100%);
   border-radius: 50px;
   color: white;
+  transition: 0.5s;
   &:hover {
     text-decoration: none;
     color: white;
+    background-position: right center;
   }
 }
 
