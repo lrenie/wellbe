@@ -1,16 +1,4 @@
-<div id="navbar_global">
-  <%= link_to "WELLBE", sessions_choice_path %>
-  <div class="icone">
-  <%= link_to new_session_path do %>
-  <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
-    <% end %>
-    <i class="fas fa-user-friends"></i>
-    <i class="fas fa-comments"></i>
-    <i class="fas fa-tools"></i>
-  </div>
-</div>
-<div class="trace-gradiant"></div>
-
+<% render "shared/navbar_global" %>
 <div class="container-l bg-container m-t-40">
   <h2>SESSION COLLECTIVE</h2>
     <div class="flex-b-c">
@@ -117,7 +105,7 @@
       </div>
     </div>
   <div class="bottom-part">
-    <%= link_to "Annuler", "#", class: "btn-2"  %>
-    <%= link_to "Lancer la session","#", class: "btn-1" %>
+    <%= link_to "Annuler", sessions_choice_path, class: "btn-2"  %>
+    <%= link_to "Lancer la session", "#", class: "btn-1" %>
   </div>
 </div>
