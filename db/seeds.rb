@@ -9,14 +9,14 @@ require "open-uri"
 
 puts "Cleaning exercises..."
 Exercise.destroy_all
-puts "Cleaning body areas..."
-BodyArea.destroy_all
 puts "Cleaning session participants..."
 SessionParticipant.destroy_all
 puts "Cleaning session exercises"
 SessionExercise.destroy_all
 puts "Cleaning sessions..."
 Session.destroy_all
+puts "Cleaning body areas..."
+BodyArea.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
@@ -54,9 +54,10 @@ end
 puts "Created #{Exercise.count} Exercises"
 
 puts "Creating users..."
-User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Cheewy", last_name: "Solo" }
+User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "corentin", last_name: "leLeaddev" }
+
 users = []
 
 
@@ -161,7 +162,15 @@ puts "Created #{SessionExercise.count} Session Exercise"
 #  stretches << current_stretch
 # end
 # puts "Created #{Strech.count} Streches"
-
+User.all.each do |user|
+  5.times do
+    stat = Stat.new
+    stat.user = user
+    stat.time = rand(15..60)
+    stat.kcal = rand(150..600)
+    stat.save!
+  end
+end
 
 
 
