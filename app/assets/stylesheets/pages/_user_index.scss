@@ -1,3 +1,5 @@
+
+
  .user-card-index{
   position: relative;
   border-radius: 15px;
@@ -7,20 +9,44 @@
   box-sizing: border-box;
   border: 1px solid #D0D0D0;
   transition: transform .3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
 
-  .ask-friend{
-    position: absolute;
 
-    img{
-      width: 15vh;
-    height: 15vh;
-    object-fit: cover;
-    }
-    &:hover {
-      transform: scale(1.02);
-      transition: transform .3s ease;
-    }
+
+  &:hover {
+    transform: scale(1.02);
+    transition: transform .3s ease;
   }
+  img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: black;
+    }
+
+  }
+}
+
+
+.ask-friend {
+  border: solid 1px rgb(0, 219, 216);
+  border-radius: 15px;
+  padding: 5px 10px;
+
+  a{
+    color: rgb(0, 219, 216);
+  }
+
+
 }
 
 

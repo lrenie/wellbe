@@ -1,5 +1,7 @@
-<div class="container-l">
-  <div class="cover-user">
+<%= render "shared/navbar_global" %>
+<div class="body"></div>
+<div class="container-l container-white">
+ <div class="cover-user">
     <%= cl_image_tag @user.cover.key %>
     <div class="avatar-user"><%= cl_image_tag @user.avatar.key %></div>
     <h2 class="text-cover-hover">Changer la photo de couverture</h2>
