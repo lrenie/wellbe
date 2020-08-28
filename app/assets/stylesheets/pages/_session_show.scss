@@ -1,0 +1,31 @@
+/*classes pour la show de la session mode multi*/
+.centrale{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px green solid;
+  height: calc(100vh - 200px);
+}
+.zoom{
+  border: 2px red solid;
+  height: calc(100vh - 200px);
+  img{
+    width: calc((100vw - 494)/2);
+    height: calc((100vh - 200px) /2);
+  }
+}
+.centrale-gauche{
+  height: calc(100vh - 200px);
+  width: 494px;
+  border: 2px black solid;
+  background: #E4E4E4;
+}
+.picto{
+  background: #E4E4E4;
+  margin:40px 23px;
+}
+
+.footer{
+  background: lightblue;
+
+}

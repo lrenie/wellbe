@@ -1,25 +1,56 @@
-<h1>hello</h1>
+<%= render "shared/navbar_global" %>
 
 <!-- div centrale -->
-<div>
+<div class="centrale" >
   <!-- div contenant le chrono et le picto -->
-  <div>
+  <div class="centrale-gauche">
 
+    <!-- div contenant le chrono -->
+    <div id="print"></div>
+    <div class="timer-group">
+      <div class="timer total">
+        <div class="hand"><span class="animated"></span></div>
+        <div class="hand"><span class="animated"></span></div>
+      </div>
+      <div class="timer minute">
+        <div class="hand"><span class="animated"></span></div>
+        <div class="hand"><span class="animated"></span></div>
+      </div>
+      <div class="clock">
+        <h2>Exercice 1</h2>
+        <p id="clock-text" data-times="[3, 5, 10]" data-names='[ "Exercice 1", "Repos", "Exercice 2" ]'>00:10</p>
+      </div>
+    </div>
+
+    <!-- div contenant le picto -->
+    <div class="picto">
+      <%= image_tag "session-show/squat.jpeg", alt: "alttext", width: "250", height: "200" %>
+    </div>
   </div>
   <!-- div contenant le zoom -->
-  <div>
 
+  <div class="zoom">
+    <div>
+      <%= image_tag "session-show/zoom1.jpeg", alt: "alttext" %>
+      <%= image_tag "session-show/zoom1.jpeg", alt: "alttext" %>
+      <%= image_tag "session-show/zoom2.jpeg", alt: "alttext" %>
+      <%= image_tag "session-show/zoom2.jpeg", alt: "alttext" %>
+    </div>
   </div>
 </div>
 
 
 <!-- footer -->
-<div>
+<div class="footer">
   <!-- partie haute du footer : chrono exo en cours plus button -->
   <div>
-    <div>barre de progression</div>
+    <div class="progress">
+      <div class=" progress-value period animated"></div>
+    </div>
     <%= link_to "Quitter", "#", class: "btn-2"  %>
   </div>
   <!-- partie basse : chrono total de la session -->
-  <div>grosse barre de progression</div>
+    <div class="progress">
+     <div class="progress-value total animated"></div>
+    </div>
 </div>

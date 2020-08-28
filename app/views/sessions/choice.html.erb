@@ -4,17 +4,19 @@
 
   <h2>Nouvelle session</h2>
 
-  <div class="container-s">
+  
     <div class="cards_session">
       <%= render "shared/card_solo_session"%>
       <%= render "shared/card_multi_session"%>
     </div>
-  </div>
+  
 
 
-    <h2>Mes dernières sessions</h2>
+    <h2>Mes sessions précédentes</h2>
     <% @last_sessions.each do |session| %>
-        <%= session.session_exercises.exercises%>
+        <% session.session_exercises.each do |exercise| %>
+         <%= exercise.id %>
+        <% end %>
         <%= session.total_time%>
         <%= session.date%>
         <%= session.difficulty%>
@@ -25,7 +27,9 @@
     <h2>Mes favoris</h2>
 
     <% @fav_sessions.each do |session| %>
-        <%= session.session_exercises.exercises%>
+        <% session.session_exercises.each do |exercise| %>
+         <%= exercise.id %>
+        <% end %>
         <%= session.total_time%>
         <%= session.date%>
         <%= session.difficulty%>

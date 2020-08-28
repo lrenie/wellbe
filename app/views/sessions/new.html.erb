@@ -1,7 +1,9 @@
 <div id="navbar_global">
-  <%= link_to "WELLBE", root_path  %>
+  <%= link_to "WELLBE", sessions_choice_path %>
   <div class="icone">
-  <%= image_tag "lourd.jpg", class: "photo" %>
+  <%= link_to new_session_path do %>
+  <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+    <% end %>
     <i class="fas fa-user-friends"></i>
     <i class="fas fa-comments"></i>
     <i class="fas fa-tools"></i>
@@ -9,74 +11,113 @@
 </div>
 <div class="trace-gradiant"></div>
 
-<div class="container-l bg-container">
+<div class="container-l bg-container m-t-40">
   <h2>SESSION COLLECTIVE</h2>
     <div class="flex-b-c">
       <div class="left-part">
-      <h3>Invitez vos amis</h3>
-      <div class="flex-b-c cercles">
-        <div class="cercle-bleu"></div>
-        <div class="cercle-bleu"></div>
-        <div class="cercle-bleu"></div>
-        <div class="cercle-bleu"></div>
-      </div>
-      <div class="frinds-container">
-        <div>
-          <div class="flex-b-c card_invite_session">
-           <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
-          </div>
-          <div class="flex-b-c card_invite_session">
-            <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
-          </div>
-          <div class="flex-b-c card_invite_session">
-            <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
-          </div>
-          <div class="flex-b-c card_invite_session">
-            <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
-          </div>
-          <div class="flex-b-c card_invite_session">
-            <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
-          </div>
-          <div class="flex-b-c card_invite_session">
-            <%= image_tag "lourd.jpg", class: "photo" %>
-            <p class="flex-g-1">User Name</p>
-            <button class="btn-2">Inviter à rejoindre</button>
+        <h3>Invitez vos amis</h3>
+        <div class="flex-b-c cercles">
+          <div class="cercle-bleu"></div>
+          <div class="cercle-bleu"></div>
+          <div class="cercle-bleu"></div>
+          <div class="cercle-bleu"></div>
+        </div>
+        <div class="frinds-container">
+          <div>
+            <div class="flex-b-c card_invite_session">
+             <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
+            <div class="flex-b-c card_invite_session">
+              <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
+            <div class="flex-b-c card_invite_session">
+              <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
+            <div class="flex-b-c card_invite_session">
+              <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
+            <div class="flex-b-c card_invite_session">
+              <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
+            <div class="flex-b-c card_invite_session">
+              <%= image_tag "lourd.jpg", class: "photo" %>
+              <p class="flex-g-1">User Name</p>
+              <button class="btn-2">Inviter à rejoindre</button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
       <div class="right-part">
         <h3>Renseignez vos objectifs</h3>
         <%= simple_form_for @session do |f| %>
           <%= f.input :total_time, as: :range,
-                      required: true, class: "" %>
-          <div class="difficulty-btn">
-            <%= f.input :difficulty, as: :radio_buttons,
+                      required: true, class: "barre-temps" %>
+          <div data-controller="radio-button">
+            <%= f.input :difficulty,
+                        label: "Votre niveau",
                         label_method: ->(item) {tag.span item, class: "d-none"},
-                        # collection: Session::DIFFICULTY,
+                        as: :hidden,
+                        input_html: {
+                          data: {target: "radio-button.input"}
+                        },
+                        collection: Session::DIFFICULTY,
                         wrapper: :vertical_collection_inline %>
+            <div class="flex-b-c">
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="1">
+                <div class="barre-difficulty"></div>
+                <p>DÉBUTANT</p>
+              </div>
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="2">
+                <div class="barre-difficulty"></div>
+                <p>INTERMÉDIAIRE</p>
+              </div>
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="3">
+                <div class="barre-difficulty"></div>
+                <p>AVANCÉ</p>
+              </div>
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="4">
+                <div class="barre-difficulty"></div>
+                <p>CONFIRMÉ</p>
+              </div>
+            </div>
           </div>
-          <div class="body-area-btn">
-            <%= f.input :mode, as: :radio_buttons,
+          <div data-controller="radio-button">
+            <%= f.input :body_area_id,
+                        label: "Votre objectif",
                         label_method: ->(item) {tag.span item, class: "d-none"},
-                        # collection: Session::MODE,
+                        as: :hidden,
+                        input_html: {
+                          data: {target: "radio-button.input"}
+                        },
+                        collection: BodyArea::BODY_AREAS,
                         wrapper: :vertical_collection_inline %>
+            <div class="flex-b-c">
+              <div data-action="click->radio-button#inputSelect" data-id="1">
+                <%= render "shared/card_body_area" %>
+              </div>
+              <div data-action="click->radio-button#inputSelect" data-id="2">
+                <%= render "shared/card_body_area" %>
+              </div>
+              <div data-action="click->radio-button#inputSelect" data-id="3">
+                <%= render "shared/card_body_area" %>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
   <div class="bottom-part">
-    <%= link_to "Commencer","#", class: "btn-1" %>
     <%= link_to "Annuler", "#", class: "btn-2"  %>
+    <%= link_to "Lancer la session","#", class: "btn-1" %>
   </div>
 </div>
