@@ -15,14 +15,15 @@
       width: 15vh;
     height: 15vh;
     object-fit: cover;
-}
+    }
+    &:hover {
+      transform: scale(1.02);
+      transition: transform .3s ease;
     }
   }
-  &:hover {
-    transform: scale(1.02);
-    transition: transform .3s ease;
-  }
 }
+
+
 
 .user-list-index{
  display: flex;
