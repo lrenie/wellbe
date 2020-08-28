@@ -20,7 +20,7 @@ Session.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
-  
+
 # cover = URI.open('https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
 # avatar = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
 # user = User.new
@@ -78,7 +78,7 @@ puts "Created #{User.count} users"
 
 puts "Creating sessions..."
 Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[1], body_area: bodyareas[1] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[1], body_area: bodyareas[1] }
 Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
@@ -87,7 +87,7 @@ sessions = []
  current_session = Session.create!(attributes)
  sessions << current_session
 end
-puts "Created #{Session.count} Sessions" 
+puts "Created #{Session.count} Sessions"
 
 puts "Creating session participants..."
 Session_participant1 = { user: users[0], session: sessions[0], favorite_status: true }
@@ -100,7 +100,7 @@ session_participants = []
     current_session_participant = SessionParticipant.create!(attributes)
     session_participants << current_session_participant
 end
-puts "Created #{SessionParticipant.count} Session Participants" 
+puts "Created #{SessionParticipant.count} Session Participants"
 
 puts "Creating session exercises"
 sessionexercise1 = SessionExercise.new
@@ -125,7 +125,7 @@ sessionexercise2.save!
 #     current_session_exercise = SessionExercise.create!(attributes)
 #     session_exercises << current_session_exercise
 # end
-puts "Created #{SessionExercise.count} Session Exercise" 
+puts "Created #{SessionExercise.count} Session Exercise"
 
 
 
