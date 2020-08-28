@@ -13,9 +13,11 @@
       <% cl_image_tag "lourd.jpg" %>
       <% end %>
     <% end %>
-    <div class="icone-style">
-      <i class="fas fa-user-friends"></i>
-    </div>
+    <%= link_to users_path do %>
+      <div class="icone-style">
+        <i class="fas fa-user-friends"></i>
+      </div>
+    <% end %>
     <div class="icone-style">
       <i class="fas fa-comments"></i>
     </div>
