@@ -12,7 +12,6 @@
 @import "components/index";
 @import "pages/index";
 
-
 // TRAIT ======
 
 .trait{
@@ -21,13 +20,15 @@
   margin-bottom: 20px;
 }
 
-
-@import "pages/sessions_choice.scss";
-
 /*classe container*/
 .container-l {
   width: 86%;
   margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  height: 835px;
+  margin-top: 5%;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
 }
 .container-s {
 
