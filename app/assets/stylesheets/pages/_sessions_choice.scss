@@ -9,3 +9,7 @@ body > div.container-l > h2 {
   justify-content: space-between;
   margin-bottom: 22px;
 }
+
+body > div > div.container-l > h2:nth-child(1) {
+  margin-top: 10px;
+}

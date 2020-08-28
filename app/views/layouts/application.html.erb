@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <% if current_page?("/") %>
+    <% if current_page?("/") || current_page?("/sessions/choice") %>
       <div class="min_height_100">
     <% else %>
       <div class="min_height_100 padding-container">
