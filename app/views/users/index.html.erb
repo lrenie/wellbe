@@ -14,8 +14,8 @@
     <div>
       <div><ul class="user-list-index">
         <% @users.each do |user| %>
-        <%= link_to root_path do %>
-        <div class="user-card-index"><li><%= user.first_name %> <%= user.last_name  %> <%= user.avatar %></li><div class="ask-friend"><%= link_to "Amis", "/#" %></div></div>
+        <%= link_to user_path(user) do %>
+        <div class="user-card-index"><li><%= user.first_name %> <%= user.last_name  %> <%= cl_image_tag user.avatar.key %></li><div class="ask-friend"><%= link_to "Amis", "/#" %></div></div>
         <% end %>
         <% end %>
       </ul>
