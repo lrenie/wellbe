@@ -1,13 +1,61 @@
  .user-card-index{
   position: relative;
   border-radius: 15px;
-  width: 540px;
-  height: 414px;
+  width: 30%;
+  height: 150px;
   overflow: hidden;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  border: 1px solid #D0D0D0;
+  transition: transform .3s ease;
+
+  .ask-friend{
+    position: absolute;
+  }
+  &:hover {
+    transform: scale(1.02);
+    transition: transform .3s ease;
+  }
 }
 
 .user-list-index{
-  display: flex;
+ display: flex;
+ justify-content: space-around;
+}
+
+.results-search{
+  margin: 55px;
+}
+
+.search-btn {
+  padding-top: 20px;
+  border-radius: 15px;
+  form {
+    width: 20%;
+    margin: auto;
+    position: relative;
+    &:before {
+      content:"\f002";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #requete {
+      display: block;
+      background-color: silver;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #495057;
+      border-radius: 50px;
+      padding-left: 35px;
+    }
+  }
 }
 

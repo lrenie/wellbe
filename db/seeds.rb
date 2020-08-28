@@ -20,7 +20,7 @@ Session.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
-  
+
 # cover = URI.open('https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
 # avatar = URI.open('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')
 # user = User.new
@@ -56,8 +56,9 @@ puts "Created #{Exercise.count} Exercises"
 puts "Creating users..."
 User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Cheewy", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
+User3 = { email: "corentin@gmail.com", password: "123456", first_name: "corentin", last_name: "leLeaddev" }
 users = []
-[User1, User2].each_with_index do |attributes, index|
+[User1, User2, User3].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
  users << current_user
 end
@@ -74,7 +75,7 @@ sessions = []
  current_session = Session.create!(attributes)
  sessions << current_session
 end
-puts "Created #{Session.count} Sessions" 
+puts "Created #{Session.count} Sessions"
 
 puts "Creating session participants..."
 Session_participant1 = { user: users[0], session: sessions[0], favorite_status: true }
@@ -87,7 +88,7 @@ session_participants = []
     current_session_participant = SessionParticipant.create!(attributes)
     session_participants << current_session_participant
 end
-puts "Created #{SessionParticipant.count} Session Participants" 
+puts "Created #{SessionParticipant.count} Session Participants"
 
 puts "Creating session exercises"
 sessionexercise1 = SessionExercise.new
@@ -112,7 +113,7 @@ sessionexercise2.save!
 #     current_session_exercise = SessionExercise.create!(attributes)
 #     session_exercises << current_session_exercise
 # end
-puts "Created #{SessionExercise.count} Session Exercise" 
+puts "Created #{SessionExercise.count} Session Exercise"
 
 
 
