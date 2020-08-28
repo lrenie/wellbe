@@ -1,0 +1,27 @@
+<div class="container-l container-white">
+
+  <div class="search-btn">
+  <%= form_tag users_path, method: :get do %>
+  <%= text_field_tag :requete,
+  params[:requete],
+  class: "form-control",
+    placeholder: "Rechercher des amis"
+    %>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <div class="results-search"><p>Résultats pour : votre recherche</p></div>
+    <div>
+      <div><ul class="user-list-index">
+        <% @users.each do |user| %>
+        <%= link_to user_path(user) do %>
+        <div class="user-card-index"><li><%= user.first_name %> <%= user.last_name  %> <%= cl_image_tag user.avatar.key %></li><div class="ask-friend"><%= link_to "Amis", "/#" %></div></div>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+

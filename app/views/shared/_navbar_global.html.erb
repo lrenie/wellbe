@@ -2,7 +2,16 @@
   <%= link_to "WELLBE", sessions_choice_path  %>
   <div class="icone">
     <%= link_to current_user do %>
-      <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+      <% if current_user%>
+      <div class="flex-b-c">
+        <div class="avatar-navbar">
+          <%= current_user.first_name %>
+        </div>
+        <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+      </div>
+      <% else %>
+      <% cl_image_tag "lourd.jpg" %>
+      <% end %>
     <% end %>
     <div class="icone-style">
       <i class="fas fa-user-friends"></i>

@@ -9,14 +9,14 @@ require "open-uri"
 
 puts "Cleaning exercises..."
 Exercise.destroy_all
-puts "Cleaning body areas..."
-BodyArea.destroy_all
 puts "Cleaning session participants..."
 SessionParticipant.destroy_all
 puts "Cleaning session exercises"
 SessionExercise.destroy_all
 puts "Cleaning sessions..."
 Session.destroy_all
+puts "Cleaning body areas..."
+BodyArea.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
@@ -54,19 +54,25 @@ end
 puts "Created #{Exercise.count} Exercises"
 
 puts "Creating users..."
-User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Cheewy", last_name: "Solo" }
+User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
+User3 = { email: "corentin@gmail.com", password: "123456", first_name: "corentin", last_name: "leLeaddev" }
+
 users = []
+
+
 photos = [
 "http://fr.web.img3.acsta.net/r_640_360/newsv7/19/12/19/18/02/0758868.jpg",
-"https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg"
+"https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg",
+"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD"
 ]
 covers = [
   "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
-  "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg"
+  "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg",
+  "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg"
 ]
 
-[User1, User2].each_with_index do |attributes, index|
+[User1, User2, User3].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
  file_avatar = URI.open(photos[index])
  file_cover = URI.open(covers[index])
@@ -156,7 +162,15 @@ puts "Created #{SessionExercise.count} Session Exercise"
 #  stretches << current_stretch
 # end
 # puts "Created #{Strech.count} Streches"
-
+User.all.each do |user|
+  5.times do
+    stat = Stat.new
+    stat.user = user
+    stat.time = rand(15..60)
+    stat.kcal = rand(150..600)
+    stat.save!
+  end
+end
 
 
 
