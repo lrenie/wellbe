@@ -1,7 +1,9 @@
 <div id="navbar_global">
-  <%= link_to "WELLBE", root_path  %>
+  <%= link_to "WELLBE", sessions_choice_path  %>
   <div class="icone">
-    <%= image_tag "lourd.jpg" %>
+    <%= link_to current_user do %>
+      <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+    <% end %>
     <div class="icone-style">
       <i class="fas fa-user-friends"></i>
     </div>

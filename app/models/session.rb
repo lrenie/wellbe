@@ -2,6 +2,7 @@ class Session < ApplicationRecord
   DIFFICULTY = ["Débutant", "Intermédiaire", "Avancé", "Confirmé"]
 
   belongs_to :user
+  belongs_to :body_area
 
   has_many :session_exercises, dependent: :destroy
   # has_many :users, through: :session_participant, dependent: :destroy
