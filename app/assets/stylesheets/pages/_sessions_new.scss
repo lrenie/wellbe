@@ -10,7 +10,7 @@
 
   h2 {
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     font-family: Roboto;
   }
 
@@ -43,6 +43,7 @@
     height: 250px;
     background-color: $blanc;
     overflow: scroll;
+    box-shadow: inset 2px 2px 12px rgba(0, 0, 0, 0.12);
   }
 
   // DONNÉES SESSIONS
@@ -82,11 +83,12 @@
 
   // BOUTONS
   .bottom-part {
-    padding-top: 40px;
+    padding-top: 50px;
+    padding-bottom: 10px;
     text-align: center;
     .btn-2 {
-      padding: 9px 44px;
-      margin-left: 20px;
+      padding: 9px 63px;
+      margin-right: 20px;
     }
   }
 }
