@@ -2,6 +2,7 @@
   <%= link_to "WELLBE", sessions_choice_path  %>
   <div class="icone">
     <%= link_to current_user do %>
+      <%= current_user.name %>
       <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
     <% end %>
     <div class="icone-style">
