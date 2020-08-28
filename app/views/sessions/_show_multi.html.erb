@@ -6,20 +6,31 @@
   <div class="centrale-gauche">
 
     <!-- div contenant le chrono -->
-    <div id="print"></div>
-    <div class="timer-group">
-      <div class="timer total">
-        <div class="hand"><span class="animated"></span></div>
-        <div class="hand"><span class="animated"></span></div>
+    <div class="wrap">
+      <!-- <div id="print"></div> -->
+      <div class="timer-group">
+        <div class="timer total">
+          <div class="half-circle left">
+            <span id="total-left" class="animated"></span>
+          </div>
+          <div class="half-circle right">
+            <span id="total-right" class="animated"></span>
+          </div>
+        </div>
+        <div class="timer period">
+          <div class="half-circle left">
+            <span id="period-left" class="animated"></span>
+          </div>
+          <div class="half-circle right">
+            <span id="period-right" class="animated"></span>
+          </div>
+        </div>
+        <div class="clock">
+          <h2 id="subtitle">Exercice 1</h2>
+          <p id="clock-text" data-times="[380, 100, 380]" data-names='[ "Exercice 1", "Repos", "Exercice 2" ]'>00:10</p>
+        </div>
       </div>
-      <div class="timer minute">
-        <div class="hand"><span class="animated"></span></div>
-        <div class="hand"><span class="animated"></span></div>
-      </div>
-      <div class="clock">
-        <h2>Exercice 1</h2>
-        <p id="clock-text" data-times="[3, 5, 10]" data-names='[ "Exercice 1", "Repos", "Exercice 2" ]'>00:10</p>
-      </div>
+
     </div>
 
     <!-- div contenant le picto -->
@@ -42,15 +53,26 @@
 
 <!-- footer -->
 <div class="footer">
+  <div class="progress">
+    <div class=" progress-value period animated"></div>
+  </div>
+  <div class="progress">
+    <div class="progress-value total animated"></div>
+  </div>
+</div>
+
+
+
   <!-- partie haute du footer : chrono exo en cours plus button -->
-  <div>
-    <div class="progress">
+ <!--  <div class="footer-haut">
+    <div class="progress bar-exo">
       <div class=" progress-value period animated"></div>
     </div>
-    <%= link_to "Quitter", "#", class: "btn-2"  %>
-  </div>
-  <!-- partie basse : chrono total de la session -->
-    <div class="progress">
-     <div class="progress-value total animated"></div>
+    <div class="quitter">
+      <%#= link_to "Quitter", "#", class: "btn-2 " %>
     </div>
-</div>
+  </div> -->
+  <!-- partie basse : chrono total de la session
+    <div class="footer-bas progress">
+     <div class="progress-value total animated"></div>
+    </div> -->

@@ -6,6 +6,12 @@
   border: 2px green solid;
   height: calc(100vh - 200px);
 }
+.wrap{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
 .zoom{
   border: 2px red solid;
   height: calc(100vh - 200px);
@@ -24,8 +30,33 @@
   background: #E4E4E4;
   margin:40px 23px;
 }
-
+/*--------------------------------
+------- css footer
+--------------------------------*/
 .footer{
-  background: lightblue;
+  /*background: lightblue;*/
+  height: 80px;
+  margin: 20px auto;
+  width: 100vw;
+  padding: 0 100px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  /*position: relative;*/
+  /*align-items: center;*/
+}
+.footer-haut{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.bar-exo{
 
+}
+.quitter{
+  width:30%;
+}
+.footer-bas{
+  width: 100%;
 }

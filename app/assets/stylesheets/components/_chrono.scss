@@ -1,19 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400);
 
-* {
+.timer-group {
   box-sizing: border-box;
 }
 
 html {
   color: #fff;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-.timer-group {
-  height: 400px;
+  height: 240px;
   margin: 0 auto;
   position: relative;
-  width: 400px;
+  width: 240px;
 }
 
 .timer {
@@ -36,7 +33,7 @@ html {
   top: 10px;
 }
 
-.timer .hand {
+.timer .half-circle {
   float: left;
   height: 100%;
   overflow: hidden;
@@ -44,7 +41,7 @@ html {
   width: 50%;
 }
 
-.timer .hand span {
+.timer .half-circle span {
   border: 50px solid rgba(0, 255, 255, .4);
   border-bottom-color: transparent;
   border-left-color: transparent;
@@ -58,115 +55,124 @@ html {
   width: 0;
 }
 
-.timer .hand:first-child {
+.timer .half-circle.left {
   transform: rotate(180deg);
 }
 
-.timer .hand span {
-  animation-duration: 4s;
+.timer .animated {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.timer .hand:first-child span.animated {
-  animation-name: spin1;
+.timer .left .animated {
+  animation-name: leftSpin;
 }
 
-.timer .hand:last-child span.animated {
-  animation-name: spin2;
+.timer .right .animated {
+  animation-name: rightSpin;
 }
 
 .timer.total {
   background: rgba(0, 0, 0, .3);
-  height: 400px;
+  height:280px;
   left: 0;
-  width: 400px;
+  width: 280px;
   top: 0;
 }
 
-.timer.total .hand span {
+.timer.total .half-circle span {
   border-top-color: rgba(255, 0, 255, .4);
   border-right-color: rgba(255, 0, 255, .4);
-  border-width: 200px;
+  border-width: 140px;
 }
 
 .timer.total:after {
-  height: 360px;
+  height: 240px;
   left: 20px;
-  width: 360px;
+  width: 240px;
   top: 20px;
 }
 
-.timer.minute {
+.timer.period {
   background: rgba(0, 0, 0, .2);
-  height: 350px;
+  height: 230px;
   left: 25px;
-  width: 350px;
+  width: 230px;
   top: 25px;
 }
 
-.timer.minute .hand span {
+.timer.period .half-circle span {
   border-top-color: rgba(0, 255, 255, .4);
   border-right-color: rgba(0, 255, 255, .4);
-  border-width: 175px;
+  border-width: 115px;
 }
 
-.timer.minute:after {
-  height: 310px;
+.timer.period:after {
+  height: 190px;
   left: 20px;
-  width: 310px;
+  width: 190px;
   top: 20px;
 }
 
 .clock {
   border-radius: 50%;
-  height: 296px;
+  height: 176px;
   left: 52px;
-  padding: 165px 40px 0;
+  padding: 45px 40px 0;
   position: absolute;
-  width: 296px;
+  width: 176px;
   text-align: center;
-  top: 52px;
+  top: 100px;
 }
 
 .clock h2 {
   font-weight: 300;
-  font-size: 20px; /*!!!!!!!!!!!!*/
-  color: pink; /*!!!!!!!!!!!!*/
+  font-size: 18px;
+  color:white;
 }
 
 .clock p {
   border-radius: 20px;
-  font-size: 18px; /*!!!!!!!!!!!!!!!!!!!*/
+  font-size: 50px;
   font-weight: 400;
-  position: absolute;
-  top: 127px; /*!!!!!!!!!!!!!!!!!!!*/
-  width: 260px;
-  left: 18px; /*!!!!!!!!!!!!!!!!!!!*/
-  color: pink;
+  position: absolute; /*!!!!!!!!!!!!!!!!!*/
+  top: -30px;
+  width: 140px;
+  left: 20px;
+  color: white;
+
 }
 
 .progress {
-  background: red; /*rgba(255,255,255,0.1);*/
+  background: rgba(255,255,255,0.1);
+  margin: 8px;
+  display: flex;
   justify-content: flex-start;
-  border-radius: 100px;
   align-items: center;
+  border-radius: 50px;
   position: relative;
   padding: 0 5px;
-  display: flex;
-  height: 40px;
+  height: 25px;
   width: 500px;
 }
 
 .progress-value.animated {
   animation-name: load;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.progress-value.period {
+  background: rgba(0, 255, 255, .4);
+}
+
+.progress-value.total {
+  background: rgba(255, 0, 255, .4);
 }
 
 .progress-value {
-  box-shadow: 0 10px 40px -10px #fff;
-  border-radius: 100px;
-  background: green; /*#fff;*/
-  height: 30px;
+  border-radius: 50px;
+  height: 20px;
   width: 0;
 }
 
@@ -175,7 +181,7 @@ html {
   100% { width: 100%; }
 }
 
-@keyframes spin1 {
+@keyframes leftSpin {
   0% {
     transform: rotate(225deg);
   }
@@ -187,7 +193,7 @@ html {
   }
 }
 
-@keyframes spin2 {
+@keyframes rightSpin {
   0% {
     transform: rotate(225deg);
   }
