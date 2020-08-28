@@ -14,7 +14,9 @@ const periodRightHalfCircle = document.getElementById("period-right"),
       totalLeftHalfCircle   = document.getElementById("total-left"),
       periodBar = document.querySelector(".progress-value.period"),
       totalBar =  document.querySelector(".progress-value.total");
-
+if (!periodRightHalfCircle) {
+  return
+}
 const periodElements = [periodRightHalfCircle, periodLeftHalfCircle, periodBar],
       totalElements  = [totalRightHalfCircle, totalLeftHalfCircle, totalBar];
 
