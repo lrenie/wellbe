@@ -49,7 +49,7 @@ Exercise2 = { name: "exercise2", time: 4, diff_coef: 5, kcal: 450, body_area: bo
 planche = { name: "planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[1]}
 squat = { name: "squat", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
 exercises = []
-[Exercise1, Exercise2].each_with_index do |attributes, index|
+[Exercise1, Exercise2, planche, squat].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
     exercises << current_exercise
 end
