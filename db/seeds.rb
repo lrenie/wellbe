@@ -83,6 +83,7 @@ covers = [
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
+
 [User1, User2, User3, User4, User5, User6].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
  file_avatar = URI.open(photos[index])
@@ -131,7 +132,15 @@ sessionexercise2.exercise = exercises[1]
 sessionexercise2.session = sessions[0]
 sessionexercise2.save!
 
+exo1_de_session_demo = SessionExercice.new
+exo1_de_session_demo.session = sessions[5]
+exo1_de_session_demo.exercise = exercises[2]
+exo1_de_session_demo.save!
 
+exo2_de_session_demo = SessionExercice.new
+exo2_de_session_demo.session = sessions[5]
+exo2_de_session_demo.exercise = exercises[3]
+exo2_de_session_demo.save!
 
 
 # SessionExercise.create!(exercise: exercises[0], session: sessions[0])
