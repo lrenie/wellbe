@@ -26,13 +26,6 @@ class SessionsController < ApplicationController
           @times << 10
         end
       end
-
-    # @time = @session.total_time
-    # (@time/60).times do
-    #   @times << 50
-    #   @times << 10
-    # end
-    # raise
   end
 end
 
