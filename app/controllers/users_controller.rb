@@ -11,6 +11,18 @@ class UsersController < ApplicationController
       end
       @sessions_count = @user.sessions.count
     end
+    
+      @sessions = Session.where(user_id: @user.id)
+      @sessions.each do |session|
+        @session = session
+      end
+       
+      @sessions_dates = @sessions.map do |session|
+        {
+          from: session.date,
+          to:   session.date
+        }
+      end
   end
 
   def index
