@@ -4,9 +4,9 @@
   <div class="search-btn">
   <%= form_tag users_path, method: :get do %>
   <%= text_field_tag :requete,
-  params[:requete],
-  class: "form-control",
-    placeholder: "Rechercher des amis"
+                      params[:requete],
+                      placeholder: "Rechercher des amis",
+                      class: "form-control"
     %>
     </div>
     <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -15,9 +15,11 @@
     <div>
       <div class="user-list-index">
         <% @users.each do |user| %>
-        <%= link_to user_path(user) do %>
-        <div class="user-card-index"> <%= cl_image_tag user.avatar.key %> <%= user.first_name %> <%= user.last_name  %> <div class="ask-friend"><%= link_to "Amis", "/#" %></div></div>
-        <% end %>
+          <%= link_to user_path(user) do %>
+            <div class="user-card-index"> <%= cl_image_tag user.avatar.key %> <%= user.first_name %> <%= user.last_name  %>
+              <div class="ask-friend"><%= link_to "Amis", "/#" %></div>
+            </div>
+          <% end %>
         <% end %>
     </div>
   </div>
