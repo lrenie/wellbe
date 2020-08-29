@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       @times << 50
       @times << 10
     end
+    raise
   end
 end
 
