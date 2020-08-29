@@ -46,6 +46,8 @@ puts "Created #{BodyArea.count} BodyAreas"
 puts "Creating exercices..."
 Exercise1 = { name: "exercise1", time: 3, diff_coef: 8, kcal: 250, body_area: bodyareas[0]}
 Exercise2 = { name: "exercise2", time: 4, diff_coef: 5, kcal: 450, body_area: bodyareas[1]}
+planche = { name: "planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[1]}
+squat = { name: "squat", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
 exercises = []
 [Exercise1, Exercise2].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
@@ -97,6 +99,7 @@ Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 12
 Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-08-29 19:30:00", user: user[1], body_area: bodyareas[2] }
 sessions = []
 [Session1, Session2, Session3, Session4, Session5].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
