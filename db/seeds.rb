@@ -54,25 +54,34 @@ end
 puts "Created #{Exercise.count} Exercises"
 
 puts "Creating users..."
-User1 = { email: "cheewy@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
+User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
-User3 = { email: "corentin@gmail.com", password: "123456", first_name: "corentin", last_name: "leLeaddev" }
+User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
+User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Grazianni" }
+User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Scarlett", last_name: "Johansson" }
+User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
 users = []
 
 
 photos = [
-"http://fr.web.img3.acsta.net/r_640_360/newsv7/19/12/19/18/02/0758868.jpg",
+"https://ca.slack-edge.com/T02NE0241-U0172003F4Y-2fed4039c63c-512",
 "https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg",
-"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD"
+"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
+"https://image-uviadeo.journaldunet.com/image/450/1236447512/47925.jpg",
+"https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
+"https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
 covers = [
   "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
   "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg",
-  "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg"
+  "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
+  "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
+  "https://image.jeuxvideo.com/medias-md/159843/1598426262-7200-card.png",
+  "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
-[User1, User2, User3].each_with_index do |attributes, index|
+[User1, User2, User3, User4, User5, User6].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
  file_avatar = URI.open(photos[index])
  file_cover = URI.open(covers[index])
@@ -83,10 +92,10 @@ end
 puts "Created #{User.count} users"
 
 puts "Creating sessions..."
-Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[2], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[1], body_area: bodyareas[1] }
-Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[2], body_area: bodyareas[0] }
-Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[2], body_area: bodyareas[1] }
+Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
 sessions = []
 [Session1, Session2, Session3, Session4, Session5].each_with_index do |attributes, index|
@@ -97,10 +106,10 @@ puts "Created #{Session.count} Sessions"
 
 puts "Creating session participants..."
 Session_participant1 = { user: users[0], session: sessions[0], favorite_status: true }
-Session_participant2 = { user: users[1], session: sessions[1], favorite_status: false }
-Session_participant3 = { user: users[0], session: sessions[2], favorite_status: true }
-Session_participant4 = { user: users[0], session: sessions[3], favorite_status: false }
-Session_participant5 = { user: users[0], session: sessions[3], favorite_status: false}
+Session_participant2 = { user: users[1], session: sessions[0], favorite_status: false }
+Session_participant3 = { user: users[0], session: sessions[1], favorite_status: true }
+Session_participant4 = { user: users[1], session: sessions[1], favorite_status: false }
+Session_participant5 = { user: users[0], session: sessions[2], favorite_status: false}
 session_participants = []
 [Session_participant1, Session_participant2, Session_participant3, Session_participant4, Session_participant5].each_with_index do |attributes, index|
     current_session_participant = SessionParticipant.create!(attributes)
@@ -116,7 +125,7 @@ sessionexercise1.save!
 
 sessionexercise2 = SessionExercise.new
 sessionexercise2.exercise = exercises[1]
-sessionexercise2.session = sessions[1]
+sessionexercise2.session = sessions[0]
 sessionexercise2.save!
 
 
