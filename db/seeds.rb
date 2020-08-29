@@ -132,12 +132,12 @@ sessionexercise2.exercise = exercises[1]
 sessionexercise2.session = sessions[0]
 sessionexercise2.save!
 
-exo1_de_session_demo = SessionExercice.new
+exo1_de_session_demo = SessionExercise.new
 exo1_de_session_demo.session = sessions[5]
 exo1_de_session_demo.exercise = exercises[2]
 exo1_de_session_demo.save!
 
-exo2_de_session_demo = SessionExercice.new
+exo2_de_session_demo = SessionExercise.new
 exo2_de_session_demo.session = sessions[5]
 exo2_de_session_demo.exercise = exercises[3]
 exo2_de_session_demo.save!
