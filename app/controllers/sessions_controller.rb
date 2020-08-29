@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = current_user.sessions.order(:date).last(2)
+    @last_sessions = current_user.sessions.order(:date).last(3)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
