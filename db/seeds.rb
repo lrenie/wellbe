@@ -101,7 +101,7 @@ Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-08-29 19:30:00", user: users[1], body_area: bodyareas[2] }
 sessions = []
-[Session1, Session2, Session3, Session4, Session5].each_with_index do |attributes, index|
+[Session1, Session2, Session3, Session4, Session5, Session6].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
  sessions << current_session
 end
