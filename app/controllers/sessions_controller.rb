@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def show
+    @sessions = Session.all
     @session = Session.find(params[:id])
     @time = @session.total_time
     @times = []
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
       @times << 50
       @times << 10
     end
+    #raise
   end
 end
 
