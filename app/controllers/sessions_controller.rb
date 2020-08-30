@@ -16,16 +16,20 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
     @times = []
     @names = []
-    @session.session_exercise_ids.each do |id|
-        @names << Exercise.find(id).name
-        if Exercise.find(id).id != @session.session_exercise_ids.last
-          @names << "repos"
-        end
-        @times << Exercise.find(id).time
-        if Exercise.find(id).id != @session.session_exercise_ids.last
-          @times << 10
-        end
-      end
+
+    exercises = @session.exercises.all
+    @names = exercises.flat_map { |exo| [exo.name, "Repos"] }.tap(&:pop)
+    @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
+    # @session.session_exercise_ids.each do |id|
+    #     @names << Exercise.find(id).name
+    #     if Exercise.find(id).id != @session.session_exercise_ids.last
+    #       @names << "repos"
+    #     end
+    #     @times << Exercise.find(id).time
+    #     if Exercise.find(id).id != @session.session_exercise_ids.last
+    #       @times << 10
+    #     end
+    #   end
   end
 end
 
