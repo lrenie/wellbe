@@ -19,7 +19,6 @@ export default class extends Controller {
   show(event) {
    const user = window.location.pathname.split("/")[2];
    const date = event.currentTarget.dateObj;
-   console.log(date.dateObj);
    const dateStyle = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
    const url = `${window.location.origin}/sessions/fetch?user=${user}&date=${dateStyle}`;
 
