@@ -3,10 +3,12 @@
 .timer-group {
   box-sizing: border-box;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  height: 240px;
-  margin: 0 auto;
+  height: 280px;
+  margin: auto;
   position: relative;
-  width: 240px;
+  width: 280px;
+/*  margin-top: 27px;
+  margin-left: 33px;*/
 }
 
 .timer {
@@ -123,7 +125,7 @@
 
 .clock h2 {
   font-weight: 300;
-  font-size: 18px;
+  font-size: 30px;
   color:white;
 }
 
@@ -140,7 +142,8 @@
 }
 
 .progress {
-  background: rgba(255,255,255,0.1);
+  /*background: rgba(255,255,255,0.1);*/
+  background: white;
   margin: 8px;
   display: flex;
   justify-content: flex-start;
@@ -159,11 +162,13 @@
 }
 
 .progress-value.period {
-  background: rgba(0, 255, 255, .4);
+  /*background: rgba(0, 255, 255, .4);*/
+  background: blue;
 }
 
 .progress-value.total {
-  background: rgba(255, 0, 255, .4);
+  background: blue;
+  /*background: rgba(255, 0, 255, .4);*/
 }
 
 .progress-value {

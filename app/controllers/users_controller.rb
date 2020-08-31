@@ -11,6 +11,13 @@ class UsersController < ApplicationController
       end
       @sessions_count = @user.sessions.count
     end
+    
+      
+      @session = Session.new
+      @sessions_dates = @user.sessions
+                             .map { |session| session.date }
+                             .uniq
+        
   end
 
   def index

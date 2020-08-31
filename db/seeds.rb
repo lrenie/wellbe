@@ -44,13 +44,21 @@ end
 puts "Created #{BodyArea.count} BodyAreas"
 
 puts "Creating exercices..."
-Exercise1 = { name: "exercise1", time: 3, diff_coef: 8, kcal: 250, body_area: bodyareas[0]}
-Exercise2 = { name: "exercise2", time: 4, diff_coef: 5, kcal: 450, body_area: bodyareas[1]}
-planche = { name: "planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[1]}
-squat = { name: "squat", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
+Incendie = { name: "Incendie", time: 10, diff_coef: 8, kcal: 250, body_area: bodyareas[2]}
+Ciseau = { name: "Ciseau", time: 10, diff_coef: 5, kcal: 450, body_area: bodyareas[2]}
+Planche = { name: "Planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
+Araignee = { name: "Araignée", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
 exercises = []
-[Exercise1, Exercise2, planche, squat].each_with_index do |attributes, index|
+photos = [
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945451-hydrantsfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416944853-scissorlegsfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945187-planktoforearmfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945948-alternatingkneefix21.gif"
+]
+[Incendie, Ciseau, Planche, Araignee].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
+    exercise_photo = URI.open(photos[index])
+    current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
     exercises << current_exercise
 end
 puts "Created #{Exercise.count} Exercises"

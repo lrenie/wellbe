@@ -94,6 +94,10 @@
   overflow: hidden;
   margin-top: 10px;
 
+  .calendrier {
+    height: 500px;
+  }
+  
   &:hover {
     transform: scale(1.02);
     transition: transform .3s ease;
@@ -105,6 +109,8 @@
     width: 33%;
     background-size: cover;
     background-position: center;
+  }
+
     .gradiant-white {
       position: absolute;
       top: 0px;
@@ -112,8 +118,8 @@
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
       width: 40px;
       height: 100%;
-    }
-  }
+  } 
+
   // Middle
   .content {
     padding: 10px 10px;
