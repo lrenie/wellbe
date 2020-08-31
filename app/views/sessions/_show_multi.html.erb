@@ -2,81 +2,56 @@
 
 <!-- div centrale -->
 <div class="centrale" >
-  <!-- div contenant le chrono et le picto -->
-  <div class="centrale-gauche">
 
-    <!-- div contenant le chrono -->
-    <div class="wrap">
-      <!-- <div id="print"></div> -->
-      <div class="timer-group">
-        <div class="timer total">
-          <div class="half-circle left">
-            <span id="total-left" class="animated"></span>
-          </div>
-          <div class="half-circle right">
-            <span id="total-right" class="animated"></span>
-          </div>
+  <div class="chrono-area">
+    <div class="timer-group">
+      <div class="timer total">
+        <div class="half-circle left">
+          <span id="total-left" class="animated"></span>
         </div>
-        <div class="timer period">
-          <div class="half-circle left">
-            <span id="period-left" class="animated"></span>
-          </div>
-          <div class="half-circle right">
-            <span id="period-right" class="animated"></span>
-          </div>
-        </div>
-        <div class="clock">
-          <h2 id="subtitle">Exercice 1</h2>
-          <p id="clock-text" data-times="<%= @times %>" data-names="<%= @names %>">00:10</p>
+        <div class="half-circle right">
+          <span id="total-right" class="animated"></span>
         </div>
       </div>
-
-    </div>
-
-    <!-- div contenant le picto -->
-    <div class="picto">
-      <% @session.exercises.each do |exo| %>
-        <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
-      <% end %>
-      <%= image_tag "session-show/squat.jpg", data: {exercise_name: "Repos" } %>
-    </div>
-  </div>
-  <!-- div contenant le zoom -->
-
-  <div class="zoom">
-    <div>
-      <%= image_tag "session-show/zoom1.jpg", alt: "alttext" %>
-      <%= image_tag "session-show/zoom1.jpg", alt: "alttext" %>
-      <%= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
-      <%= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
+      <div class="timer period">
+        <div class="half-circle left">
+          <span id="period-left" class="animated"></span>
+        </div>
+        <div class="half-circle right">
+          <span id="period-right" class="animated"></span>
+        </div>
+      </div>
+      <div class="clock">
+        <h2 id="subtitle">Exercice 1</h2>
+        <p id="clock-text" data-times="<%= @times %>" data-names="<%= @names %>">00:10</p>
+      </div>
     </div>
   </div>
+
+  <div class="picto-area">
+    <% @session.exercises.each do |exo| %>
+      <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
+    <% end %>
+    <%= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+  </div>
+
+  <div class="zoom-area">
+      <%#= image_tag "session-show/zoom1.jpg", alt: "alttext" %>
+      <%#= image_tag "session-show/zoom1.jpg", alt: "alttext" %>
+      <%#= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
+      <%#= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
+  </div>
+  <div class="footer-area">
+    <div class="progress">
+      <div class=" progress-value period animated"></div>
+    </div>
+    <div class="progress">
+      <div class="progress-value total animated"></div>
+    </div>
+  </div>
+
 </div>
 
-
-<!-- footer -->
-<div class="footer">
-  <div class="progress">
-    <div class=" progress-value period animated"></div>
-  </div>
-  <div class="progress">
-    <div class="progress-value total animated"></div>
-  </div>
-</div>
 
 <%= render "shared/pop_up_session" %>
 
-
-  <!-- partie haute du footer : chrono exo en cours plus button -->
- <!--  <div class="footer-haut">
-    <div class="progress bar-exo">
-      <div class=" progress-value period animated"></div>
-    </div>
-    <div class="quitter">
-      <%#= link_to "Quitter", "#", class: "btn-2 " %>
-    </div>
-  </div> -->
-  <!-- partie basse : chrono total de la session
-    <div class="footer-bas progress">
-     <div class="progress-value total animated"></div>
-    </div> -->

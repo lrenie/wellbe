@@ -1,62 +1,47 @@
 /*classes pour la show de la session mode multi*/
+
 .centrale{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px green solid;
-  height: calc(100vh - 200px);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 2.5fr 2fr 0.5fr;
+  height: calc(100vh - 90px);
 }
-.wrap{
-  display:flex;
+
+.chrono-area{
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
   justify-content: center;
   align-items: center;
 
 }
-.zoom{
-  border: 2px red solid;
-  height: calc(100vh - 200px);
-  img{
-    width: calc((100vw - 494)/2);
-    height: calc((100vh - 200px) /2);
+
+.picto-area{
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 80%;
+    height: 80%;
+    border-radius: 7px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+    &#logo{
+      height: 100px;
+      width: 80px;
+      object-fit: cover;
+    }
   }
 }
-.centrale-gauche{
-  height: calc(100vh - 200px);
-  width: 494px;
-  border: 2px black solid;
-  background: #E4E4E4;
-}
-.picto{
-  background: #E4E4E4;
-  /*margin:40px 23px;*/
+.zoom-area{
+  grid-area: 1 / 2 / 3 / 3;
+  background: lightgray;
 }
 /*--------------------------------
 ------- css footer
 --------------------------------*/
-.footer{
-  /*background: lightblue;*/
-  height: 80px;
-  margin: 20px auto;
-  width: 100vw;
-  padding: 0 100px;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  /*position: relative;*/
-  /*align-items: center;*/
+.footer-area{
+  grid-area: 3 / 1 / 4 / 3;
+  background: lightblue;
+  margin: auto;
 }
-.footer-haut{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.bar-exo{
 
-}
-.quitter{
-  width:30%;
-}
-.footer-bas{
-  width: 100%;
-}

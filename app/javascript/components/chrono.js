@@ -33,12 +33,11 @@ let startDate, periodFinishDate;
 
 // ---------contante pour le picto---------------
 
-const pictos = document.querySelectorAll(".picto > img");
+const pictos = document.querySelectorAll(".picto-area > img");
 
 // ---------constante pour la modale------------
 
-const modale = document.querySelector(".pop-up");
-
+const modale = document.querySelector(".bg-gris");
 
 //////////////////////////////////////////////////
 // CSS Animation Methods
@@ -72,7 +71,6 @@ const showElement = (element) => {
 //////////////////////////////////////////////////
 
 const newPeriodTimer = () => {
-  const pictos = document.querySelectorAll(".picto > img");
 
   // -------apparté picto---------
   pictos.forEach((element) => {
