@@ -36,8 +36,9 @@
     <!-- div contenant le picto -->
     <div class="picto">
       <% @session.exercises.each do |exo| %>
-        <%= cl_image_tag exo.photo.key, :data => { exercise_name: exo.name } %>
+        <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
       <% end %>
+      <%= image_tag "session-show/squat.jpg", data: {exercise_name: "Repos" } %>
     </div>
   </div>
   <!-- div contenant le zoom -->
@@ -63,6 +64,7 @@
   </div>
 </div>
 
+<%= render "shared/pop_up_session" %>
 
 
   <!-- partie haute du footer : chrono exo en cours plus button -->

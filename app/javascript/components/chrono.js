@@ -24,7 +24,7 @@ const clockText = document.getElementById('clock-text'),
       clockSubtitle = document.getElementById("subtitle"),
       times = JSON.parse(clockText.dataset.times),
       names = JSON.parse(clockText.dataset.names);
-      console.log(names);
+
 
 const totalTime = times.reduce((sum, time) => time + sum, 0);
 
@@ -32,8 +32,13 @@ let startDate, periodFinishDate;
 
 
 // ---------contante pour le picto---------------
+
 const pictos = document.querySelectorAll(".picto > img");
-console.log(pictos);
+
+// ---------constante pour la modale------------
+
+const modale = document.querySelector(".pop-up");
+
 
 //////////////////////////////////////////////////
 // CSS Animation Methods
@@ -52,12 +57,12 @@ const setAnimationDuration = (element, duration) =>{
   element.style.animationDuration = `${duration}s`;
 }
 // -------------------------------------------------
-//   Picto Animation
+//   cache-cache Animation
 // -------------------------------------------------
-const hidePicto = (element) => {
+const hideElement = (element) => {
   element.classList.add("d-none");
 }
-const showPicto = (element) => {
+const showElement = (element) => {
   element.classList.remove("d-none");
 }
 
@@ -71,16 +76,15 @@ const newPeriodTimer = () => {
 
   // -------apparté picto---------
   pictos.forEach((element) => {
-    hidePicto(element);
-    console.log(element.dataset.exerciseName, names.first)
-
+    hideElement(element);
     if (element.dataset.exerciseName === names[0]) {
-      console.log(element)
-      showPicto(element);
+      showElement(element);
     }
-
   });
   // -----------------------------------
+
+  hideElement(modale);
+
   periodElements.forEach((element) => setAnimationDuration(element, times[0]));
   clockSubtitle.innerText = names.shift();
 
@@ -93,6 +97,8 @@ const newPeriodTimer = () => {
 }
 
 const endGlobalTimer = () => {
+  pictos.forEach((picto) => { hideElement(picto)});
+
   periodElements.forEach(stopCSSAnimation);
   totalElements.forEach(stopCSSAnimation);
 
@@ -100,8 +106,9 @@ const endGlobalTimer = () => {
   clockSubtitle.style.display = "none";
 
   cancelAnimationFrame(tick);
-  setTimeout(showModal, 4000);
+  setTimeout(showElement(modale), 4000);
 }
+
 
 const tick = () => {
   const now = new Date(),
@@ -141,6 +148,13 @@ const showModal = () => {
 
 totalElements.forEach((element) => setAnimationDuration(element, totalTime));
 newPeriodTimer();
+
+const button  = document.querySelector(".cross");
+console.log(button);
+button.addEventListener('click', () => {
+  hideElement(modale);
+})
+
 
 };
 
