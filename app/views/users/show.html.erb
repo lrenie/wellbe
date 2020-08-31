@@ -67,19 +67,18 @@
         </div>
       </div>
       <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-        <div class="container">
+        <div class="container" data-controller="show-sessions">
           <div class="form-wrapper">
             <h2>Mon calendrier</h2>
           </div>
           <div class="container">
             <div class="form-wrapper">
               <div id="session-form-div" data-sessions="<%= @sessions_dates.to_json %>">
-                  <%= simple_form_for [@user, @session] do |f| %>
-                  <%= f.input :date, label: "Mes dates d'entrainement:", as: :string, required: false, input_html: { id: "range_start", class: "d-none"} %>
-                  <%= f.input :date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
-                  <%# <%= f.button :submit, "Book", class: "btn btn-primary" %>
-                  <% end %>
+              <%= label_tag :date, "Mes dates d'entrainement" %>
+                  <%= text_field_tag :date, "", id: "date"%>
               </div>
+          </div>
+          <div class="card-session-show-user" data-target="show-sessions.card">
           </div>
         </div>
       </div>

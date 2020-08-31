@@ -1,16 +1,34 @@
 import flatpickr from "flatpickr"
-import "flatpickr/dist/flatpickr.min.css"
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
- const sessionForm = document.getElementById('session-form-div');
+const checkSession = (dObj, dStr, fp, dayElem) => {
+    const sessionForm = document.getElementById('session-form-div');
+    const sessions = JSON.parse(sessionForm.dataset.sessions).map( (date) => {
+        const dateWithTime = new Date(date);
+        return dateWithTime.setHours(0, 0, 0, 0);
+    });
 
- if (sessionForm) {
-  const sessions = JSON.parse(sessionForm.dataset.sessions);
-  flatpickr("#range_start", {
-    plugins: [new rangePlugin({ input: "#range_end"})],
-    minDate: "today",
-    inline: true,
-    dateFormat: "Y-m-d",
-    "disable": sessions,
-  })
+    if (sessions.includes(dayElem.dateObj.setHours(0, 0, 0, 0))) {
+        dayElem.classList.add("choucroute");
+        dayElem.setAttribute("data-action", "click->show-sessions#show");
+    }
+    
 }
+
+const innitFlatPicker = () => {
+    const sessionForm = document.getElementById('session-form-div');
+
+    if (!sessionForm) return
+
+    
+    
+
+    
+
+    flatpickr("#date", {
+        onDayCreate: checkSession,
+        inline: true,
+    })
+    
+}
+
+export { innitFlatPicker };
