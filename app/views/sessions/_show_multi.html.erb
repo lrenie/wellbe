@@ -35,7 +35,8 @@
 
     <!-- div contenant le picto -->
     <div class="picto">
-      <%= image_tag "session-show/squat.jpg", alt: "alttext", width: "250", height: "200" %>
+      <%#= image_tag "session-show/squat.jpg", alt: "alttext", width: "250", height: "200" %>
+      <%= cl_image_tag @exercise.photo.key %>
     </div>
   </div>
   <!-- div contenant le zoom -->

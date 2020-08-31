@@ -47,7 +47,7 @@ puts "Creating exercices..."
 Incendie = { name: "Incendie", time: 10, diff_coef: 8, kcal: 250, body_area: bodyareas[2]}
 Ciseau = { name: "Ciseau", time: 10, diff_coef: 5, kcal: 450, body_area: bodyareas[2]}
 Planche = { name: "Planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
-Araignee = { name: "Araignée", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
+Araignee = { name: "Araignee", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
 exercises = []
 photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945451-hydrantsfix2.gif",
@@ -55,7 +55,7 @@ photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945187-planktoforearmfix2.gif",
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945948-alternatingkneefix21.gif"
 ]
-[Exercise1, Exercise2, planche, squat].each_with_index do |attributes, index|
+[Incendie, Ciseau, Planche, Araignee].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
     exercise_photo = URI.open(photos[index])
     current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
