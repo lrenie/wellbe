@@ -55,7 +55,7 @@ photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945187-planktoforearmfix2.gif",
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945948-alternatingkneefix21.gif"
 ]
-[Exercise1, Exercise2, planche, squat].each_with_index do |attributes, index|
+[Incendie, Ciseau, Planche, Araignee].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
     exercise_photo = URI.open(photos[index])
     current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
