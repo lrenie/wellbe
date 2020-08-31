@@ -47,7 +47,7 @@ puts "Creating exercices..."
 Incendie = { name: "Incendie", time: 10, diff_coef: 8, kcal: 250, body_area: bodyareas[2]}
 Ciseau = { name: "Ciseau", time: 10, diff_coef: 5, kcal: 450, body_area: bodyareas[2]}
 Planche = { name: "Planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
-Araignee = { name: "Araignee", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
+Araignee = { name: "Araignée", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
 exercises = []
 photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945451-hydrantsfix2.gif",
