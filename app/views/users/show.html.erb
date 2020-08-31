@@ -67,7 +67,20 @@
         </div>
       </div>
       <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-        Contenu Calendrier
+        <div class="container" data-controller="show-sessions">
+          <div class="form-wrapper">
+            <h2>Mon calendrier</h2>
+          </div>
+          <div class="container-calendrier">
+            <div class="form-wrapper">
+              <div id="session-form-div" data-sessions="<%= @sessions_dates.to_json %>">
+              <%= label_tag :date, "Mes dates d'entrainement" %>
+                  <%= text_field_tag :date, "", id: "date"%>
+              </div>
+          </div>
+          <div class="card-session-show-user" data-target="show-sessions.card">
+          </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
         Contenu Sessions
