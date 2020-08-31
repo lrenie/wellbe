@@ -44,11 +44,21 @@ end
 puts "Created #{BodyArea.count} BodyAreas"
 
 puts "Creating exercices..."
-Exercise1 = { name: "exercise1", time: 3, diff_coef: 8, kcal: 250, body_area: bodyareas[0]}
-Exercise2 = { name: "exercise2", time: 4, diff_coef: 5, kcal: 450, body_area: bodyareas[1]}
+Incendie = { name: "Incendie", time: 10, diff_coef: 8, kcal: 250, body_area: bodyareas[2]}
+Ciseau = { name: "Ciseau", time: 10, diff_coef: 5, kcal: 450, body_area: bodyareas[2]}
+Planche = { name: "Planche", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
+Araignee = { name: "Araignée", time: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
 exercises = []
-[Exercise1, Exercise2].each_with_index do |attributes, index|
+photos = [
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945451-hydrantsfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416944853-scissorlegsfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945187-planktoforearmfix2.gif",
+  "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945948-alternatingkneefix21.gif"
+]
+[Exercise1, Exercise2, planche, squat].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
+    exercise_photo = URI.open(photos[index])
+    current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
     exercises << current_exercise
 end
 puts "Created #{Exercise.count} Exercises"
@@ -81,6 +91,7 @@ covers = [
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
+
 [User1, User2, User3, User4, User5, User6].each_with_index do |attributes, index|
  current_user = User.create!(attributes)
  file_avatar = URI.open(photos[index])
@@ -92,13 +103,14 @@ end
 puts "Created #{User.count} users"
 
 puts "Creating sessions..."
-Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-30 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-09-01 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-09-02 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-03 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-10 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-08-29 19:30:00", user: users[1], body_area: bodyareas[2] }
 sessions = []
-[Session1, Session2, Session3, Session4, Session5].each_with_index do |attributes, index|
+[Session1, Session2, Session3, Session4, Session5, Session6].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
  sessions << current_session
 end
@@ -128,7 +140,15 @@ sessionexercise2.exercise = exercises[1]
 sessionexercise2.session = sessions[0]
 sessionexercise2.save!
 
+exo1_de_session_demo = SessionExercise.new
+exo1_de_session_demo.session = sessions[5]
+exo1_de_session_demo.exercise = exercises[2]
+exo1_de_session_demo.save!
 
+exo2_de_session_demo = SessionExercise.new
+exo2_de_session_demo.session = sessions[5]
+exo2_de_session_demo.exercise = exercises[3]
+exo2_de_session_demo.save!
 
 
 # SessionExercise.create!(exercise: exercises[0], session: sessions[0])

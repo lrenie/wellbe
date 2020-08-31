@@ -5,6 +5,13 @@
   align-items: center;
   position: sticky;
   top: 0px;
+  p {
+    color: $blanc;
+    font-size: 16px;
+    &:hover {
+      color: $noir;
+    }
+  }
 }
 
 #navbar_global {
@@ -12,7 +19,7 @@
   top: 0px;
   z-index: 1;
   .navbar_global {
-    background-color: white;
+    background-color: transparent;
     height: 85px;
     display: flex;
     justify-content: space-between;
@@ -21,6 +28,13 @@
     padding-right: 50px;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
   }
+}
+
+#connexion {
+  font-size: 12px;
+  padding: 5px 20px;
+  color: $blanc;
+  border-color: $blanc;
 }
 
 .trace-gradiant {
@@ -65,3 +79,4 @@
     text-decoration: none;
   }
 }
+

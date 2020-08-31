@@ -14,12 +14,22 @@ class SessionsController < ApplicationController
 
   def show
     @session = Session.find(params[:id])
-    @time = @session.total_time
     @times = []
-    (@time/60).times do
-      @times << 50
-      @times << 10
-    end
+    @names = []
+
+    exercises = @session.exercises.all
+    @names = exercises.flat_map { |exo| [exo.name, "Repos"] }.tap(&:pop)
+    @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
+    # @session.session_exercise_ids.each do |id|
+    #     @names << Exercise.find(id).name
+    #     if Exercise.find(id).id != @session.session_exercise_ids.last
+    #       @names << "repos"
+    #     end
+    #     @times << Exercise.find(id).time
+    #     if Exercise.find(id).id != @session.session_exercise_ids.last
+    #       @times << 10
+    #     end
+    #   end
   end
 
   def fetch
