@@ -53,10 +53,16 @@
   }
 
   .barre-temps {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #bbbbbb;
+    border-radius: 50px;
+    height: 10px;
     background-color: #B67CFF;
   }
   .session-level {
     margin-bottom: 40px;
+    cursor: pointer;
     &:hover {
       .barre-difficulty {
         background-color: #B67CFF;
