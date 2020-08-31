@@ -24,10 +24,16 @@ const clockText = document.getElementById('clock-text'),
       clockSubtitle = document.getElementById("subtitle"),
       times = JSON.parse(clockText.dataset.times),
       names = JSON.parse(clockText.dataset.names);
+      console.log(names);
 
 const totalTime = times.reduce((sum, time) => time + sum, 0);
 
 let startDate, periodFinishDate;
+
+
+// ---------contante pour le picto---------------
+const pictos = document.querySelectorAll(".picto > img");
+console.log(pictos);
 
 //////////////////////////////////////////////////
 // CSS Animation Methods
@@ -45,12 +51,36 @@ const startCSSAnimation = (element) => {
 const setAnimationDuration = (element, duration) =>{
   element.style.animationDuration = `${duration}s`;
 }
+// -------------------------------------------------
+//   Picto Animation
+// -------------------------------------------------
+const hidePicto = (element) => {
+  element.classList.add("d-none");
+}
+const showPicto = (element) => {
+  element.classList.remove("d-none");
+}
+
 
 //////////////////////////////////////////////////
 // Timer Methods
 //////////////////////////////////////////////////
 
 const newPeriodTimer = () => {
+  const pictos = document.querySelectorAll(".picto > img");
+
+  // -------apparté picto---------
+  pictos.forEach((element) => {
+    hidePicto(element);
+    console.log(element.dataset.exerciseName, names.first)
+
+    if (element.dataset.exerciseName === names[0]) {
+      console.log(element)
+      showPicto(element);
+    }
+
+  });
+  // -----------------------------------
   periodElements.forEach((element) => setAnimationDuration(element, times[0]));
   clockSubtitle.innerText = names.shift();
 
@@ -102,6 +132,7 @@ const newDateSeveralSecondsLater = (date, seconds) => {
 
 const showModal = () => {
   console.log("Modal Shown!");
+
 }
 
 //////////////////////////////////////////////////
