@@ -94,10 +94,12 @@
   overflow: hidden;
   margin-top: 10px;
 
+
   .calendrier {
     height: 500px;
   }
   
+
   &:hover {
     transform: scale(1.02);
     transition: transform .3s ease;
@@ -118,7 +120,20 @@
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
       width: 40px;
       height: 100%;
+
+    }
+  }
+  .fullheart {
+    color: $secondary !important;
+  }
+  .edit_session_participant {
+    .btn:focus {
+      box-shadow: none;
+    }
+  }
+
   } 
+
 
   // Middle
   .content {
