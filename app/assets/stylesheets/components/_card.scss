@@ -91,7 +91,7 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   margin-top: 10px;
-  
+
   &:hover {
     transform: scale(1.02);
     transition: transform .3s ease;
@@ -111,6 +111,14 @@
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
       width: 40px;
       height: 100%;
+    }
+  }
+  .fullheart {
+    color: $secondary !important;
+  }
+  .edit_session_participant {
+    .btn:focus {
+      box-shadow: none;
     }
   }
   // Middle
