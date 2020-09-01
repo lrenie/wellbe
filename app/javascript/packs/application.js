@@ -28,6 +28,11 @@ import { timeOfChrono } from '../components/chrono';
 import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
+
+import { connect } from 'twilio-video';
+
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,6 +41,37 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   timeOfChrono();
   innitFlatPicker();
+
+
+
+  connect('eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJqdGkiOiJTSzA5M2YwZTkyNjEwMDAyN2IzMmQ4NmE5YzE4Y2E1YzczLTE1OTg5NDg4NzciLCJncmFudHMiOnsiaWRlbnRpdHkiOjYwLCJ2aWRlbyI6eyJyb29tIjoiY29vbCByb29tIn19LCJpc3MiOiJTSzA5M2YwZTkyNjEwMDAyN2IzMmQ4NmE5YzE4Y2E1YzczIiwibmJmIjoxNTk4OTQ4ODc3LCJleHAiOjE1OTg5NTI0NzcsInN1YiI6IkFDMTI4ZGFiNDk0OTc4YjhiMmQ1YWJkOTE0ZTI0YTE2YzYifQ.IR5uIqQKULku3EdSTUuLiQj4XCHQaZSblxtf829OiKI', { name:'daily_standup_60' }).then(room => {
+    
+    console.log(`Successfully joined a Room: ${room}`);
+
+    const localParticipant = room.localParticipant;
+
+    console.log(`Connected to the Room as LocalParticipant "${localParticipant.identity}"`);
+
+    room.on('participantConnected', participant => {
+      console.log(`A remote Participant connected: ${participant}`);
+    });
+
+    room.participants.forEach(participant => {
+      participant.tracks.forEach(publication => {
+        if (publication.track) {
+          document.getElementById('remote-media-div').appendChild(publication.track.attach());
+        }
+      });
+    
+     participant.on('trackSubscribed', track => {
+        document.getElementById('remote-media-div').appendChild(track.attach());
+      });
+    });
+
+  }, 
+    error => {
+    console.error(`Unable to connect to Room: ${error.message}`);
+  });
 });
 
 

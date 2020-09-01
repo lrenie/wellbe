@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class Session < ApplicationRecord
   DIFFICULTY = ["Débutant", "Intermédiaire", "Avancé", "Confirmé"]
 
@@ -14,4 +17,15 @@ class Session < ApplicationRecord
   validates :difficulty, presence: true
   validates :mode, presence: true
   validates :total_time, presence: true
+
+  def create_twilio_room
+    account_sid = ENV["ACCOUNT_SID"]
+    auth_token = ENV["AUTH_TOKEN"]
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    unless room_sid.present?
+      twilio_room = @client.video.rooms.create(unique_name: "daily_standup_#{id}")
+      update(room_sid: twilio_room.sid)
+    end
+  end
 end
