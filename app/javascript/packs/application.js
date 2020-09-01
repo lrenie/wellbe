@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { timeOfChrono } from '../components/chrono';
 import { updateTextInput } from '../components/range';
+import { addFriendsParticipants } from '../components/participations';
 import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
@@ -44,6 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   updateTextInput();
   innitFlatPicker();
   video();
+  addFriendsParticipants();
 
 });
 

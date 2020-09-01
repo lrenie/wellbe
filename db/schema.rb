@@ -91,9 +91,11 @@ ActiveRecord::Schema.define(version: 2020_08_31_152959) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "session_exercise_id"
     t.bigint "body_area_id"
     t.string "room_sid"
     t.index ["body_area_id"], name: "index_sessions_on_body_area_id"
+    t.index ["session_exercise_id"], name: "index_sessions_on_session_exercise_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 

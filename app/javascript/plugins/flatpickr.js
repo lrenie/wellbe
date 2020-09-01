@@ -19,10 +19,6 @@ const innitFlatPicker = () => {
 
     if (!sessionForm) return
 
-    
-    
-
-    
 
     flatpickr("#date", {
         onDayCreate: checkSession,
