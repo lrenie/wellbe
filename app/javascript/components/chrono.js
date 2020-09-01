@@ -105,6 +105,8 @@ const endGlobalTimer = () => {
 
   cancelAnimationFrame(tick);
   setTimeout(showElement(modale), 4000);
+  console.log("ok le js est en cours");
+  showModal();
 }
 
 
