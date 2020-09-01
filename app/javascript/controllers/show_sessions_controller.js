@@ -21,11 +21,14 @@ export default class extends Controller {
    const date = event.currentTarget.dateObj;
    const dateStyle = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
    const url = `${window.location.origin}/sessions/fetch?user=${user}&date=${dateStyle}`;
+  console.log(user);
+  console.log(url);
 
    fetch(url)
    .then(response => response.json())
    .then((data) => {
       this.display(data);
+      console.log(data);
    });
   }
 

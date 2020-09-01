@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     @date = Date.parse(params[:date])
     
     @last_sessions = @user.sessions.where(date: @date.beginning_of_day..@date.end_of_day)
-    render json: { html: render_to_string(partial: 'shared/card_prev_session')}
+    render json: { html: render_to_string(partial: 'shared/card_prev_session', locals: { sessions: @last_sessions })}
   end
 
 end

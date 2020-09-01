@@ -78,8 +78,8 @@ users = []
 
 
 photos = [
-"https://ca.slack-edge.com/T02NE0241-U0172003F4Y-2fed4039c63c-512",
-"https://avatars0.githubusercontent.com/u/67097112?v=4",
+"https://image-uniservice.linternaute.com/image/450/3/1975856345/7796816.jpg",
+"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Leon_Renier_par_Piot-Normand.jpg/260px-Leon_Renier_par_Piot-Normand.jpg",
 "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
 "https://image-uviadeo.journaldunet.com/image/450/1236447512/47925.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
@@ -170,11 +170,11 @@ end
 
 
 puts "Creating sessions..."
-Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-21 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-30 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0], body_area: bodyareas[0] }
+Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-08-29 19:30:00", user: users[1], body_area: bodyareas[2] }
 sessions = []
 [Session1, Session2, Session3, Session4, Session5, Session6].each_with_index do |attributes, index|
@@ -220,10 +220,14 @@ exo2_de_session_demo.save!
 
 # SessionExercise.create!(exercise: exercises[0], session: sessions[0])
 # SessionExercise.create!(exercise: exercises[1], session: sessions[1])
+
 # Session_exercise1 = { exercise: exercises[0], session: sessions[0]}
-# Session_exercise2 = { exercise: exercises[1], session: sessions[1]}
+# Session_exercise2 = { exercise: exercises[1], session: sessions[0]}
+# Session_exercise3 = { exercise: exercises[2], session: sessions[5]}
+# Session_exercise4 = { exercise: exercises[3], session: sessions[5]}
+
 # session_exercises = []
-# [Session_exercise1, Session_exercise2].each_with_index do |attributes, index|
+# [Session_exercise1, Session_exercise2, Session_exercise3, Session_exercise4].each_with_index do |attributes, index|
 #     current_session_exercise = SessionExercise.create!(attributes)
 #     session_exercises << current_session_exercise
 # end
