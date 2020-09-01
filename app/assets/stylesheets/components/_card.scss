@@ -94,6 +94,7 @@
   overflow: hidden;
   margin-top: 10px;
 
+
   .calendrier {
     height: 500px;
   }
@@ -109,6 +110,7 @@
     width: 33%;
     background-size: cover;
     background-position: center;
+    background-image: image-url('body_area/general.jpg');
   }
 
     .gradiant-white {
@@ -118,6 +120,15 @@
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
       width: 40px;
       height: 100%;
+    }
+  }
+  .fullheart {
+    color: $secondary !important;
+  }
+  .edit_session_participant {
+    .btn:focus {
+      box-shadow: none;
+    }
   }
 
   // Middle
@@ -162,7 +173,7 @@
     padding-left: 10px;
     padding-top: 7px;
   }
-  .cercle-violet {
+  .cercle-violet-calendrier {
     position: absolute;
     bottom: 15px;
     right: 20px;
@@ -171,8 +182,6 @@
     border-radius: 50px;
     background: linear-gradient(45deg, #B67CFF 0%, #7100FF 100%);
   }
-}
-// ==========
 
 // BODY-AREA =====
 .card-body-area {

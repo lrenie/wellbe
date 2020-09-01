@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
+require "faker"
 
 puts "Cleaning exercises..."
 Exercise.destroy_all
@@ -17,6 +18,8 @@ puts "Cleaning sessions..."
 Session.destroy_all
 puts "Cleaning body areas..."
 BodyArea.destroy_all
+puts "Cleaning friendships..."
+Friendship.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
@@ -67,7 +70,7 @@ puts "Creating users..."
 User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
-User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Grazianni" }
+User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
 User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Scarlett", last_name: "Johansson" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
@@ -76,9 +79,9 @@ users = []
 
 photos = [
 "https://ca.slack-edge.com/T02NE0241-U0172003F4Y-2fed4039c63c-512",
-"https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg",
+"https://avatars0.githubusercontent.com/u/67097112?v=4",
 "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
-"https://image-uviadeo.journaldunet.com/image/450/1236447512/47925.jpg",
+"https://res.cloudinary.com/drk3m3rkb/image/upload/v1598952328/IMG-20200822-WA0016_sip8dx.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
@@ -100,9 +103,26 @@ covers = [
  current_user.cover.attach(io: file_cover, filename: 'image.png', content_type: 'image/png')
  users << current_user
 end
+
+10.times do
+  fake_user = User.new
+  fake_user.email = Faker::Internet.email
+  fake_user.password = "123456"
+  fake_user.first_name = Faker::Name.first_name
+  fake_user.last_name = Faker::Name.last_name
+  file_avatar = URI.open("https://source.unsplash.com/400x400/?face")
+  file_cover = URI.open("https://source.unsplash.com/800x200/?landscape")
+  fake_user.avatar.attach(io: file_avatar, filename: 'image.jpg', content_type: 'image/jpg')
+  fake_user.cover.attach(io: file_cover, filename: 'image.jpg', content_type: 'image/jpg')
+  fake_user.save
+  puts "#{fake_user.first_name} created"
+  puts "#{User.count}"
+end
+
 puts "Created #{User.count} users"
 
 puts "Creating friendship ..."
+
 friendship2 = Friendship.new
 friendship2.status = "true"
 friendship2.sender = users[0]
@@ -132,6 +152,15 @@ friendship6.status = "true"
 friendship6.sender = users[1]
 friendship6.recipient = users[-3]
 friendship6.save!
+
+
+50.times do
+  friendship = Friendship.new
+  friendship.status = "true"
+  friendship.sender = User.all.sample
+  friendship.recipient = User.all.sample
+  puts " friendship n° #{friendship.id} created"
+end
 
 
 puts "Creating sessions..."
