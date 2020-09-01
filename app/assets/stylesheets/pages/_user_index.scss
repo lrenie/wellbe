@@ -3,7 +3,6 @@
  .user-card-index{
   position: relative;
   border-radius: 15px;
-  //width: 320px;
   height: 120px;
   overflow: hidden;
   box-sizing: border-box;
@@ -11,8 +10,9 @@
   transition: transform .3s ease;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: white;
+  padding: 10px;
 
 
 
