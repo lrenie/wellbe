@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr.min.css";
 
 // Your CSS partials
 @import "components/index";
@@ -91,13 +92,33 @@ p {
   padding-bottom: 20px;
 }
 
+.p-t-10 {
+  padding-top: 10px;
+}
+
 .p-x-20 {
   padding: 20px 0px;
+}
+
+.p-l-20 {
+  padding-left: 20px;
+}
+
+.p-l-40 {
+  padding-left: 40px;
 }
 
 // MARGIN =====
 .m-t-40 {
   margin-top: 40px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-t-70 {
+  margin-top: 70px;
 }
 
 .m-r-10 {

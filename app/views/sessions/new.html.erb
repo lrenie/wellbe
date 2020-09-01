@@ -46,10 +46,21 @@
         </div>
       </div>
       <div class="right-part">
-        <h3>Renseignez vos objectifs</h3>
+        <h3 class="p-b-20">Renseignez vos objectifs</h3>
         <%= simple_form_for @session do |f| %>
-          <%= f.input :total_time, as: :range,
-                      required: true, class: "barre-temps" %>
+          <div class="flex-b-e">
+            <%= f.input :total_time,
+                        label: "Temps total",
+                        as: :range,
+                        required: true,
+                        input_html: {
+                          max: 60,
+                          step: 10,
+                          value: 30,
+                          class: "custom-range",
+                        } %>
+            <span class="range-slider__value"><input type="text" id="textInput" value="30" class="time-input"> sec</span>
+          </div>
           <div data-controller="radio-button">
             <%= f.input :difficulty,
                         label: "Votre niveau",
@@ -61,19 +72,19 @@
                         collection: Session::DIFFICULTY,
                         wrapper: :vertical_collection_inline %>
             <div class="flex-b-c">
-              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="1">
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-target='radio-button.levelBtn' data-id="1">
                 <div class="barre-difficulty"></div>
                 <p>DÉBUTANT</p>
               </div>
-              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="2">
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-target='radio-button.levelBtn' data-id="2">
                 <div class="barre-difficulty"></div>
                 <p>INTERMÉDIAIRE</p>
               </div>
-              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="3">
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-target='radio-button.levelBtn' data-id="3">
                 <div class="barre-difficulty"></div>
                 <p>AVANCÉ</p>
               </div>
-              <div class="session-level" data-action="click->radio-button#inputSelect" data-id="4">
+              <div class="session-level" data-action="click->radio-button#inputSelect" data-target='radio-button.levelBtn' data-id="4">
                 <div class="barre-difficulty"></div>
                 <p>CONFIRMÉ</p>
               </div>
@@ -90,14 +101,26 @@
                         collection: BodyArea::BODY_AREAS,
                         wrapper: :vertical_collection_inline %>
             <div class="flex-b-c">
-              <div data-action="click->radio-button#inputSelect" data-id="1">
-                <%= render "shared/card_body_area" %>
+              <div data-action="click->radio-button#inputSelecte" data-target='radio-button.bodyBtn' data-id="1">
+                <div class="card-body-area gen">
+                  <div class="white-box">
+                    <p>Général</p>
+                  </div>
+                </div>
               </div>
-              <div data-action="click->radio-button#inputSelect" data-id="2">
-                <%= render "shared/card_body_area" %>
+              <div data-action="click->radio-button#inputSelecte" data-target='radio-button.bodyBtn' data-id="2">
+                <div class="card-body-area hdc">
+                  <div class="white-box">
+                    <p>Haut du corps</p>
+                  </div>
+                </div>
               </div>
-              <div data-action="click->radio-button#inputSelect" data-id="3">
-                <%= render "shared/card_body_area" %>
+              <div data-action="click->radio-button#inputSelecte" data-target='radio-button.bodyBtn' data-id="3">
+                <div class="card-body-area bdc">
+                  <div class="white-box">
+                    <p>Bas du corps</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

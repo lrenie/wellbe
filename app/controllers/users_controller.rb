@@ -11,8 +11,17 @@ class UsersController < ApplicationController
       end
       @sessions_count = @user.sessions.count
     end
+
     session_participants = SessionParticipant.where(user: current_user, favorite_status: true)
     @sessions = session_participants.map {|s| s.session}
+    
+      
+      @session = Session.new
+      @sessions_dates = @user.sessions
+                             .map { |session| session.date }
+                             .uniq
+        
+
   end
 
   def index

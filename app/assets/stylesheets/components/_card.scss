@@ -11,7 +11,7 @@
 .card-choice-session {
   position: relative;
   border-radius: 15px;
-  width: 412px;
+  width: 550px;
   height: 300px;
   overflow: hidden;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
@@ -73,11 +73,13 @@
   // Solo
   #solo {
     background-image: image-url('sessions/solo.jpg');
+    background-position-y: -65px;
   }
 
   // Multi
   #multi {
     background-image: image-url('sessions/multi.jpg');
+    background-position-y: -75px;
   }
 // ==========
 
@@ -92,6 +94,12 @@
   overflow: hidden;
   margin-top: 10px;
 
+
+  .calendrier {
+    height: 500px;
+  }
+  
+
   &:hover {
     transform: scale(1.02);
     transition: transform .3s ease;
@@ -101,9 +109,10 @@
   .photo {
     height: 100%;
     width: 33%;
-    background-image: image-url('body_area/general.jpg');
     background-size: cover;
     background-position: center;
+  }
+
     .gradiant-white {
       position: absolute;
       top: 0px;
@@ -111,6 +120,7 @@
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
       width: 40px;
       height: 100%;
+
     }
   }
   .fullheart {
@@ -121,6 +131,10 @@
       box-shadow: none;
     }
   }
+
+  } 
+
+
   // Middle
   .content {
     padding: 10px 10px;
@@ -181,10 +195,10 @@
   border-radius: 8px;
   height: 120px;
   width: 140px;
-  background-image: image-url('body_area/general.jpg');
   background-size: cover;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  cursor: pointer;
   &:hover {
     border: 2px solid #B67CFF;
     p {
@@ -204,7 +218,21 @@
     font-weight: 600;
     font-family: Nunito;
     padding: 5px 10px;
+    color: $grisfonce;
   }
+}
+.gen {
+  background-image: image-url('body_area/general.jpg');
+}
+.hdc {
+  background-image: image-url('body_area/haut_du_corps.jpg');
+  background-position-x: -40px;
+  background-position-y: -40px;
+}
+.bdc {
+  background-image: image-url('body_area/bas_du_corps.jpg');
+  background-position-x: -20px;
+  background-position-y: -25px;
 }
 // ==========
 
@@ -215,6 +243,10 @@
   height: 100%;
   &:hover {
     background-color: white;
+    .btn-2 {
+      border: 0.5px solid #B67CFF;
+      color: #B67CFF;
+    }
   }
   .photo {
     height: 40px;
@@ -230,7 +262,7 @@
     &:hover {
       color: $blanc;
       border: none;
-      background-color: $secondary;
+      background-color: #B67CFF;
     }
   }
 }

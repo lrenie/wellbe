@@ -22,6 +22,7 @@
     background: $grisclair;
     padding: 10px 24px;
     border-radius: 25px;
+    cursor: pointer;
     &:hover {
       background-color: $grisfonce;
       p, i {
@@ -62,6 +63,24 @@
 
 }
 
+.container-calendrier {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-session-show-user {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .list-user-profil{
   ul{
     display: flex;
@@ -78,3 +97,14 @@
   color: $primary;
 }
 
+.choucroute {
+  background-color: red;
+}
+
+#session-form-div > label {
+  display: none;
+}
+
+#date {
+  display: none;
+}
