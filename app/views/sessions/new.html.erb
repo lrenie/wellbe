@@ -4,44 +4,21 @@
     <div class="flex-b-c">
       <div class="left-part">
         <h3>Invitez vos amis</h3>
-        <div class="flex-b-c cercles">
-          <div class="cercle-bleu"></div>
-          <div class="cercle-bleu"></div>
-          <div class="cercle-bleu"></div>
-          <div class="cercle-bleu"></div>
+        <div class="flex-b-c cercles participations">
+          <div class="cercle-bleu border-bleu avat_particip slot-available"></div>
+          <div class="cercle-bleu border-bleu avat_particip slot-available"></div>
+          <div class="cercle-bleu border-bleu avat_particip slot-available"></div>
+          <div class="cercle-bleu border-bleu avat_particip slot-available"></div>
         </div>
         <div class="frinds-container">
           <div>
-            <div class="flex-b-c card_invite_session">
-             <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
-            <div class="flex-b-c card_invite_session">
-              <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
-            <div class="flex-b-c card_invite_session">
-              <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
-            <div class="flex-b-c card_invite_session">
-              <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
-            <div class="flex-b-c card_invite_session">
-              <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
-            <div class="flex-b-c card_invite_session">
-              <%= image_tag "lourd.jpg", class: "photo" %>
-              <p class="flex-g-1">User Name</p>
-              <button class="btn-2">Inviter à rejoindre</button>
-            </div>
+            <% @friends.each do |friend| %>
+              <div class="flex-b-c card_invite_session">
+               <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
+                <p class="flex-g-1 p-l-20 nunito"> <%= User.find(friend).first_name %> <%= User.find(friend).last_name %> </p>
+                <button class="btn-2 invitation-btn">Inviter à rejoindre</button>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

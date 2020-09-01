@@ -7,7 +7,7 @@ const updateTextInput = () => {
   }
   const text = document.getElementById('textInput');
   input.addEventListener("change", (event) => {
-    text.value = input.value
+    text.value = input.value;
   })
 }
 

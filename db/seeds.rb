@@ -153,20 +153,14 @@ friendship6.sender = users[1]
 friendship6.recipient = users[-3]
 friendship6.save!
 
+
 50.times do
   friendship = Friendship.new
   friendship.status = "true"
   friendship.sender = User.all.sample
   friendship.recipient = User.all.sample
   puts " friendship n° #{friendship.id} created"
-
-
 end
-
-
-
-
-
 
 
 puts "Creating sessions..."
