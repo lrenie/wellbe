@@ -1,5 +1,5 @@
 <div class="d-flex flex-wrap flex-row justify-content-between align-items-center">
-  <% @last_sessions.each do |session| %>
+  <% sessions.each do |session| %>
     <div class="card-prev-session flex-b-c position-relative mr-4">
       <div class="photo">
         <div class="gradiant-white"></div>
@@ -18,10 +18,18 @@
       </div>
       <div class="flex-g-1 right-part">
         <div class="fav">
-          <i class="fas fa-heart"></i>
-          <i class="far fa-heart"></i>
+          <%= simple_form_for session.session_participants.find_by(user: current_user), remote: true do |f| %>
+            <%= f.input :favorite_status, value: true, as: :hidden %>
+            <%= f.button :button do %>
+               <% if session.session_participants.find_by(user: current_user).favorite_status %>
+                <i class="fas fa-heart fullheart" data-uid="<%= session.id  %>" ></i>
+               <% else %>
+                <i class="far fa-heart" data-uid="<%= session.id  %>" ></i>
+               <% end %>
+            <% end %>
+          <% end %>
         </div>
-        <div class="cercle-violet">
+        <div class="cercle-violet-calendrier">
           <i class="fas fa-play"></i>
         </div>
       </div>

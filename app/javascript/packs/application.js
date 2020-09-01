@@ -25,13 +25,13 @@ require("channels")
 // External imports
 import "bootstrap";
 import { timeOfChrono } from '../components/chrono';
+import { updateTextInput } from '../components/range';
 import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
 
+
 import { connect } from 'twilio-video';
-
-
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   timeOfChrono();
+  updateTextInput();
   innitFlatPicker();
 
 

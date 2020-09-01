@@ -51,12 +51,36 @@
     width: 50%;
     padding: 12px 0px 12px 40px;
   }
-
-  .barre-temps {
-    background-color: #B67CFF;
+  .range {
+    flex-grow: 1;
   }
+
+  .custom-range::-webkit-slider-thumb {
+    background: #B67CFF;
+  }
+
+  .range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    color: $grisfonce;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: #dee2e6;
+    padding: 5px 10px;
+    margin-left: 20px;
+  }
+  .time-input {
+    border: none;
+    width: 25px;
+    color: $grisfonce;
+    background-color: #dee2e6;
+  }
+
   .session-level {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
     &:hover {
       .barre-difficulty {
         background-color: #B67CFF;
@@ -70,15 +94,40 @@
       height: 10px;
       width: 100px;
       border-radius: 50px;
-      background-color: $gris;
+      background-color: #dee2e6;
     }
 
     p {
-      padding-top: 15px;
+      padding-top: 5px;
       text-align: center;
       color: $gris;
       font-size: 13px;
     }
+  }
+
+  .level-selected {
+    .barre-difficulty {
+      background-color: #B67CFF;
+    }
+    p {
+      color: #B67CFF;
+    }
+  }
+
+  .body-selected {
+    .card-body-area {
+      border: 2px solid #B67CFF;
+    }
+    p {
+      padding-top: 6px;
+      padding-left: 8px;
+      color: #B67CFF;
+    }
+  }
+
+  .form-group {
+    margin: 0px;
+    margin-top: 20px;
   }
 
   // BOUTONS
@@ -91,4 +140,5 @@
       margin-right: 20px;
     }
   }
+
 }

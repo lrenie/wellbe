@@ -24,8 +24,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
   }
 }
@@ -44,9 +44,9 @@
 }
 
 .icone {
-  width: 300px;
+  width: 250px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #00DBD8;
 }
@@ -58,6 +58,7 @@
   height: 40px;
   text-align: center;
   padding-top: 8px;
+  cursor: pointer;
   i {
     color: #00DBD8;
   }

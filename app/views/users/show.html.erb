@@ -83,7 +83,12 @@
         </div>
       </div>
       <div class="tab-pane fade" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
-        Contenu Sessions
+        <h3 class="roboto">Mes sessions favorites</h3>
+        <div>
+          <%# @sessions.each do |session| %>
+            <%= render "shared/card_prev_session", sessions: @sessions%>
+          <%# end %>
+        </div>
       </div>
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
         Contenu Amis
