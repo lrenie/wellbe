@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :last_name, uniqueness: true
 
 
-  def twilio_token
+  def regenerate_twilio_token
     # Required for any Twilio Access Token
     account_sid = ENV["ACCOUNT_SID"]
     api_key = ENV["API_KEY_SID"]

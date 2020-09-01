@@ -43,11 +43,19 @@ document.addEventListener('turbolinks:load', () => {
   innitFlatPicker();
 
 
-
-  connect('eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJqdGkiOiJTSzA5M2YwZTkyNjEwMDAyN2IzMmQ4NmE5YzE4Y2E1YzczLTE1OTg5NDg4NzciLCJncmFudHMiOnsiaWRlbnRpdHkiOjYwLCJ2aWRlbyI6eyJyb29tIjoiY29vbCByb29tIn19LCJpc3MiOiJTSzA5M2YwZTkyNjEwMDAyN2IzMmQ4NmE5YzE4Y2E1YzczIiwibmJmIjoxNTk4OTQ4ODc3LCJleHAiOjE1OTg5NTI0NzcsInN1YiI6IkFDMTI4ZGFiNDk0OTc4YjhiMmQ1YWJkOTE0ZTI0YTE2YzYifQ.IR5uIqQKULku3EdSTUuLiQj4XCHQaZSblxtf829OiKI', { name:'daily_standup_60' }).then(room => {
+  const twilioToken = document.getElementById('local-media').dataset.twilioToken
+  const roomName = document.getElementById('local-media').dataset.roomName
+  connect(twilioToken, { name: roomName }).then(room => {
     
     console.log(`Successfully joined a Room: ${room}`);
+    console.log(roomName)
+    const { createLocalVideoTrack } = require('twilio-video');
 
+      createLocalVideoTrack().then(track => {
+        const localMediaContainer = document.getElementById('local-media');
+        localMediaContainer.appendChild(track.attach());
+      });
+    
     const localParticipant = room.localParticipant;
 
     console.log(`Connected to the Room as LocalParticipant "${localParticipant.identity}"`);
