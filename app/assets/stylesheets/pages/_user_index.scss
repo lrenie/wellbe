@@ -3,8 +3,8 @@
  .user-card-index{
   position: relative;
   border-radius: 15px;
-  width: 30%;
-  height: 150px;
+  //width: 320px;
+  height: 120px;
   overflow: hidden;
   box-sizing: border-box;
   border: 1px solid #D0D0D0;
@@ -52,8 +52,9 @@
 
 
 .user-list-index{
- display: flex;
- justify-content: space-around;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-gap: 35px;
 }
 
 .results-search{

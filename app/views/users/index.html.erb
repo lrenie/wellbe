@@ -8,22 +8,27 @@
                       placeholder: "Rechercher des amis",
                       class: "form-control"
     %>
-    </div>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-    <div class="results-search"><p>Résultats pour : votre recherche</p></div>
-    <div>
-      <div class="user-list-index">
-        <% @users.each do |user| %>
-          <%= link_to user_path(user) do %>
-            <div class="user-card-index"> <%= cl_image_tag user.avatar.key %> <%= user.first_name %> <%= user.last_name  %>
-              <div class="ask-friend"><%= link_to "Amis", "/#" %></div>
-            </div>
-          <% end %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary d-none" %>
+  <% end %>
+  <div class="results-search">
+    <h2>Résultats pour : <span>votre recherche</span></h2>
+  </div>
+
+  <div class="user-list-index">
+    <% @users.each do |user| %>
+      <div class="user-card-index">
+        <%= link_to user_path(user) do %>
+          <%= cl_image_tag user.avatar.key %> <%= user.first_name %>
+          <%= user.last_name  %>
+          <div class="ask-friend"><%= link_to "Amis", "/#" %>
+          </div>
         <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 
 
 
