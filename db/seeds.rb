@@ -67,7 +67,7 @@ puts "Creating users..."
 User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
-User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Grazianni" }
+User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
 User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Scarlett", last_name: "Johansson" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
@@ -78,7 +78,7 @@ photos = [
 "https://ca.slack-edge.com/T02NE0241-U0172003F4Y-2fed4039c63c-512",
 "https://assets.cineserie.com/wp-content/uploads/2016/08/Khal-Drogo.jpg",
 "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
-"https://image-uviadeo.journaldunet.com/image/450/1236447512/47925.jpg",
+"https://res.cloudinary.com/drk3m3rkb/image/upload/v1598952328/IMG-20200822-WA0016_sip8dx.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
