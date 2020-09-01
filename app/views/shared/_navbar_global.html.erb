@@ -1,6 +1,8 @@
 <div id="navbar_global">
   <div class="navbar_global">
-    <%= link_to "WELLBE", sessions_choice_path  %>
+    <%= link_to sessions_choice_path do %>
+      <%= image_tag "wellbe-police.png", class: "logo" %>
+    <% end %>
     <div class="icone">
       <%= link_to current_user do %>
         <% if current_user%>
@@ -8,7 +10,7 @@
           <div class="avatar-navbar">
             <%= current_user.first_name %>
           </div>
-          <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+          <%= cl_image_tag current_user.avatar.key, :width=>40, :height=>40, :radius=>"max", crop: :thumb %>
         </div>
         <% else %>
         <% cl_image_tag "lourd.jpg" %>

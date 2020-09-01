@@ -102,6 +102,38 @@ covers = [
 end
 puts "Created #{User.count} users"
 
+puts "Creating friendship ..."
+friendship2 = Friendship.new
+friendship2.status = "true"
+friendship2.sender = users[0]
+friendship2.recipient = users[1]
+friendship2.save!
+
+friendship3 = Friendship.new
+friendship3.status = "true"
+friendship3.sender = users[1]
+friendship3.recipient = users[2]
+friendship3.save!
+
+friendship4 = Friendship.new
+friendship4.status = "true"
+friendship4.sender = users[1]
+friendship4.recipient = users[-1]
+friendship4.save!
+
+friendship5 = Friendship.new
+friendship5.status = "true"
+friendship5.sender = users[1]
+friendship5.recipient = users[-2]
+friendship5.save!
+
+friendship6 = Friendship.new
+friendship6.status = "true"
+friendship6.sender = users[1]
+friendship6.recipient = users[-3]
+friendship6.save!
+
+
 puts "Creating sessions..."
 Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-20 17:00:00", user: users[0], body_area: bodyareas[1] }

@@ -10,6 +10,10 @@ class SessionsController < ApplicationController
 
   def new
     @session = Session.new
+    @friendships = Friendship.where(status: "true") && (Friendship.where(sender_id: current_user.id) || Friendship.where(recipient_id: current_user.id))
+    @friends = @friendships.map do |friendship|
+      friendship.sender_id == current_user ? friendship.sender_id : friendship.recipient_id
+    end
   end
 
   def show
@@ -35,7 +39,7 @@ class SessionsController < ApplicationController
   def fetch
     @user = User.find(params[:user])
     @date = Date.parse(params[:date])
-    
+
     @last_sessions = @user.sessions.where(date: @date.beginning_of_day..@date.end_of_day)
     render json: { html: render_to_string(partial: 'shared/card_prev_session')}
   end
