@@ -98,7 +98,7 @@
   .calendrier {
     height: 500px;
   }
-  
+
 
   &:hover {
     transform: scale(1.02);
@@ -111,6 +111,7 @@
     width: 33%;
     background-size: cover;
     background-position: center;
+    background-image: image-url('body_area/general.jpg');
   }
 
     .gradiant-white {
@@ -132,7 +133,6 @@
     }
   }
 
-  } 
 
 
   // Middle
@@ -177,7 +177,7 @@
     padding-left: 10px;
     padding-top: 7px;
   }
-  .cercle-violet {
+  .cercle-violet-calendrier {
     position: absolute;
     bottom: 15px;
     right: 20px;
@@ -186,8 +186,6 @@
     border-radius: 50px;
     background: linear-gradient(45deg, #B67CFF 0%, #7100FF 100%);
   }
-}
-// ==========
 
 // BODY-AREA =====
 .card-body-area {
