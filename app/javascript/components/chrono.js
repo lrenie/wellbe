@@ -106,7 +106,7 @@ const endGlobalTimer = () => {
   periodElements.forEach(stopCSSAnimation);
   totalElements.forEach(stopCSSAnimation);
 
-  clockText.innerText = "Exercice terminé !";
+  clockText.innerText = "Session terminée";
   clockSubtitle.style.display = "none";
 
   cancelAnimationFrame(tick);
