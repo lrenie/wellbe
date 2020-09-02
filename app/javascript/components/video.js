@@ -12,6 +12,7 @@ const video = () => {
 
   connect(twilioToken, { name: roomName }).then(room => {
     const { createLocalVideoTrack } = require('twilio-video');
+
     createLocalVideoTrack().then(track => {
       const localMediaContainer = document.getElementById('local-media');
       localMediaContainer.appendChild(track.attach());
@@ -41,13 +42,13 @@ const video = () => {
       });
 
     });
-    room.on('disconnected', room => {
-      // Detach the local media elements
-      room.localParticipant.tracks.forEach(publication => {
-        const attachedElements = publication.track.detach();
-        attachedElements.forEach(element => element.remove());
-      });
-    });
+    // room.on('disconnected', room => {
+    //   // Detach the local media elements
+    //   room.localParticipant.tracks.forEach(publication => {
+    //     const attachedElements = publication.track.detach();
+    //     attachedElements.forEach(element => element.remove());
+    //   });
+    // });
   },
     error => {
     console.error(`Unable to connect to Room: ${error.message}`);
