@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = current_user.sessions.order(:date).last(3)
+    @last_sessions = Session.where(user_id: current_user.id).order(:date).last(3)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -16,11 +16,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  def create
+  end
+
   def show
     @session = Session.find(params[:id])
     @times = []
     @names = []
-
+    
+  
     exercises = @session.exercises.all
     @names = exercises.flat_map { |exo| [exo.name, "Repos"] }.tap(&:pop)
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
@@ -34,6 +38,17 @@ class SessionsController < ApplicationController
     #       @times << 10
     #     end
     #   end
+
+    @fake_session = Session.new
+    @fake_session.difficulty = "intermédiaire"
+    @fake_session.mode = "multi"
+    @fake_session.video = "true"
+    @fake_session.total_time = 1
+    @fake_session.date = "2020-09-04 17:00:00"
+    @fake_session.user_id = 2
+    @fake_session.body_area_id = BodyArea.first.id
+    @fake_session.session_participant_ids = [1, 2, 3, 4]
+    @fake_session.save!
   end
 
   def fetch
