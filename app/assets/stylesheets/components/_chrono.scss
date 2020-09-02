@@ -40,7 +40,7 @@
 }
 
 .timer .half-circle span {
-  border: 50px solid rgba(0, 255, 255, .4);
+  border: 50px solid #B67CFF;
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-radius: 50%;
@@ -71,7 +71,7 @@
 }
 
 .timer.total {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(182, 124, 255,0.5) ;
   height:280px;
   left: 0;
   width: 280px;
@@ -79,8 +79,8 @@
 }
 
 .timer.total .half-circle span {
-  border-top-color: rgba(255, 0, 255, .4);
-  border-right-color: rgba(255, 0, 255, .4);
+  border-top-color: #7100FF;
+  border-right-color: #7100FF;
   border-width: 140px;
 }
 
@@ -100,8 +100,8 @@
 }
 
 .timer.period .half-circle span {
-  border-top-color: rgba(0, 255, 255, .4);
-  border-right-color: rgba(0, 255, 255, .4);
+  border-top-color: $secondary;
+  border-right-color: $secondary;
   border-width: 115px;
 }
 
