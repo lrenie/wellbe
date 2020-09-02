@@ -49,7 +49,7 @@ document.addEventListener('turbolinks:load', () => {
   if (document.querySelector('#go')){
     document.querySelector('#go').addEventListener('click', e => {
       document.querySelector('#init').classList.remove('d-none')
-      e.currentTarget.classList.add('d-none')
+      e.currentTarget.style.opacity = "0";
       timeOfChrono();
     })
   }
