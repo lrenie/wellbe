@@ -34,6 +34,16 @@
     width: 60px;
     height: 60px;
     border-radius: 50px;
+    .aboslute{
+      position: relative
+    }
+    i {
+      position: absolute;
+      left: 55%;
+      transform:translate(-50%, 55%);
+      color: $secondary;
+      font-size: 25px;
+    }
   }
 
     .border-bleu {

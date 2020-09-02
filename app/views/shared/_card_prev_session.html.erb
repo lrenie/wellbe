@@ -3,7 +3,13 @@
   <div class="p-r-40">
 
     <div class="card-prev-session flex-b-c position-relative mr-4">
-      <div class="photo">
+      <% if session.body_area.name == "général" %>
+        <div class="photo general">
+      <% elsif session.body_area.name == "haut du corps"%>
+        <div class="photo hdc b-p-x">
+      <% else %>
+        <div class="photo bdc">
+      <% end %>
         <div class="gradiant-white"></div>
       </div>
       <div class="content stretch">
