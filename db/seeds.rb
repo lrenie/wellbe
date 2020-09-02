@@ -169,9 +169,14 @@ Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 12
 Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-08-29 19:30:00", user: users[1], body_area: bodyareas[2] }
+Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-07-15 19:30:00", user: users[1], body_area: bodyareas[2] }
+Session7 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 12, date: "2020-08-03 19:30:00", user: users[1], body_area: bodyareas[2] }
+Session8 = { difficulty: "confirmé", mode: "multi", video: "true", total_time: 5, date: "2020-07-18 19:30:00", user: users[1], body_area: bodyareas[2] }
+Session9 = { difficulty: "intermédiaire", mode: "solo", video: "false", total_time: 36, date: "2020-08-30 19:30:00", user: users[1], body_area: bodyareas[1] }
+Session10 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 40, date: "2020-09-02 19:30:00", user: users[1], body_area: bodyareas[0] }
+
 sessions = []
-[Session1, Session2, Session3, Session4, Session5, Session6].each_with_index do |attributes, index|
+[Session1, Session2, Session3, Session4, Session5, Session6, Session7, Session8, Session9, Session10].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
  sessions << current_session
 end
@@ -183,8 +188,13 @@ Session_participant2 = { user: users[1], session: sessions[0], favorite_status: 
 Session_participant3 = { user: users[0], session: sessions[1], favorite_status: true }
 Session_participant4 = { user: users[1], session: sessions[1], favorite_status: false }
 Session_participant5 = { user: users[0], session: sessions[2], favorite_status: false}
+Session_participant6 = { user: users[1], session: sessions[5], favorite_status: false}
+Session_participant7 = { user: users[1], session: sessions[6], favorite_status: false}
+Session_participant8 = { user: users[1], session: sessions[7], favorite_status: false}
+Session_participant9 = { user: users[1], session: sessions[8], favorite_status: false}
+Session_participant10 = { user: users[1], session: sessions[9], favorite_status: false}
 session_participants = []
-[Session_participant1, Session_participant2, Session_participant3, Session_participant4, Session_participant5].each_with_index do |attributes, index|
+[Session_participant1, Session_participant2, Session_participant3, Session_participant4, Session_participant5, Session_participant6, Session_participant7, Session_participant8, Session_participant9, Session_participant10 ,Session_participant5].each_with_index do |attributes, index|
     current_session_participant = SessionParticipant.create!(attributes)
     session_participants << current_session_participant
 end

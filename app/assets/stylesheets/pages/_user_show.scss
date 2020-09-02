@@ -97,9 +97,37 @@
   color: $primary;
 }
 
-.choucroute {
-  background-color: red;
+.flatpickr-calendar {
+  font-family: Nunito;
 }
+
+.flatpickr-day.today {
+  border-color: #B67CFF;
+  color: #B67CFF;
+  &:hover {
+    background-color: #B67CFF;
+    color: $blanc;
+    border-color: none;
+  }
+}
+
+.choucroute {
+  border: 1px solid $secondary;
+  color: $secondary;
+  &:hover {
+    background-color: $secondary;
+    color: $blanc;
+  }
+}
+
+  .flatpickr-day.selected {
+    background: linear-gradient(45deg, #B67CFF 0%, #7100FF 100%);
+    color: $blanc;
+    border: none;
+    &:hover {
+      background: linear-gradient(45deg, #B67CFF 0%, #7100FF 100%);
+    }
+  }
 
 #session-form-div > label {
   display: none;

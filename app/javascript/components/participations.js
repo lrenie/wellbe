@@ -8,7 +8,7 @@ const addFriendsParticipants = () => {
 
     btn_partcip.addEventListener("click", (event) => {
       if (btn_partcip.classList.contains('btn-invite')) {
-        btn_partcip.innerHTML = "Inviter à rejoindre";
+        btn_partcip.innerHTML = "Inviter";
         btn_partcip.classList.remove('btn-invite')
 
         const firstAvaiableSlot = document.querySelector(".participations .photo-invite");
@@ -18,6 +18,7 @@ const addFriendsParticipants = () => {
         // invitation_cards.classList.add('card-invite')
         firstAvaiableSlot.style = ""
         firstAvaiableSlot.classList.add('border-bleu');
+        firstAvaiableSlot.innerHTML = "<div class='aboslute'><i class='fas fa-user-plus'></i></div>";
 
       } else {
         btn_partcip.innerHTML = "Invité";
@@ -30,6 +31,7 @@ const addFriendsParticipants = () => {
         // invitation_cards.classList.add('card-invite')
         firstAvaiableSlot.style = `background-image: url('${user_avatar_url}')`
         firstAvaiableSlot.classList.remove('border-bleu');
+        firstAvaiableSlot.innerHTML = "";
       }
     });
   });
