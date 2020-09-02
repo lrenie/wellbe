@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @param = params[:param]
     if @user == current_user
       @time = 0
       @kcal = 0
@@ -14,10 +15,10 @@ class UsersController < ApplicationController
 
     session_participants = SessionParticipant.where(user: current_user, favorite_status: true)
     @sessions = session_participants.map {|s| s.session}
-      @session = Session.new
-      @sessions_dates = @user.sessions
-                             .map { |session| session.date }
-                             .uniq
+    @session = Session.new
+    @sessions_dates = @user.sessions
+                           .map { |session| session.date }
+                           .uniq
 
         end
 

@@ -165,7 +165,7 @@ end
 
 puts "Creating sessions..."
 Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-21 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 1200, date: "2020-08-30 17:00:00", user: users[0], body_area: bodyareas[1] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 120, date: "2020-08-30 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0], body_area: bodyareas[0] }

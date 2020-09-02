@@ -1,18 +1,43 @@
-<div class="d-flex flex-wrap flex-row justify-content-between align-items-center">
+<div class="d-flex align-items-center o-x-s">
   <% sessions.each do |session| %>
+  <div class="p-r-40">
+
     <div class="card-prev-session flex-b-c position-relative mr-4">
       <div class="photo">
         <div class="gradiant-white"></div>
       </div>
       <div class="content stretch">
         <div>
-          <h4>Type d'exo</h4>
-          <p><%= session.total_time%> min | lun 4 aoû</p>
-          <div class="flex-b-c width-100">
-            <div class="level-bar"></div>
-            <div class="level-bar"></div>
-            <div class="level-bar"></div>
-            <div class="level-bar"></div>
+          <h4><%= session.body_area.name.capitalize %></h4>
+          <div class="flex-b-c">
+            <i class="far fa-clock"></i>
+            <p class="flex-g-1 p-l-5"><%= session.total_time%> min | lun 4 aoû</p>
+          </div>
+          <div class="flex-b-c w-100-px">
+            <i class="fas fa-fire-alt"></i>
+            <div class="flex-b-c flex-g-1 p-l-8">
+              <% if session.difficulty == "débutant" %>
+                <div class="level-bar active"></div>
+                <div class="level-bar"></div>
+                <div class="level-bar"></div>
+                <div class="level-bar"></div>
+              <% elsif session.difficulty == "intermédiaire" %>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+                <div class="level-bar"></div>
+                <div class="level-bar"></div>
+              <% elsif session.difficulty == "avancé" %>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+                <div class="level-bar"></div>
+              <% else %>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+                <div class="level-bar active"></div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -29,10 +54,13 @@
             <% end %>
           <% end %>
         </div>
-        <div class="cercle-violet-calendrier">
-          <i class="fas fa-play"></i>
+        <div class="cercle-violet-play">
+          <div class="posit-relat">
+            <i class="fas fa-play"></i>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   <% end %>
 </div>

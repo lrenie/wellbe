@@ -3,13 +3,13 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
-// External libraries
+// // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr.min.css";
 
-// Your CSS partials
+// // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
@@ -112,9 +112,25 @@ p {
   padding-left: 40px;
 }
 
+.p-l-5 {
+  padding-left: 5px;
+}
+
+.p-l-8 {
+  padding-left: 8px;
+}
+
+.p-r-40 {
+  padding-right: 40px;
+}
+
 // MARGIN =====
 .m-t-40 {
   margin-top: 40px;
+}
+
+.m-t-15 {
+  margin-top: 15px;
 }
 
 .m-t-20 {
@@ -129,9 +145,17 @@ p {
   margin-right: 10px;
 }
 
+.m-b-40 {
+  margin-bottom: 40px;
+}
+
 // WIDTH =====
 .width-100 {
   width: 100%;
+}
+
+.w-100-px {
+  width: 100px;
 }
 
 // FLEX =====
@@ -158,8 +182,11 @@ p {
 }
 
 // DECORATION =====
-.d-none {
+.deco-none {
   text-decoration: none;
+  :hover {
+    text-decoration: none;
+  }
 }
 
 // OVERFLOW HIDDEN =====
@@ -178,4 +205,14 @@ p {
 
 .z-i-3 {
   z-index: 3;
+}
+
+// POSITION =====
+.posit-relat {
+  position: relative;
+}
+
+// OVERFLOW =====
+.o-x-s {
+  overflow-x: scroll;
 }

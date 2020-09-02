@@ -52,5 +52,3 @@ class User < ApplicationRecord
     self.twilio_token
   end
 end
-
-

@@ -9,10 +9,8 @@ const video = () => {
 
   const twilioToken = document.getElementById('local-media').dataset.twilioToken;
   const roomName = document.getElementById('local-media').dataset.roomName;
-  connect(twilioToken, { name: roomName }).then(room => {
 
-    console.log(`Successfully joined a Room: ${room}`);
-    console.log(roomName)
+  connect(twilioToken, { name: roomName }).then(room => {
     const { createLocalVideoTrack } = require('twilio-video');
 
     createLocalVideoTrack().then(track => {
@@ -20,26 +18,35 @@ const video = () => {
       localMediaContainer.appendChild(track.attach());
     });
 
-    const localParticipant = room.localParticipant;
-
-    console.log(`Connected to the Room as LocalParticipant "${localParticipant.identity}"`);
-
     room.on('participantConnected', participant => {
-      console.log(`A remote Participant connected: ${participant}`);
+      participant.tracks.forEach(publication => {
+        if (publication.track) {
+          document.getElementById('local-media').appendChild(publication.track.attach());
+        }
+      });
+      participant.on('trackSubscribed', track => {
+        document.getElementById('local-media').appendChild(track.attach());
+      });
     });
 
     room.participants.forEach(participant => {
       participant.tracks.forEach(publication => {
         if (publication.track) {
-          document.getElementById('remote-media-div').appendChild(publication.track.attach());
+          document.getElementById('local-media').appendChild(publication.track.attach());
         }
       });
-
-     participant.on('trackSubscribed', track => {
-        document.getElementById('remote-media-div').appendChild(track.attach());
+      participant.on('trackSubscribed', track => {
+        document.getElementById('local-media').appendChild(track.attach());
       });
-    });
 
+    });
+    // room.on('disconnected', room => {
+    //   // Detach the local media elements
+    //   room.localParticipant.tracks.forEach(publication => {
+    //     const attachedElements = publication.track.detach();
+    //     attachedElements.forEach(element => element.remove());
+    //   });
+    // });
   },
     error => {
     console.error(`Unable to connect to Room: ${error.message}`);

@@ -22,45 +22,60 @@
   <div class="list-user-profil">
     <ul class="nav nav-tabs flex-b-c" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">STATISTIQUES</a>
+        <a class="nav-link <%= "active" unless @param %> " id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">STATISTIQUES</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link " id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="calendar" aria-selected="true">CALENDRIER</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link " id="sessions-tab" data-toggle="tab" href="#sessions" role="tab" aria-controls="sessions" aria-selected="true">SESSIONS FAVORITES</a>
+        <a class="nav-link <%= "active" if @param %>" id="sessions-tab" data-toggle="tab" href="#sessions" role="tab" aria-controls="sessions" aria-selected="true">SESSIONS FAVORITES</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link " id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="true">AMIS</a>
       </li>
     </ul>
   </div>
-  <div class="container-s container-white">
+  <div class="container-s container-white m-b-40">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="stat" role="tabpanel" aria-labelledby="stat-tab">
+      <div class="tab-pane fade <%= "show active" unless @param %>" id="stat" role="tabpanel" aria-labelledby="stat-tab">
         <h3 class="roboto">Mes statistiques</h3>
-        <div class="flex-b-c">
+        <div class="flex-b-c m-t-20">
           <div class="stat-card">
-            <p>calories brulées</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @kcal %>
+            <div class="m-t-15">
+              <div>
+                <i class="fas fa-fire-alt"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @kcal %>
+                  </div>
+                </div>
+                <p>calories brulées</p>
               </div>
             </div>
           </div>
           <div class="stat-card">
-            <p>sessions realisées</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @sessions_count %>
+            <div class="m-t-15">
+              <div>
+                <i class="fas fa-heartbeat"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @sessions_count %>
+                  </div>
+                </div>
+                <p>sessions realisées</p>
               </div>
             </div>
           </div>
           <div class="stat-card">
-            <p>temps d'activité/mois</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @time %>
+            <div class="m-t-15">
+              <div>
+                <i class="far fa-clock"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @time %>
+                  </div>
+                </div>
+                <p>temps d'activité/mois</p>
               </div>
             </div>
           </div>
@@ -74,20 +89,21 @@
           <div class="container-calendrier">
             <div class="form-wrapper">
               <div id="session-form-div" data-sessions="<%= @sessions_dates.to_json %>">
-              <%= label_tag :date, "Mes dates d'entrainement" %>
-                  <%= text_field_tag :date, "", id: "date"%>
+                <%= label_tag :date, "Mes dates d'entrainement" %>
+                <%= text_field_tag :date, "", id: "date"%>
               </div>
+            </div>
           </div>
-          <div class="card-session-show-user" data-target="show-sessions.card">
-          </div>
+          <div class="card-session-show-user" data-target="show-sessions.card"></div>
         </div>
       </div>
-      <div class="tab-pane fade" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
+      <div class="tab-pane fade <%= "show active" if @param %>" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
         <h3 class="roboto">Mes sessions favorites</h3>
         <div>
           <%# @sessions.each do |session| %>
             <%= render "shared/card_prev_session", sessions: @sessions%>
           <%# end %>
+          <%# raise %>
         </div>
       </div>
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
