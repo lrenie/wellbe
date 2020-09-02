@@ -2,37 +2,41 @@
 
 <!-- div centrale -->
 <div class="centrale" >
-
-  <div class="chrono-area">
-    <div class="timer-group">
-      <div class="timer total">
-        <div class="half-circle left">
-          <span id="total-left" class="animated"></span>
+  <button id="go" class="btn-1">GO!</button>
+  <div id="init" class="d-none">
+    <div class="chrono-area">
+      <div class="timer-group">
+        <div class="timer total">
+          <div class="half-circle left">
+            <span id="total-left" class="animated"></span>
+          </div>
+          <div class="half-circle right">
+            <span id="total-right" class="animated"></span>
+          </div>
         </div>
-        <div class="half-circle right">
-          <span id="total-right" class="animated"></span>
+        <div class="timer period">
+          <div class="half-circle left">
+            <span id="period-left" class="animated"></span>
+          </div>
+          <div class="half-circle right">
+            <span id="period-right" class="animated"></span>
+          </div>
         </div>
-      </div>
-      <div class="timer period">
-        <div class="half-circle left">
-          <span id="period-left" class="animated"></span>
+        <div class="clock">
+          <h2 id="subtitle">Exercice 1</h2>
+          <p id="clock-text" data-times="<%= @times %>" data-names="<%= @names %>">00:10</p>
         </div>
-        <div class="half-circle right">
-          <span id="period-right" class="animated"></span>
-        </div>
-      </div>
-      <div class="clock">
-        <h2 id="subtitle">Exercice 1</h2>
-        <p id="clock-text" data-times="<%= @times %>" data-names="<%= @names %>">00:10</p>
       </div>
     </div>
-  </div>
 
-  <div class="picto-area">
-    <% @session.exercises.each do |exo| %>
-      <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
-    <% end %>
-    <%= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+    <%= render "shared/pop_up_session" %>
+
+    <div class="picto-area">
+      <% @session.exercises.each do |exo| %>
+        <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
+      <% end %>
+      <%= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+    </div>
   </div>
 
   <div class="zoom-area">
@@ -50,7 +54,4 @@
   </div>
 
 </div>
-
-
-<%= render "shared/pop_up_session" %>
 
