@@ -41,12 +41,17 @@ import { video } from '../components/video';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  timeOfChrono();
+
   updateTextInput();
   innitFlatPicker();
   video();
   addFriendsParticipants();
 
+  document.querySelector('#go').addEventListener('click', e => {
+    document.querySelector('#init').classList.remove('d-none')
+    e.currentTarget.classList.add('d-none')
+    timeOfChrono();
+  })
 });
 
 
