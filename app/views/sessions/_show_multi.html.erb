@@ -2,7 +2,9 @@
 
 <!-- div centrale -->
 <div class="centrale" >
-  <button id="go" class="btn-1">GO!</button>
+  <div class="button-area flex-c-c">
+    <button id="go" class="btn-1">COMMENCER </button>
+  </div>
   <div id="init" class="d-none">
     <div class="chrono-area">
       <div class="timer-group">
@@ -32,25 +34,23 @@
     <%= render "shared/pop_up_session" %>
 
     <div class="picto-area">
-      <% @session.exercises.each do |exo| %>
-        <%= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
+      <% @images.each_with_index do |img, i| %>
+        <% if i.even? %>
+          <%= cl_image_tag img, data: { exercise_name: @names[i] }  %>
+        <% else %>
+            <%= cl_image_tag img, class: "grisage", data: { exercise_name: @names[i] }  %>
+        <% end %>
       <% end %>
-      <%= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+      <%# @session.exercises.each do |exo| %>
+        <%#= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
+      <%# end %>
+      <%#= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
     </div>
   </div>
 
 
   <div class="zoom-area">
     <div id='local-media' data-twilio-token="<%= current_user.read_twilio_token %>" data-room-name="<%= @session.room_name %>">
-    </div>
-  </div>
-
-  <div class="footer-area">
-    <div class="progress">
-      <div class=" progress-value period animated"></div>
-    </div>
-    <div class="progress">
-      <div class="progress-value total animated"></div>
     </div>
   </div>
 

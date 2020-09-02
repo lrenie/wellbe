@@ -44,16 +44,22 @@ const modale = document.querySelector(".bg-gris");
 //////////////////////////////////////////////////
 
 const stopCSSAnimation = (element) => {
-  element.classList.remove("animated");
-  void element.offsetWidth;
+  if (element) {
+    element.classList.remove("animated");
+    void element.offsetWidth;
+  }
 }
 
 const startCSSAnimation = (element) => {
-  element.classList.add("animated");
+  if (element) {
+    element.classList.add("animated");
+  }
 }
 
 const setAnimationDuration = (element, duration) =>{
-  element.style.animationDuration = `${duration}s`;
+  if (element) {
+    element.style.animationDuration = `${duration}s`;
+  }
 }
 // -------------------------------------------------
 //   cache-cache Animation
@@ -145,7 +151,7 @@ const showModal = () => {
 //////////////////////////////////////////////////
 // Main Logic
 //////////////////////////////////////////////////
-
+console.log(totalElements)
 totalElements.forEach((element) => setAnimationDuration(element, totalTime));
 newPeriodTimer();
 

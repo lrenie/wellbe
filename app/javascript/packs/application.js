@@ -46,12 +46,13 @@ document.addEventListener('turbolinks:load', () => {
   innitFlatPicker();
   video();
   addFriendsParticipants();
-
-  document.querySelector('#go').addEventListener('click', e => {
-    document.querySelector('#init').classList.remove('d-none')
-    e.currentTarget.classList.add('d-none')
-    timeOfChrono();
-  })
+  if (document.querySelector('#go')){
+    document.querySelector('#go').addEventListener('click', e => {
+      document.querySelector('#init').classList.remove('d-none')
+      e.currentTarget.style.opacity = "0";
+      timeOfChrono();
+    })
+  }
 });
 
 

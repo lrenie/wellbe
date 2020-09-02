@@ -24,11 +24,13 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
     @times = []
     @names = []
-    
-  
+    @images = []
+
     exercises = @session.exercises.all
     @names = exercises.flat_map { |exo| [exo.name, "Repos"] }.tap(&:pop)
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
+    @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
+
     # @session.session_exercise_ids.each do |id|
     #     @names << Exercise.find(id).name
     #     if Exercise.find(id).id != @session.session_exercise_ids.last
