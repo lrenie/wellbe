@@ -4,16 +4,16 @@
       <%= image_tag "wellbe-police.png", class: "logo" %>
     <% end %>
     <div class="icone">
-      <%= link_to current_user do %>
+      <%= link_to current_user, style: "text-decoration: none" do %>
         <% if current_user%>
-        <div class="flex-b-c">
-          <div class="avatar-navbar">
-            <%= current_user.first_name %>
+          <div class="flex-b-c">
+            <div class="avatar-navbar">
+              <%= current_user.first_name %>
+            </div>
+            <%= cl_image_tag current_user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
           </div>
-          <%= cl_image_tag current_user.avatar.key, :width=>40, :height=>40, :radius=>"max", crop: :thumb %>
-        </div>
         <% else %>
-        <% cl_image_tag "lourd.jpg" %>
+          <% cl_image_tag "lourd.jpg" %>
         <% end %>
       <% end %>
       <%= link_to users_path do %>

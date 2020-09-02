@@ -87,7 +87,7 @@
 .card-prev-session {
   position: absolute;
   height: 100px;
-  width: 280px;
+  width: 350px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
@@ -142,12 +142,20 @@
       font-size: 13px;
       padding-top: 5px;
     }
+    i {
+      color: $secondary;
+      font-size: 14px;
+    }
+
     .level-bar {
       margin-top: 5px;
       height: 4px;
-      width: 20px;
+      width: 15px;
       border-radius: 50px;
       background-color: $grisclair;
+    }
+    .active {
+      background-color: #B67CFF;
     }
   }
 
@@ -168,11 +176,25 @@
     color: $grisclair;
   }
   .fa-play {
+    position: absolute;
+    top: 5px;
+    right: 4.5px;
     color: white;
-    width: 10px;
-    padding-left: 10px;
-    padding-top: 7px;
+    font-size: 10px;
+    // padding-left: 10px;
+    // padding-top: 7px;
   }
+  .cercle-violet-play {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #B67CFF 0%, #7100FF 100%);
+
+  }
+
   .cercle-violet-calendrier {
     position: absolute;
     bottom: 15px;
