@@ -36,9 +36,9 @@
     border-radius: 50px;
   }
 
-    .border-bleu {
-      border: 1px solid $secondary;
-    }
+  .border-bleu {
+    border: 1px solid $secondary;
+  }
 
   .frinds-container {
     border-radius: 15px;
@@ -83,6 +83,7 @@
     width: 25px;
     color: $grisfonce;
     background-color: #dee2e6;
+    font-size: larger;
   }
 
   .session-level {

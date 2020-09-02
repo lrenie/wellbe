@@ -17,17 +17,17 @@ class UsersController < ApplicationController
     @sessions = session_participants.map {|s| s.session}
     @session = Session.new
     @sessions_dates = @user.sessions
-                           .map { |session| session.date }
-                           .uniq
+    .map { |session| session.date }
+    .uniq
 
-        end
+  end
 
   def index
     if params[:requete].present?
       sql_requete = " \
-              users.first_name @@ :requete \
-              OR users.last_name @@ :requete \
-            "
+      users.first_name @@ :requete \
+      OR users.last_name @@ :requete \
+      "
       @users = User.where(sql_requete, requete: "%#{params[:requete]}%")
     else
       @users = User.all

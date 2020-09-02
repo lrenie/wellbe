@@ -16,7 +16,7 @@ const addFriendsParticipants = () => {
         firstAvaiableSlot.classList.add("slot-available")
         firstAvaiableSlot.classList.remove('photo-invite')
         // invitation_cards.classList.add('card-invite')
-        firstAvaiableSlot.style = ""
+        fir     stAvaiableSlot.style = ""
         firstAvaiableSlot.classList.add('border-bleu');
 
       } else {
