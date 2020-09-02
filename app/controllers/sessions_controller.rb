@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def show
+    
     @session = Session.find(params[:id])
     @times = []
     @names = []
