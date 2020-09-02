@@ -37,10 +37,10 @@
 
 
 <!-- code pour afficher le zoom  -->
-<%# <div id='local-media' data-twilio-token="<%= current_user.twilio_token" data-room-name="<%= @session.room_name %>
-<%# </div>
-#<div id= 'remote-media-div'>
-#</div> %>
+<div id='local-media' data-twilio-token="<%= current_user.twilio_token %>" data-room-name="<%= @session.room_name %>">
+</div>
+<div id= 'remote-media-div'>
+</div> %>
 
   <div class="zoom-area" id="remote-media-div">
       <%#= image_tag "session-show/zoom1.jpg", alt: "alttext" %>
@@ -48,7 +48,7 @@
       <%#= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
       <%#= image_tag "session-show/zoom2.jpg", alt: "alttext" %>
   </div>
-  
+
   <div class="footer-area">
     <div class="progress">
       <div class=" progress-value period animated"></div>
