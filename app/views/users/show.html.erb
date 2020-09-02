@@ -35,32 +35,47 @@
       </li>
     </ul>
   </div>
-  <div class="container-s container-white">
+  <div class="container-s container-white m-b-40">
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="stat" role="tabpanel" aria-labelledby="stat-tab">
         <h3 class="roboto">Mes statistiques</h3>
-        <div class="flex-b-c">
+        <div class="flex-b-c m-t-20">
           <div class="stat-card">
-            <p>calories brulées</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @kcal %>
+            <div class="m-t-15">
+              <div>
+                <i class="fas fa-fire-alt"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @kcal %>
+                  </div>
+                </div>
+                <p>calories brulées</p>
               </div>
             </div>
           </div>
           <div class="stat-card">
-            <p>sessions realisées</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @sessions_count %>
+            <div class="m-t-15">
+              <div>
+                <i class="fas fa-heartbeat"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @sessions_count %>
+                  </div>
+                </div>
+                <p>sessions realisées</p>
               </div>
             </div>
           </div>
           <div class="stat-card">
-            <p>temps d'activité/mois</p>
-            <div class="stat-card-num ">
-              <div class="cercle-violet flex-c-c">
-                <%= @time %>
+            <div class="m-t-15">
+              <div>
+                <i class="far fa-clock"></i>
+                <div class="stat-card-num ">
+                  <div class="flex-c-c">
+                    <%= @time %>
+                  </div>
+                </div>
+                <p>temps d'activité/mois</p>
               </div>
             </div>
           </div>
