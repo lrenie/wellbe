@@ -18,27 +18,25 @@ const video = () => {
       localMediaContainer.appendChild(track.attach());
     });
 
-    // const localParticipant = room.localParticipant;
-
     room.on('participantConnected', participant => {
       participant.tracks.forEach(publication => {
         if (publication.track) {
-          document.getElementById('remote-media-div').appendChild(publication.track.attach());
+          document.getElementById('local-media').appendChild(publication.track.attach());
         }
       });
       participant.on('trackSubscribed', track => {
-        document.getElementById('remote-media-div').appendChild(track.attach());
+        document.getElementById('local-media').appendChild(track.attach());
       });
     });
 
     room.participants.forEach(participant => {
       participant.tracks.forEach(publication => {
         if (publication.track) {
-          document.getElementById('remote-media-div').appendChild(publication.track.attach());
+          document.getElementById('local-media').appendChild(publication.track.attach());
         }
       });
       participant.on('trackSubscribed', track => {
-        document.getElementById('remote-media-div').appendChild(track.attach());
+        document.getElementById('local-media').appendChild(track.attach());
       });
 
     });
