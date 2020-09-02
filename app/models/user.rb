@@ -46,4 +46,9 @@ class User < ApplicationRecord
     self.twilio_expire = Time.now.utc + 3000
     self.save
   end
+
+  def read_twilio_token
+    regenerate_twilio_token if twilio_token.nil? || Time.now.utc > twilio_expire
+    self.twilio_token
+  end
 end

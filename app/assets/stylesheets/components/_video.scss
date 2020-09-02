@@ -1,0 +1,12 @@
+#local-media {
+  display: flex;
+  flex-wrap: wrap;
+    background: black;
+
+  video {
+    height: calc(50vh - 45px);
+    width: 50%;
+    object-fit: cover;
+  }
+}
+

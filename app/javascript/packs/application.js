@@ -30,9 +30,10 @@ import { addFriendsParticipants } from '../components/participations';
 import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
+import { video } from '../components/video';
 
 
-import { connect } from 'twilio-video';
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   timeOfChrono();
   updateTextInput();
   innitFlatPicker();
+  video();
   addFriendsParticipants();
 
 });
