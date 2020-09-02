@@ -140,7 +140,7 @@
     }
     p {
       font-size: 13px;
-      padding-top: 5px;
+      //padding-top: 5px;
     }
     i {
       color: $secondary;
@@ -215,6 +215,8 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   cursor: pointer;
+  text-align: center;
+  border: 2px solid white;
   &:hover {
     border: 2px solid #B67CFF;
     p {
