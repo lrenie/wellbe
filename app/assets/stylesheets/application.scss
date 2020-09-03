@@ -149,6 +149,10 @@ p {
   margin-bottom: 40px;
 }
 
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
 // WIDTH =====
 .width-100 {
   width: 100%;
@@ -179,6 +183,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 // DECORATION =====
