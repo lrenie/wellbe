@@ -127,6 +127,9 @@ const endGlobalTimer = () => {
 
   cancelAnimationFrame(tick);
   setTimeout(showElement(modale), 4000);
+
+  const quitter = document.getElementById("quitter-session");
+  showElement(quitter);
   console.log("ok le js est en cours");
   showModal();
 }

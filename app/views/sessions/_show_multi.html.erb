@@ -38,6 +38,7 @@
         <% @images.each_with_index do |img, i| %>
           <%= cl_image_tag img, data: { exercise_name: @names[i] } %>
         <% end %>
+        <%= link_to "QUITTER LA SESSION", sessions_choice_path, id: "quitter-session", class: "btn-2 d-none"  %>
       </div>
     </div>
   </div>

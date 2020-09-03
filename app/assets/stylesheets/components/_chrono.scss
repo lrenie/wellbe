@@ -116,7 +116,7 @@
   border-radius: 50%;
   height: 176px;
   left: 52px;
-  padding: 45px 40px 0;
+  padding-top: 45px;
   position: absolute;
   width: 176px;
   text-align: center;
@@ -139,6 +139,14 @@
   left: 20px;
   color: white;
 
+}
+
+#clock-text{
+  text-align: center;
+}
+
+#subtitle{
+  text-align: center;
 }
 
 .progress {
