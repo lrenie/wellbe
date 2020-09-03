@@ -36,8 +36,12 @@
     padding: 0px 0px 10px 30px;
     font-family: Nunito;
   }
+  i{
+    padding-left: 30px;
+    color: $noir;
+    font-size: 12px;
+  }
   p {
-    padding: 0px 0px 0px 30px;
     font-weight: bold;
     font-size: 12px;
     display: inline-flex;
@@ -111,15 +115,6 @@
     width: 33%;
     background-size: cover;
     background-position: center;
-    .general {
-      background-image: image-url('body_area/general.jpg');
-    }
-    .hdc {
-      background-image: image-url('body_area/haut_du_corps.jpg');
-    }
-    .bdc {
-      background-image: image-url('body_area/bas_du_corps.jpg');
-    }
   }
   .b-p-x {
     background-position-x: -50px;
@@ -340,5 +335,48 @@
     font-size: 28.43px;
     text-align: center;
     font-family: nunito;
+  }
+}
+
+// AMIS =====
+
+.card-amis {
+  position: relative;
+  border-radius: 15px;
+  width: 350px;
+  height: 100px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #D0D0D0;
+  transition: transform .3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: transform .3s ease;
+  }
+
+  p {
+    margin-top: -5px;
+    margin-left: 10px;
+  }
+
+  img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $noir;
+    &:hover {
+      color: $noir;
+    }
   }
 }

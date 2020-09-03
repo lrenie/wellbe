@@ -137,7 +137,27 @@
   display: none;
 }
 
+.nav-tabs .nav-link.active {
+  color: #B67CFF;
+  border: 2px solid;
+  border-color: #B67CFF transparent transparent;
+  &:hover {
+    border-color: #B67CFF transparent transparent;
+  }
+}
 
+.nav-tabs {
+  border-bottom: none;
+  border-top: 2px solid #d0d0d0;
+}
+
+.nav-tabs .nav-item {
+    margin-top: -2px;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: transparent;
+}
 
 
 

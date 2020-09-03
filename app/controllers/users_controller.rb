@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     @param = params[:param]
@@ -20,6 +19,10 @@ class UsersController < ApplicationController
     .map { |session| session.date }
     .uniq
 
+    @friendships = (Friendship.where(status: "true") && Friendship.where(recipient_id: current_user.id)) || (Friendship.where(status: "true") && Friendship.where(sender_id: current_user.id))
+    @friends = @friendships.map do |friendship|
+      friendship.sender_id == current_user ? friendship.recipient_id : friendship.sender_id
+    end
   end
 
   def index

@@ -1,8 +1,8 @@
-<div class="d-flex align-items-center o-x-s">
+<div class="d-flex align-items-center flex-wrap">
   <% sessions.each do |session| %>
-  <div class="p-r-40">
+  <div>
 
-    <div class="card-prev-session flex-b-c position-relative mr-4">
+    <div class="card-prev-session flex-b-c position-relative m-r-10 m-b-20">
       <% if session.body_area.name == "général" %>
         <div class="photo gen">
       <% elsif session.body_area.name == "haut du corps"%>
