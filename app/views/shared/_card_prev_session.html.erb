@@ -17,7 +17,7 @@
           <h4><%= session.body_area.name.capitalize %></h4>
           <div class="flex-b-c">
             <i class="far fa-clock"></i>
-            <p class="flex-g-1 p-l-5"><%= session.total_time%> min | lun 4 aoû</p>
+            <p class="flex-g-1 p-l-5"><%= session.total_time %> min | <%= translate_date(session.date) %></p>
           </div>
           <div class="flex-b-c w-100-px">
             <i class="fas fa-fire-alt"></i>

@@ -99,10 +99,7 @@
       <div class="tab-pane fade <%= "show active" if @param %>" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
         <h3 class="roboto">Mes sessions favorites</h3>
         <div class="m-t-20">
-          <%# @sessions.each do |session| %>
             <%= render "shared/card_prev_session_show_user", sessions: @sessions%>
-          <%# end %>
-          <%# raise %>
         </div>
       </div>
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
