@@ -39,18 +39,18 @@ class SessionsController < ApplicationController
     #     if Exercise.find(id).id != @session.session_exercise_ids.last
     #       @times << 10
     #     end
-    #   end
+    # #   end
 
-    @fake_session = Session.new
-    @fake_session.difficulty = "intermédiaire"
-    @fake_session.mode = "multi"
-    @fake_session.video = "true"
-    @fake_session.total_time = 1
-    @fake_session.date = "2020-09-04 17:00:00"
-    @fake_session.user_id = 2
-    @fake_session.body_area_id = BodyArea.first.id
-    @fake_session.session_participant_ids = [1, 2, 3, 4]
-    @fake_session.save!
+    # @fake_session = Session.new
+    # @fake_session.difficulty = "intermédiaire"
+    # @fake_session.mode = "multi"
+    # @fake_session.video = "true"
+    # @fake_session.total_time = 1
+    # @fake_session.date = "2020-09-04 17:00:00"
+    # @fake_session.user_id = 2
+    # @fake_session.body_area_id = BodyArea.first.id
+    # @fake_session.session_participant_ids = [1, 2, 3, 4]
+    # @fake_session.save!
   end
 
   def fetch
