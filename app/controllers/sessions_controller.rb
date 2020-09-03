@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     @fake_session.difficulty = "intermédiaire"
     @fake_session.mode = "multi"
     @fake_session.video = "true"
-    @fake_session.total_time = 1
+    @fake_session.total_time = 25
     @fake_session.date = "2020-09-04 17:00:00"
     @fake_session.user_id = 2
     @fake_session.body_area_id = BodyArea.first.id
