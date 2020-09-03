@@ -38,7 +38,7 @@
   }
   i{
     padding-left: 30px;
-    color: $noir;
+    color: $grisfonce;
     font-size: 12px;
   }
   p {
@@ -233,8 +233,6 @@
   &:hover {
     border: 2px solid #B67CFF;
     p {
-      padding-top: 6px;
-      padding-left: 8px;
       color: #B67CFF;
     }
   }
@@ -381,8 +379,9 @@
   a {
     text-decoration: none;
     color: $noir;
+    font-family: Nunito;
     &:hover {
-      color: $noir;
+      color: $secondary;
     }
   }
 }

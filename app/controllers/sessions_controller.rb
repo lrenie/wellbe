@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = Session.where(user_id: current_user.id).order(:date)
+    @last_sessions = Session.where(user_id: current_user.id).order(date: :desc)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def show
-    
+
     @session = Session.find(params[:id])
 
     @times = []
@@ -45,11 +45,11 @@ class SessionsController < ApplicationController
     @fake_session.difficulty = "intermédiaire"
     @fake_session.mode = "multi"
     @fake_session.video = "true"
-    @fake_session.total_time = 1
+    @fake_session.total_time = 25
     @fake_session.date = "2020-09-04 17:00:00"
     @fake_session.user_id = 2
     @fake_session.body_area_id = BodyArea.first.id
-    @fake_session.session_participant_ids = [current_user.id, 2, 3, 4]
+    @fake_session.session_participant_ids = [45, 46, 47, 48]
     @fake_session.save!
   end
 
