@@ -79,7 +79,7 @@ users = []
 
 photos = [
 "https://image-uniservice.linternaute.com/image/450/3/1975856345/7796816.jpg",
-"https://avatars1.githubusercontent.com/u/67097112?s=64&v=4.jpg",
+"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
 "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
 "https://res.cloudinary.com/drk3m3rkb/image/upload/v1598952328/IMG-20200822-WA0016_sip8dx.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
@@ -87,7 +87,7 @@ photos = [
 ]
 covers = [
   "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
-  "https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
+  "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg",
   "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
   "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
   "https://image.jeuxvideo.com/medias-md/159843/1598426262-7200-card.png",
