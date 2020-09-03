@@ -154,11 +154,12 @@ friendship6.recipient = users[-3]
 friendship6.save!
 
 
-50.times do
+20.times do
   friendship = Friendship.new
   friendship.status = "true"
   friendship.sender = User.all.sample
   friendship.recipient = User.all.sample
+  friendship.save
   puts " friendship n° #{friendship.id} created"
 end
 

@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
     @fake_session.date = "2020-09-04 17:00:00"
     @fake_session.user_id = 2
     @fake_session.body_area_id = BodyArea.first.id
-    @fake_session.session_participant_ids = [1, 2, 3, 4]
+    @fake_session.session_participant_ids = [current_user.id, 2, 3, 4]
     @fake_session.save!
   end
 
