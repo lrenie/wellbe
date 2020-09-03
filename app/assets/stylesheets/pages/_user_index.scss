@@ -53,12 +53,15 @@
 
 .user-list-index{
  display: grid;
- grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr;
  grid-gap: 35px;
 }
 
 .results-search{
-  margin: 55px;
+  margin: 55px 0px;
+  h2 {
+    font-family: Roboto;
+  }
 }
 
 .search-btn {
@@ -92,5 +95,10 @@
       padding-left: 35px;
     }
   }
+}
+
+.search-btn form #requete {
+  background-color: $grisclair;
+  color: $noir;
 }
 
