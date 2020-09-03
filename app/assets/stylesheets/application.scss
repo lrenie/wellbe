@@ -116,12 +116,21 @@ p {
   padding-left: 5px;
 }
 
+.p-l-10 {
+  padding-left: 10px;
+  color: $grisfonce;
+}
+
 .p-l-8 {
   padding-left: 8px;
 }
 
 .p-r-40 {
   padding-right: 40px;
+}
+
+.p-r-20 {
+  padding-right: 20px;
 }
 
 // MARGIN =====
@@ -223,4 +232,8 @@ p {
 // OVERFLOW =====
 .o-x-s {
   overflow-x: scroll;
+}
+
+button {
+  border: none;
 }
