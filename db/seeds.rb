@@ -79,7 +79,7 @@ users = []
 
 photos = [
 "https://image-uniservice.linternaute.com/image/450/3/1975856345/7796816.jpg",
-"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Leon_Renier_par_Piot-Normand.jpg/260px-Leon_Renier_par_Piot-Normand.jpg",
+"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
 "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
 "https://res.cloudinary.com/drk3m3rkb/image/upload/v1598952328/IMG-20200822-WA0016_sip8dx.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
@@ -154,11 +154,12 @@ friendship6.recipient = users[-3]
 friendship6.save!
 
 
-50.times do
+20.times do
   friendship = Friendship.new
   friendship.status = "true"
   friendship.sender = User.all.sample
   friendship.recipient = User.all.sample
+  friendship.save
   puts " friendship n° #{friendship.id} created"
 end
 
