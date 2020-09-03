@@ -32,19 +32,13 @@
     </div>
 
     <%= render "shared/pop_up_session" %>
-    <div id="gif">
-      <div class="picto-area">
+
+    <div>
+      <div class="picto-area flex-col" id="gif">
         <% @images.each_with_index do |img, i| %>
-
           <%= cl_image_tag img, data: { exercise_name: @names[i] } %>
-
         <% end %>
-        <%# @session.exercises.each do |exo| %>
-          <%#= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
-        <%# end %>
-        <%#= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
       </div>
-
     </div>
   </div>
 

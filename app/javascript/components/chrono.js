@@ -91,9 +91,9 @@ const newPeriodTimer = () => {
         element.classList.add('grisage');
         const gif = document.getElementById('gif');
         console.log(gif)
-        gif.insertAdjacentHTML('afterbegin', '<h2 id="next">Prochain exercice</h2>' );
+        gif.insertAdjacentHTML('afterbegin', '<h3 class="next">Prochain exercice</h3>' );
       } else if (element.dataset.exerciseName !== "Repos" ){
-        const next = document.getElementById('next');
+        const next = document.querySelector('.next');
         if(next){
           next.remove();
         }

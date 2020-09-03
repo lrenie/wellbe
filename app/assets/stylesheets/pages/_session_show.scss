@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 152px;
+  padding-top: 100px;
   img {
     width: 80%;
     height: 80%;
@@ -41,10 +41,14 @@
 }
 .zoom-area{
   grid-area: 1 / 2 / 4 / 3;
-  background: lightgray;
+  background: linear-gradient(45deg, #B67CFF 0%, #00DBD8 100%);
 }
 
 .grisage{
   opacity: 0.5;
+}
+
+.next{
+  text-align: center;
 }
 

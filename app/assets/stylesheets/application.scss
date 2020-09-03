@@ -189,6 +189,11 @@ p {
   flex-wrap: wrap;
 }
 
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
 // DECORATION =====
 .deco-none {
   text-decoration: none;
