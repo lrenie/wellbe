@@ -12,13 +12,33 @@ class SessionsController < ApplicationController
     @session = Session.new
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+
+    @fake_session = Session.new
+    @fake_session.difficulty = "intermédiaire"
+    @fake_session.mode = "multi"
+    @fake_session.video = "true"
+    @fake_session.total_time = 25
+    @fake_session.date = "2020-09-04 17:50:50"
+    @fake_session.user_id = 2
+    @fake_session.body_area_id = BodyArea.first.id
+    @fake_session.session_participant_ids = [User.where(first_name: "Eugenie").ids, User.where(first_name: "Loulou").ids, User.where(first_name: "Corentin").ids, User.where(first_name: "Benoit").ids].flatten
+    @fake_session.save!
+
+    @default_session_exercise1 = SessionExercise.new
+    @default_session_exercise1.session = Session.last
+    @default_session_exercise1.exercise = Exercise.second
+    @default_session_exercise1.save!
+    @default_session_exercise2 = SessionExercise.new
+    @default_session_exercise2.session = Session.last
+    @default_session_exercise2.exercise = Exercise.last
+    @default_session_exercise2.save!
+
   end
 
   def create
   end
 
   def show
-
     @session = Session.find(params[:id])
 
     @times = []
@@ -40,17 +60,6 @@ class SessionsController < ApplicationController
     #       @times << 10
     #     end
     #   end
-
-    @fake_session = Session.new
-    @fake_session.difficulty = "intermédiaire"
-    @fake_session.mode = "multi"
-    @fake_session.video = "true"
-    @fake_session.total_time = 25
-    @fake_session.date = "2020-09-04 17:00:00"
-    @fake_session.user_id = 2
-    @fake_session.body_area_id = BodyArea.first.id
-    @fake_session.session_participant_ids = [45, 46, 47, 48]
-    @fake_session.save!
   end
 
   def fetch
