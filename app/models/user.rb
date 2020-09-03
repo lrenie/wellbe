@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :friendships
+  has_many :friendships, class_name: 'Friendship', foreign_key: :sender_id
+  has_many :recieved_friendships, class_name: 'Friendship', foreign_key: :recipient_id
 
   has_many :stats, dependent: :destroy
   has_many :session_participants, dependent: :destroy
   has_many :sessions, through: :session_participants, dependent: :destroy
   has_one_attached :avatar
   has_one_attached :cover
-
 
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -50,5 +50,9 @@ class User < ApplicationRecord
   def read_twilio_token
     regenerate_twilio_token if twilio_token.nil? || Time.now.utc > twilio_expire
     self.twilio_token
+  end
+
+  def all_friendships
+    [self.friendships.accepted, self.recieved_friendships.accepted].flatten
   end
 end
