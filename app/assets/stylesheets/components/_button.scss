@@ -6,6 +6,7 @@
   border-radius: 50px;
   color: white;
   transition: 0.5s;
+  font-family: Nunito;
   &:hover {
     text-decoration: none;
     color: white;
@@ -19,6 +20,7 @@
   border-radius: 50px;
   border: 1.5px solid $secondary;
   color: $secondary;
+  font-family: Nunito;
   &:hover {
     text-decoration: none;
     color: $secondary;

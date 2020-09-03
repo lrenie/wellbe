@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = Session.where(user_id: current_user.id).order(:date)
+    @last_sessions = Session.where(user_id: current_user.id).order(date: :desc)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -12,6 +12,44 @@ class SessionsController < ApplicationController
     @session = Session.new
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+
+    @fake_session = Session.new
+    @fake_session.difficulty = "intermédiaire"
+    @fake_session.mode = "multi"
+    @fake_session.video = "true"
+    @fake_session.total_time = 25
+    @fake_session.date = "2020-09-04 17:50:50"
+    @fake_session.user = User.find_by(first_name: "Loulou")
+    @fake_session.body_area_id = BodyArea.first.id
+    @fake_session.save!
+
+    @fake_session_participant1 = SessionParticipant.new
+    @fake_session_participant1.user = User.find_by(first_name: "Eugenie")
+    @fake_session_participant1.session = @fake_session
+
+    @fake_session_participant2 = SessionParticipant.new
+    @fake_session_participant2.user = User.find_by(first_name: "Loulou")
+    @fake_session_participant2.session = @fake_session
+
+    @fake_session_participant3 = SessionParticipant.new
+    @fake_session_participant3.user = User.find_by(first_name: "Corentin")
+    @fake_session_participant3.session = @fake_session
+
+    @fake_session_participant4 = SessionParticipant.new
+    @fake_session_participant4.user = User.find_by(first_name: "Benoit")
+    @fake_session_participant4.session = @fake_session
+
+    # @fake_session.session_participant_ids = [User.where(first_name: "Eugenie").ids, User.where(first_name: "Loulou").ids, User.where(first_name: "Corentin").ids, User.where(first_name: "Benoit").ids].flatten
+
+    @default_session_exercise1 = SessionExercise.new
+    @default_session_exercise1.session = Session.last
+    @default_session_exercise1.exercise = Exercise.second
+    @default_session_exercise1.save!
+    @default_session_exercise2 = SessionExercise.new
+    @default_session_exercise2.session = Session.last
+    @default_session_exercise2.exercise = Exercise.last
+    @default_session_exercise2.save!
+
   end
 
   def create
@@ -40,17 +78,6 @@ class SessionsController < ApplicationController
     #       @times << 10
     #     end
     #   end
-
-    @fake_session = Session.new
-    @fake_session.difficulty = "intermédiaire"
-    @fake_session.mode = "multi"
-    @fake_session.video = "true"
-    @fake_session.total_time = 1
-    @fake_session.date = "2020-09-04 17:00:00"
-    @fake_session.user_id = 2
-    @fake_session.body_area_id = BodyArea.first.id
-    @fake_session.session_participant_ids = [1, 2, 3, 4]
-    @fake_session.save!
   end
 
   def fetch

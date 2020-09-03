@@ -1,18 +1,19 @@
 <%= render "shared/navbar_global" %>
 
 <div class="container-l">
-
   <h2 class="m-t-40 roboto">Lancez votre session</h2>
+  <div class="cards_session">
+    <%= render "shared/card_multi_session"%>
+    <%= render "shared/card_solo_session"%>
+  </div>
 
-
-    <div class="cards_session">
-      <%= render "shared/card_multi_session"%>
-      <%= render "shared/card_solo_session"%>
-    </div>
-
-    <h2 class="m-t-70 roboto">Mes sessions précédentes</h2>
-
+  <h2 class="m-t-70 roboto">Mes sessions précédentes</h2>
+  <div class="posit-relat">
     <%= render "shared/card_prev_session", sessions: @last_sessions %>
+    <div class="linear-blanc-choice left"></div>
+    <div class="linear-blanc-choice right"></div>
+  </div>
+</div>
 
 <%#     <div class = 'cards-prev-session'>
  %>

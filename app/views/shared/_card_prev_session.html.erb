@@ -1,74 +1,73 @@
 <div class="d-flex align-items-center o-x-s">
   <% sessions.each do |session| %>
-  <div class="p-r-40">
-
-    <div class="card-prev-session flex-b-c position-relative mr-4">
-      <% if session.body_area.name == "général" %>
-        <div class="photo gen">
-      <% elsif session.body_area.name == "haut du corps"%>
-        <div class="photo hdc b-p-x">
-      <% else %>
-        <div class="photo bdc">
-      <% end %>
-        <div class="gradiant-white"></div>
-      </div>
-      <div class="content stretch">
-        <div>
-          <h4><%= session.body_area.name.capitalize %></h4>
-          <div class="flex-b-c">
-            <i class="far fa-clock"></i>
-            <p class="flex-g-1 p-l-5"><%= session.total_time%> min | lun 4 aoû</p>
+    <div class="p-r-20">
+      <div class="card-prev-session flex-b-c position-relative mr-4">
+        <% if session.body_area.name == "général" %>
+          <div class="photo gen">
+        <% elsif session.body_area.name == "haut du corps"%>
+          <div class="photo hdc b-p-x">
+        <% else %>
+          <div class="photo bdc">
+        <% end %>
+          <div class="gradiant-white"></div>
+        </div>
+        <div class="content stretch">
+          <div>
+            <h4><%= session.body_area.name.capitalize %></h4>
+            <div class="flex-b-c">
+              <i class="far fa-clock"></i>
+              <p class="flex-g-1 p-l-5"><%= session.total_time %> min | <%= translate_date(session.date) %></p>
+            </div>
+            <div class="flex-b-c w-100-px m-t-4">
+              <i class="fas fa-fire-alt"></i>
+              <div class="flex-b-c flex-g-1 p-l-8">
+                <% if session.difficulty == "débutant" %>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar"></div>
+                  <div class="level-bar"></div>
+                  <div class="level-bar"></div>
+                <% elsif session.difficulty == "intermédiaire" %>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar"></div>
+                  <div class="level-bar"></div>
+                <% elsif session.difficulty == "avancé" %>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar"></div>
+                <% else %>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                  <div class="level-bar active"></div>
+                <% end %>
+              </div>
+            </div>
           </div>
-          <div class="flex-b-c w-100-px">
-            <i class="fas fa-fire-alt"></i>
-            <div class="flex-b-c flex-g-1 p-l-8">
-              <% if session.difficulty == "débutant" %>
-                <div class="level-bar active"></div>
-                <div class="level-bar"></div>
-                <div class="level-bar"></div>
-                <div class="level-bar"></div>
-              <% elsif session.difficulty == "intermédiaire" %>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
-                <div class="level-bar"></div>
-                <div class="level-bar"></div>
-              <% elsif session.difficulty == "avancé" %>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
-                <div class="level-bar"></div>
-              <% else %>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
-                <div class="level-bar active"></div>
+        </div>
+        <div class="flex-g-1 right-part">
+          <div class="fav">
+          <% unless session.session_participants.empty?%>
+            <%= simple_form_for session.session_participants.find_by(user: current_user), remote: true do |f| %>
+              <%= f.input :favorite_status, value: true, as: :hidden %>
+              <%= f.button :button do %>
+                 <% if session.session_participants.find_by(user: current_user).favorite_status %>
+                  <i class="fas fa-heart fullheart" data-uid="<%= session.id  %>" ></i>
+                 <% else %>
+                  <i class="far fa-heart" data-uid="<%= session.id  %>" ></i>
+                 <% end %>
               <% end %>
+            <% end %>
+            <% end %>
+          </div>
+          <div class="cercle-violet-play">
+            <div class="posit-relat">
+              <i class="fas fa-play"></i>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-g-1 right-part">
-        <div class="fav">
-        <% unless session.session_participants.empty?%>
-          <%= simple_form_for session.session_participants.find_by(user: current_user), remote: true do |f| %>
-            <%= f.input :favorite_status, value: true, as: :hidden %>
-            <%= f.button :button do %>
-               <% if session.session_participants.find_by(user: current_user).favorite_status %>
-                <i class="fas fa-heart fullheart" data-uid="<%= session.id  %>" ></i>
-               <% else %>
-                <i class="far fa-heart" data-uid="<%= session.id  %>" ></i>
-               <% end %>
-            <% end %>
-          <% end %>
-          <% end %>
-        </div>
-        <div class="cercle-violet-play">
-          <div class="posit-relat">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
   <% end %>
 </div>
