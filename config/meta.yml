@@ -1,5 +1,5 @@
 meta_product_name: "Wellbe"
 meta_title: "Wellbe - Le fitness sur mesure entre amis pour se sentir bien dans sa tête."
 meta_description: "Le fitness sur mesure entre amis pour se sentir bien dans sa tête."
-meta_image: "home_page/home_p1.jpg" # should exist in `app/assets/images/`
+meta_image: "home_page/coverPicture.jpg" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
