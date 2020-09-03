@@ -49,6 +49,7 @@
       </div>
       <div class="flex-g-1 right-part">
         <div class="fav">
+        <% unless session.session_participants.empty?%>
           <%= simple_form_for session.session_participants.find_by(user: current_user), remote: true do |f| %>
             <%= f.input :favorite_status, value: true, as: :hidden %>
             <%= f.button :button do %>
@@ -58,6 +59,7 @@
                 <i class="far fa-heart" data-uid="<%= session.id  %>" ></i>
                <% end %>
             <% end %>
+          <% end %>
           <% end %>
         </div>
         <div class="cercle-violet-play">
