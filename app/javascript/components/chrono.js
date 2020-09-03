@@ -44,6 +44,7 @@ const modale = document.querySelector(".bg-gris");
 //////////////////////////////////////////////////
 
 const stopCSSAnimation = (element) => {
+  console.log("stopCSSAnimation ok")
   if (element) {
     element.classList.remove("animated");
     void element.offsetWidth;
@@ -51,12 +52,14 @@ const stopCSSAnimation = (element) => {
 }
 
 const startCSSAnimation = (element) => {
+  console.log("startCSSAnimation ok")
   if (element) {
     element.classList.add("animated");
   }
 }
 
 const setAnimationDuration = (element, duration) =>{
+  console.log("setAnimationDuration ok")
   if (element) {
     element.style.animationDuration = `${duration}s`;
   }
@@ -80,6 +83,7 @@ const newPeriodTimer = () => {
 
   // -------apparté picto---------
   pictos.forEach((element) => {
+    console.log("bla")
     hideElement(element);
     if (element.dataset.exerciseName === names[0]) {
       showElement(element);

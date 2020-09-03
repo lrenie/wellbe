@@ -169,14 +169,14 @@ Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 12
 Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0], body_area: bodyareas[0] }
 Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0], body_area: bodyareas[1] }
 Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-07-15 19:30:00", user: users[1], body_area: bodyareas[2] }
 Session7 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 12, date: "2020-08-03 19:30:00", user: users[1], body_area: bodyareas[2] }
 Session8 = { difficulty: "confirmé", mode: "multi", video: "true", total_time: 5, date: "2020-07-18 19:30:00", user: users[1], body_area: bodyareas[2] }
 Session9 = { difficulty: "intermédiaire", mode: "solo", video: "false", total_time: 36, date: "2020-08-30 19:30:00", user: users[1], body_area: bodyareas[1] }
 Session10 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 40, date: "2020-09-02 19:30:00", user: users[1], body_area: bodyareas[0] }
+Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-07-15 19:30:00", user: users[1], body_area: bodyareas[2] }
 
 sessions = []
-[Session1, Session2, Session3, Session4, Session5, Session6, Session7, Session8, Session9, Session10].each_with_index do |attributes, index|
+[Session1, Session2, Session3, Session4, Session5, Session7, Session8, Session9, Session10, Session6].each_with_index do |attributes, index|
  current_session = Session.create!(attributes)
  sessions << current_session
 end
@@ -212,12 +212,12 @@ sessionexercise2.session = sessions[0]
 sessionexercise2.save!
 
 exo1_de_session_demo = SessionExercise.new
-exo1_de_session_demo.session = sessions[5]
+exo1_de_session_demo.session = sessions[-1]
 exo1_de_session_demo.exercise = exercises[2]
 exo1_de_session_demo.save!
 
 exo2_de_session_demo = SessionExercise.new
-exo2_de_session_demo.session = sessions[5]
+exo2_de_session_demo.session = sessions[-1]
 exo2_de_session_demo.exercise = exercises[3]
 exo2_de_session_demo.save!
 
