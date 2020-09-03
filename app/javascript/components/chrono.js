@@ -87,7 +87,19 @@ const newPeriodTimer = () => {
     hideElement(element);
     if (element.dataset.exerciseName === names[0]) {
       showElement(element);
+      if (element.dataset.exerciseName === "Repos") {
+        element.classList.add('grisage');
+        const gif = document.getElementById('gif');
+        console.log(gif)
+        gif.insertAdjacentHTML('afterbegin', '<h2 id="next">Prochain exercice</h2>' );
+      } else if (element.dataset.exerciseName !== "Repos" ){
+        const next = document.getElementById('next');
+        if(next){
+          next.remove();
+        }
+      }
     }
+
   });
   // -----------------------------------
 

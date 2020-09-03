@@ -32,19 +32,19 @@
     </div>
 
     <%= render "shared/pop_up_session" %>
+    <div id="gif">
+      <div class="picto-area">
+        <% @images.each_with_index do |img, i| %>
 
-    <div class="picto-area">
-      <% @images.each_with_index do |img, i| %>
-        <% if i.even? %>
-          <%= cl_image_tag img, data: { exercise_name: @names[i] }  %>
-        <% else %>
-            <%= cl_image_tag img, class: "grisage", data: { exercise_name: @names[i] }  %>
+          <%= cl_image_tag img, data: { exercise_name: @names[i] } %>
+
         <% end %>
-      <% end %>
-      <%# @session.exercises.each do |exo| %>
-        <%#= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
-      <%# end %>
-      <%#= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+        <%# @session.exercises.each do |exo| %>
+          <%#= cl_image_tag exo.photo.key, data: { exercise_name: exo.name } %>
+        <%# end %>
+        <%#= image_tag "session-show/rest.png",id: "logo", data: {exercise_name: "Repos" } %>
+      </div>
+
     </div>
   </div>
 
