@@ -9,7 +9,7 @@ body > div.container-l > h2 {
 
 .cards_session {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 22px;
 }
 
@@ -17,4 +17,17 @@ body > div > div.container-l-choice-session > h2:nth-child(1) {
   margin-top: 10px;
 }
 
+.linear-blanc-choice {
+  position: absolute;
+  height: 120px;
+  width: 50px;
+  top: 0px;
+  &.left {
+    background: linear-gradient(90deg, $blanc 0%, rgba(245,244,246, 0) 100%);
 
+  }
+  &.right {
+    background: linear-gradient(-90deg, $blanc 0%, rgba(245,244,246, 0) 100%);
+    right: 0%;
+  }
+}

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = Session.where(user_id: current_user.id).order(:date)
+    @last_sessions = Session.where(user_id: current_user.id).order(date: :desc)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def show
-    
+
     @session = Session.find(params[:id])
 
     @times = []
