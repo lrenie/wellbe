@@ -1,4 +1,5 @@
 <div class="d-flex align-items-center o-x-s">
+  <%# raise %>
   <% sessions.each do |session| %>
     <div class="p-r-20">
       <div class="card-prev-session flex-b-c position-relative mr-4">
@@ -48,7 +49,7 @@
         </div>
         <div class="flex-g-1 right-part">
           <div class="fav">
-          <% unless session.session_participants.empty?%>
+          <% unless session.session_participants.empty? %>
             <%= simple_form_for session.session_participants.find_by(user: current_user), remote: true do |f| %>
               <%= f.input :favorite_status, value: true, as: :hidden %>
               <%= f.button :button do %>
@@ -59,7 +60,7 @@
                  <% end %>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
           </div>
           <div class="cercle-violet-play">
             <div class="posit-relat">
