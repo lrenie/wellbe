@@ -192,7 +192,7 @@ User.all.each do |user|
     friendship.status = "true"
     friendship.sender = user
     friendship.recipient = User.all.sample
-    friendship.save
+    friendship.save if (friendship.sender != friendship.recipient)
   end
 end
 
