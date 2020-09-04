@@ -322,7 +322,7 @@
   text-align: center;
   i {
     font-size: 50px;
-    color: $secondary
+    color: $secondary;
   }
   p {
     font-size: 14px;
@@ -339,6 +339,10 @@
     font-size: 28.43px;
     text-align: center;
     font-family: nunito;
+  }
+  h3 {
+    color: $secondary;
+    padding-top: 10px;
   }
 }
 

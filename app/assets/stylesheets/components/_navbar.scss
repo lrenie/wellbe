@@ -1,4 +1,4 @@
-#navbar-home {
+.navbar-home {
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -8,6 +8,7 @@
   p {
     color: $blanc;
     font-size: 16px;
+    cursor: pointer;
     &:hover {
       color: $noir;
     }
@@ -68,7 +69,16 @@
   i {
     color: #00DBD8;
   }
+  &.home {
+    border: solid 0.2px $blanc;
+    i {
+    color: $blanc;
+    }
+  }
 }
+  #noir {
+    color: $noir;
+  }
 
 .avatar {
   width: 40px;
