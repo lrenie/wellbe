@@ -60,7 +60,7 @@ photos = [
 ]
 [Incendie, Ciseau, Planche, Araignee].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
-    exercise_photo = URI.open(photos[index])
+    p exercise_photo = URI.open(photos[index])
     current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
     exercises << current_exercise
 end
