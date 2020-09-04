@@ -67,22 +67,22 @@ end
 puts "Created #{Exercise.count} Exercises"
 
 puts "Creating users..."
-User1 = { email: "stephanie@gmail.com", password: "123456", first_name: "Stephanie", last_name: "Grison" }
+User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
 User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
-User5 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
+User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Jeanne", last_name: "Johan" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
 users = []
 
 
 photos = [
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599219619/IMG_70151_cwri1y.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1598978699/6pdj9mm4o0l9p7w90ygb3aez4n05.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599049496/d2y5ul9kgwyclyf1pw8q70q9rlda.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599208838/moi_rzthsv.jpg",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599209388/c8nl3gpfrpqhyyxspx0yj9nzyr1n.jpg",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211135/louis_ro7uoa.jpg",
+"https://about.fb.com/fr/wp-content/uploads/sites/12/2019/01/mz.jpg?fit=1621%2C1080",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211528/IMG-20200822-WA0016_ynhhxl.jpg",
+"https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
 covers = [
@@ -90,7 +90,7 @@ covers = [
   "https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
   "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
   "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
-  "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
+  "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg",
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
@@ -192,7 +192,7 @@ User.all.each do |user|
     friendship.status = "true"
     friendship.sender = user
     friendship.recipient = User.all.sample
-    friendship.save
+    friendship.save if (friendship.sender != friendship.recipient)
   end
 end
 
