@@ -67,11 +67,11 @@ end
 puts "Created #{Exercise.count} Exercises"
 
 puts "Creating users..."
-User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Solo" }
+User1 = { email: "stephanie@gmail.com", password: "123456", first_name: "Stephanie", last_name: "Solo" }
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
 User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
-User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Jeanne", last_name: "Johan" }
+User5 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Johan" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
 users = []
