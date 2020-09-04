@@ -71,36 +71,37 @@ User1 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie",
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
 User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
-User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Scarlett", last_name: "Johansson" }
+User5 = { email: "scarlett@gmail.com", password: "123456", first_name: "Jeanne", last_name: "Johan" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
 users = []
 
 
 photos = [
-"https://image-uniservice.linternaute.com/image/450/3/1975856345/7796816.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
-"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/309300_4214215714271_321428949_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=h0b30A6Z54cAX-RH_5-&_nc_ht=scontent-cdt1-1.xx&oh=9a0ca2a053666f4061ebddc30d379356&oe=5F7001FD",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1598952328/IMG-20200822-WA0016_sip8dx.jpg",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599209388/c8nl3gpfrpqhyyxspx0yj9nzyr1n.jpg",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211135/louis_ro7uoa.jpg",
+"https://about.fb.com/fr/wp-content/uploads/sites/12/2019/01/mz.jpg?fit=1621%2C1080",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211528/IMG-20200822-WA0016_ynhhxl.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
 covers = [
   "https://cdn.pixabay.com/photo/2017/12/26/07/36/nature-3039901_960_720.jpg",
-  "https://www.photo-paysage.com/blog/wp-content/uploads/2018/02/cropped-rpin-bord-de-falaise-cap-canaille.jpg",
+  "https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
   "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
   "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
-  "https://image.jeuxvideo.com/medias-md/159843/1598426262-7200-card.png",
+  "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg",
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
 
 [User1, User2, User3, User4, User5, User6].each_with_index do |attributes, index|
- current_user = User.create!(attributes)
- file_avatar = URI.open(photos[index])
- file_cover = URI.open(covers[index])
- current_user.avatar.attach(io: file_avatar, filename: 'image.png', content_type: 'image/png')
- current_user.cover.attach(io: file_cover, filename: 'image.png', content_type: 'image/png')
+ p current_user = User.create!(attributes)
+ p file_avatar = URI.open(photos[index])
+ p file_cover = URI.open(covers[index])
+ p current_user.avatar.attach(io: file_avatar, filename: 'image.jpg', content_type: 'image/jpg')
+ # puts"#{current_user} "
+ current_user.cover.attach(io: file_cover, filename: 'image.jpg', content_type: 'image/jpg')
  users << current_user
 end
 
@@ -128,40 +129,73 @@ friendship2.status = "true"
 friendship2.sender = users[0]
 friendship2.recipient = users[1]
 friendship2.save!
+puts "friendship2 ok"
+
+friendship2 = Friendship.new
+friendship2.status = "true"
+friendship2.sender = users[0]
+friendship2.recipient = users[2]
+friendship2.save!
+
+friendship5 = Friendship.new
+friendship5.status = "true"
+friendship5.sender = users[0]
+friendship5.recipient = users[3]
+friendship5.save!
+
+friendship6 = Friendship.new
+friendship6.status = "true"
+friendship6.sender = users[0]
+friendship6.recipient = users[4]
+friendship6.save!
+
+
 
 friendship3 = Friendship.new
 friendship3.status = "true"
 friendship3.sender = users[1]
-friendship3.recipient = users[2]
+friendship3.recipient = User.find_by(first_name: "Corentin")
 friendship3.save!
 
 friendship4 = Friendship.new
 friendship4.status = "true"
 friendship4.sender = users[1]
-friendship4.recipient = users[-1]
+friendship4.recipient = User.find_by(first_name: "Benoit")
 friendship4.save!
 
-friendship5 = Friendship.new
-friendship5.status = "true"
-friendship5.sender = users[1]
-friendship5.recipient = users[-2]
-friendship5.save!
+# friendship5 = Friendship.new
+# friendship5.status = "true"
+# friendship5.sender = users[1]
+# friendship5.recipient = users[-2]
+# friendship5.save!
 
-friendship6 = Friendship.new
-friendship6.status = "true"
-friendship6.sender = users[1]
-friendship6.recipient = users[-3]
-friendship6.save!
+# friendship6 = Friendship.new
+# friendship6.status = "true"
+# friendship6.sender = users[1]
+# friendship6.recipient = users[-3]
+# friendship6.save!
 
 
-20.times do
-  friendship = Friendship.new
-  friendship.status = "true"
-  friendship.sender = User.all.sample
-  friendship.recipient = User.all.sample
-  friendship.save
-  puts " friendship n° #{friendship.id} created"
+# 20.times do
+#   friendship = Friendship.new
+#   friendship.status = "true"
+#   friendship.sender = User.all.sample
+#   friendship.recipient = User.all.sample
+#   friendship.save
+#   puts " friendship n° #{friendship.id} created"
+# end
+
+
+User.all.each do |user|
+  4.times do
+    friendship = Friendship.new
+    friendship.status = "true"
+    friendship.sender = user
+    friendship.recipient = User.all.sample
+    friendship.save
+  end
 end
+
 
 
 puts "Creating sessions..."
