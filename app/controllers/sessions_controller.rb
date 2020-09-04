@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def choice
-    @last_sessions = Session.where(user_id: current_user.id).order(date: :desc)
+    @last_sessions = current_user.sessions.order(date: :desc)
+
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -22,6 +23,8 @@ class SessionsController < ApplicationController
     @fake_session.user = current_user
     @fake_session.body_area_id = BodyArea.last.id
     @fake_session.save!
+
+
 
     @fake_session_participant1 = SessionParticipant.new
     @fake_session_participant1.user = User.find_by(first_name: "Eugenie")
@@ -57,7 +60,6 @@ class SessionsController < ApplicationController
     @default_session_exercise2.session = Session.last
     @default_session_exercise2.exercise = Exercise.last
     @default_session_exercise2.save!
-
   end
 
   def create
