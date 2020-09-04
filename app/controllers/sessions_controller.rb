@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
 
     @fake_session_participant1 = SessionParticipant.new
-    @fake_session_participant1.user = User.find_by(first_name: "Eugenie")
+    @fake_session_participant1.user = User.find_by(first_name: "Stephanie")
     @fake_session_participant1.session = @fake_session
     @fake_session_participant1.favorite_status = false
     @fake_session_participant1.save!
