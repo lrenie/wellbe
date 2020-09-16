@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_152959) do
+ActiveRecord::Schema.define(version: 2020_09_15_181247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,22 @@ ActiveRecord::Schema.define(version: 2020_08_31_152959) do
     t.string "name"
   end
 
+  create_table "chat_participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_chat_participants_on_chatroom_id"
+    t.index ["user_id"], name: "index_chat_participants_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.integer "time"
@@ -61,6 +77,16 @@ ActiveRecord::Schema.define(version: 2020_08_31_152959) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipient_id"], name: "index_friendships_on_recipient_id"
     t.index ["sender_id"], name: "index_friendships_on_sender_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "session_exercises", force: :cascade do |t|
@@ -123,9 +149,14 @@ ActiveRecord::Schema.define(version: 2020_08_31_152959) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_participants", "chatrooms"
+  add_foreign_key "chat_participants", "users"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "exercises", "body_areas"
   add_foreign_key "friendships", "users", column: "recipient_id"
   add_foreign_key "friendships", "users", column: "sender_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "session_exercises", "exercises"
   add_foreign_key "session_exercises", "sessions"
   add_foreign_key "session_participants", "sessions"
