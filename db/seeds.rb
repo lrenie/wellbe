@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+ # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -80,7 +80,7 @@ users = []
 photos = [
 "https://res.cloudinary.com/dax8lsbkx/image/upload/v1599209388/c8nl3gpfrpqhyyxspx0yj9nzyr1n.jpg",
 "https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211135/louis_ro7uoa.jpg",
-"https://res.cloudinary.com/drk3m3rkb/image/upload/v1599220738/f7mcrl4knutdtt8eky76fopnf8d8.jpg",
+"https://www.fredporez.com/wp-content/uploads/portfolio/2017/portrait-matt-nash.jpg",
 "https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211528/IMG-20200822-WA0016_ynhhxl.jpg",
 "https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
@@ -105,19 +105,29 @@ covers = [
  users << current_user
 end
 
-10.times do
+
+pictures = [
+  "https://i.pinimg.com/236x/6e/ae/6b/6eae6bdc37b5ed5701aca9d38d71c825--freckles-islamic-fashion.jpg",
+  "https://i.pinimg.com/736x/ef/9d/80/ef9d800e07a159dec21bd4bdf45d9a6d.jpg",
+  "https://www.joancanto.com/wp-content/uploads/2017/04/H10B1582-Edit.jpg",
+  "https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg",
+  "https://www4.pictures.zimbio.com/gi/39th+Annual+People+Choice+Awards+Portraits+lza8vaU_QsZx.jpg"
+]
+5.times do
+  i = 0
   fake_user = User.new
   fake_user.email = Faker::Internet.email
   fake_user.password = "123456"
   fake_user.first_name = Faker::Name.first_name
   fake_user.last_name = Faker::Name.last_name
-  file_avatar = URI.open("https://source.unsplash.com/400x400/?face")
+  file_avatar = URI.open(pictures[0])
   file_cover = URI.open("https://source.unsplash.com/800x200/?landscape")
   fake_user.avatar.attach(io: file_avatar, filename: 'image.jpg', content_type: 'image/jpg')
   fake_user.cover.attach(io: file_cover, filename: 'image.jpg', content_type: 'image/jpg')
   fake_user.save
   puts "#{fake_user.first_name} created"
   puts "#{User.count}"
+  i += 1
 end
 
 puts "Created #{User.count} users"
