@@ -71,7 +71,13 @@ class SessionsController < ApplicationController
     @session.body_area = BodyArea.find_by(name: session_params["body_area"])
     @session.total_time = session_params["total_time"]
     @session.difficulty = session_params["difficulty"]
-    #raise
+    @session.save!
+
+    @session_participant = SessionParticipant.new
+    @session_participant.session = @session
+    #@session_participant.user
+
+
     if @session.save!
      redirect_to my_session_path(Session.last)
     else

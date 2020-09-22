@@ -173,28 +173,6 @@ friendship4.sender = users[1]
 friendship4.recipient = User.find_by(first_name: "Benoit")
 friendship4.save!
 
-# friendship5 = Friendship.new
-# friendship5.status = "true"
-# friendship5.sender = users[1]
-# friendship5.recipient = users[-2]
-# friendship5.save!
-
-# friendship6 = Friendship.new
-# friendship6.status = "true"
-# friendship6.sender = users[1]
-# friendship6.recipient = users[-3]
-# friendship6.save!
-
-
-# 20.times do
-#   friendship = Friendship.new
-#   friendship.status = "true"
-#   friendship.sender = User.all.sample
-#   friendship.recipient = User.all.sample
-#   friendship.save
-#   puts " friendship n° #{friendship.id} created"
-# end
-
 
 User.all.each do |user|
   4.times do
