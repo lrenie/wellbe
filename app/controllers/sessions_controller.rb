@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def new
+  def new_multi
     @session = Session.new
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
@@ -62,7 +62,17 @@ class SessionsController < ApplicationController
     @default_session_exercise2.save!
   end
 
-  def create
+  def create_multi
+    @session = Session.new(session_params)
+    @session.video = "true"
+    @session.mode = "multi"
+    @session.date = Date.today
+    @session.user = current_user
+    if @session.save!
+     redirect_to my_session_path
+    else
+      alert("something goes wrong")
+    end
   end
 
   def show
@@ -97,9 +107,13 @@ class SessionsController < ApplicationController
     @last_sessions = @user.sessions.where(date: @date.beginning_of_day..@date.end_of_day)
     render json: { html: render_to_string(partial: 'shared/card_prev_session', locals: { sessions: @last_sessions })}
   end
-end
 
-# private
+  private
+
+  def session_params
+    params.require(:session).permit(:difficulty, :total_time, :body_area)
+  end
+end
 
 # # def fav?
 #   @session = session.favorite_status

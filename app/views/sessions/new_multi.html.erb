@@ -58,8 +58,9 @@
             <%= f.input :difficulty,
                         label: "Votre niveau",
                         label_method: ->(item) {tag.span item, class: "d-none"},
-                        as: :hidden,
+
                         input_html: {
+                          hidden: true,
                           data: {target: "radio-button.input"}
                         },
                         collection: Session::DIFFICULTY,
@@ -84,11 +85,12 @@
             </div>
           </div>
           <div data-controller="radio-button">
-            <%= f.input :body_area_id,
+            <%= f.input :body_area,
                         label: "Votre objectif",
                         label_method: ->(item) {tag.span item, class: "d-none"},
-                        as: :hidden,
                         input_html: {
+                          hidden: true,
+                          vacances: 'geniales!!!!',
                           data: {target: "radio-button.input"}
                         },
                         collection: BodyArea::BODY_AREAS,
@@ -117,11 +119,12 @@
               </div>
             </div>
           </div>
+          <%= f.button :submit, "créer la session", class: "btn-1 btn-submit-place" %>
         <% end %>
       </div>
     </div>
   <div class="bottom-part">
     <%= link_to "Annuler", sessions_choice_path, class: "btn-2"  %>
-    <%= link_to "Lancer la session", my_session_path(Session.last), class: "btn-1" %>
+    <%#= link_to "Lancer la session", my_session_path(Session.last), class: "btn-1" %>
   </div>
 </div>
