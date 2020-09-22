@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def choice
     @last_sessions = current_user.sessions.order(date: :desc)
-
+    raise
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -63,13 +63,17 @@ class SessionsController < ApplicationController
   end
 
   def create_multi
-    @session = Session.new(session_params)
+    @session = Session.new
     @session.video = "true"
     @session.mode = "multi"
     @session.date = Date.today
     @session.user = current_user
+    @session.body_area = BodyArea.find_by(name: session_params["body_area"])
+    @session.total_time = session_params["total_time"]
+    @session.difficulty = session_params["difficulty"]
+    #raise
     if @session.save!
-     redirect_to my_session_path
+     redirect_to my_session_path(Session.last)
     else
       alert("something goes wrong")
     end

@@ -1,5 +1,5 @@
 class BodyArea < ApplicationRecord
-  BODY_AREAS = ["Général", "Haut du corps", "Bas du corps"]
+  BODY_AREAS = ["général", "haut du corps", "bas du corps"]
 
   has_many :exercises
   has_many :sessions
