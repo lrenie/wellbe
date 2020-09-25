@@ -8,6 +8,7 @@
 // </div>
 
 import { Controller } from "stimulus"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = [ "card" ]
@@ -20,17 +21,20 @@ export default class extends Controller {
    const user = window.location.pathname.split("/")[2];
    const date = event.currentTarget.dateObj;
    const dateStyle = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-   const url = `${window.location.origin}/sessions/fetch?user=${user}&date=${dateStyle}`;
-  console.log(user);
-  console.log(url);
+   
 
-   fetch(url)
-   .then(response => response.json())
-   .then((data) => {
-      this.display(data);
-      console.log(data);
-   });
-  }
+
+  Rails.ajax({
+    type: "post",
+    url: "/sessions/fetch",
+    data: new URLSearchParams({
+      user: user,
+      date: dateStyle
+    }).toString(),
+    success: this.display.bind(this),
+    error: (data) => { console.log(data) }
+  })
+}
 
   display(data) {
     this.cardTarget.innerHTML = data.html;
