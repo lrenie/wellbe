@@ -22,6 +22,7 @@ export default class extends Controller {
     })
     event.currentTarget.classList.add('level-selected')
     console.log(this.inputTarget.selectedIndex)
+    console.log('blablablabl')
 
   }
 
