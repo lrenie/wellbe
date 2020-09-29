@@ -16,14 +16,14 @@
   </div>
 
   <div class="user-list-index">
-    <% @users.each do |user| %>
+    <% @users.each do |user| data-user="<% user.id %>"%>
       <div class="card-amis">
         <%= link_to user_path(user) do %>
           <%= cl_image_tag user.avatar.key %> <%= user.first_name %>
           <%= user.last_name  %>
-          <div class="ask-friend"><%= link_to "Amis", "/#" %>
-          </div>
         <% end %>
+        <div class="ask-friend"><%= link_to "Amis", "/#" %>
+        </div>
       </div>
     <% end %>
   </div>

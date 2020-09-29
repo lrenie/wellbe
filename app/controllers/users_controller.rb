@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def show
+
     @user = User.find(params[:id])
     @param = params[:param]
+
     if @user == current_user
       @time = 0
       @kcal = 0
