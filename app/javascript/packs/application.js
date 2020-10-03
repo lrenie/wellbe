@@ -31,7 +31,7 @@ import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
 import { video } from '../components/video';
-
+import { askingFriend } from 'components/ask_friend';
 
 
 
@@ -53,6 +53,7 @@ document.addEventListener('turbolinks:load', () => {
       timeOfChrono();
     })
   }
+  askingFriend();
 });
 
 
