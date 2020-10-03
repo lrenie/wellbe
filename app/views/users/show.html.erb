@@ -23,8 +23,9 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link <%= "active" unless @param %> " id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">STATISTIQUES</a>
       </li>
+      <!-- attr du <a> id="calendar-tab" role="tab" aria-controls="calendar" aria-selected="true" => si je les supprime, ca ne gène pas le fonctionnement de la page -->
       <li class="nav-item" role="presentation">
-        <a class="nav-link " id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="calendar" aria-selected="true">CALENDRIER</a>
+        <a class="nav-link " data-toggle="tab" href="#calendar">CALENDRIER</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link <%= "active" if @param %>" id="sessions-tab" data-toggle="tab" href="#sessions" role="tab" aria-controls="sessions" aria-selected="true">SESSIONS FAVORITES</a>

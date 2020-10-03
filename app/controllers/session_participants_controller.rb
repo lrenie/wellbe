@@ -8,7 +8,7 @@ class SessionParticipantsController < ApplicationController
       redirect_to sessions_choice_path
     else
       redirect_to user_path(current_user, param: "update")
-      # updated: true
+      # updated: "true"
     end
   end
 end
