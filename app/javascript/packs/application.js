@@ -31,6 +31,7 @@ import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
 import { video } from '../components/video';
+import { initChatRoomCable } from '../channels/chatroom_channel';
 
 
 
@@ -46,6 +47,8 @@ document.addEventListener('turbolinks:load', () => {
   innitFlatPicker();
   video();
   addFriendsParticipants();
+  initChatRoomCable();
+  
   if (document.querySelector('#go')){
     document.querySelector('#go').addEventListener('click', e => {
       document.querySelector('#init').classList.remove('d-none')
