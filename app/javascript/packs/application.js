@@ -31,6 +31,8 @@ import "controllers"
 import { innitFlatPicker } from '../plugins/flatpickr';
 
 import { video } from '../components/video';
+import { initChatRoomCable } from '../channels/chatroom_channel';
+import { askingFriend } from 'components/ask_friend';
 
 
 
@@ -46,6 +48,8 @@ document.addEventListener('turbolinks:load', () => {
   innitFlatPicker();
   video();
   addFriendsParticipants();
+  initChatRoomCable();
+  
   if (document.querySelector('#go')){
     document.querySelector('#go').addEventListener('click', e => {
       document.querySelector('#init').classList.remove('d-none')
@@ -53,6 +57,7 @@ document.addEventListener('turbolinks:load', () => {
       timeOfChrono();
     })
   }
+  askingFriend();
 });
 
 
