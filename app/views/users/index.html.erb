@@ -17,12 +17,14 @@
 
   <div class="user-list-index">
     <% @users.each do |user| %>
-      <div class="card-amis" data-user="<% user.id %>">
+      <div class="card-amis" data-recipientuser="<%= user.id %>" data-senderuser="<%= current_user.id %>">
         <%= link_to user_path(user) do %>
+          <%= user.id %>
+          <%= current_user.id %>
           <%= cl_image_tag user.avatar.key %> <%= user.first_name %>
           <%= user.last_name  %>
         <% end %>
-        <div class="ask-friend"><%= link_to "Amis", "/#" %>
+        <div class="ask-friend"><%= link_to "Amis", "#" %>
         </div>
       </div>
     <% end %>
