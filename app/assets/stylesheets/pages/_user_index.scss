@@ -45,8 +45,14 @@
   a{
     color: rgb(0, 219, 216);
   }
+}
 
-
+.friend-asked {
+  border: solid 1px rgb(235, 94, 85);
+  background: rgba(235, 94, 85, 0.2);
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: white;
 }
 
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
   end
+  resources :friendships, only: :create
   get '/sessions/choice', to: 'sessions#choice'
   get '/sessions/multi/new', to: 'sessions#new_multi', as: 'new_multi_session'
   get '/sessions/solo/new', to: 'sessions#new_solo', as: 'new_solo_session'

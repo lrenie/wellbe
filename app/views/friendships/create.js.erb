@@ -1,0 +1,11 @@
+card = document.querySelector(".card-amis[data-user='<%= @friendship.recipient_id %>']");
+amiButton = card.querySelector(".ask-friend")
+console.log(amiButton)
+console.log('le bouton est bien selectionné')
+amiButton.classList.remove('ask-friend');
+amiButton.classList.add('friend-asked');
+amiButton.innerHTML = "Demande Envoyée"
+
+
+
+

@@ -24,8 +24,11 @@
           <%= cl_image_tag user.avatar.key %> <%= user.first_name %>
           <%= user.last_name  %>
         <% end %>
-        <div class="ask-friend"><%= link_to "Amis", "#" %>
-        </div>
+        <%=  %>
+        <%= link_to 'Amis', friendships_path(params: { sender_id: current_user.id, recipient_id: user.id }), method: :post,remote: true, class: "ask-friend"  %>
+        <%#= link_to 'Amis', { controller: "friendships", action: "create"}, method: :post %>
+        <!-- <div class="ask-friend"><%#= link_to "Amis", "/#" %> -->
+        <!-- </div> -->
       </div>
     <% end %>
   </div>

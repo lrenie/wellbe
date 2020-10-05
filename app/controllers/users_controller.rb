@@ -35,5 +35,6 @@ class UsersController < ApplicationController
     else
       @users = User.all
     end
+
   end
 end

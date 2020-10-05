@@ -174,15 +174,15 @@ friendship4.recipient = User.find_by(first_name: "Benoit")
 friendship4.save!
 
 
-User.all.each do |user|
-  4.times do
-    friendship = Friendship.new
-    friendship.status = "true"
-    friendship.sender = user
-    friendship.recipient = User.all.sample
-    friendship.save if (friendship.sender != friendship.recipient)
-  end
-end
+# User.all.each do |user|
+#   4.times do
+#     friendship = Friendship.new
+#     friendship.status = "true"
+#     friendship.sender = user
+#     friendship.recipient = User.all.sample
+#     friendship.save if (friendship.sender != friendship.recipient)
+#   end
+# end
 
 
 
