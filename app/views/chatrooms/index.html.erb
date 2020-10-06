@@ -1,1 +1,10 @@
-<%= render "shared/navbar_global"%>
+<%= render "shared/navbar_global" %>
+<div class= "chat-room-container">
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom  do %>
+  <h2><%= chatroom.name %></h2>
+    <%end%>
+   <small><%= chatroom.user_id %></small>
+  <%end%>
+</div>
+<%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1"%>
