@@ -33,6 +33,7 @@ import { innitFlatPicker } from '../plugins/flatpickr';
 import { video } from '../components/video';
 import { initChatRoomCable } from '../channels/chatroom_channel';
 import { askingFriend } from 'components/ask_friend';
+import { showNewChatRoom } from "../components/chatroom";
 
 
 
@@ -58,6 +59,7 @@ document.addEventListener('turbolinks:load', () => {
     })
   }
   askingFriend();
+  showNewChatRoom();
 });
 
 
