@@ -1,0 +1,17 @@
+<div class="flex-c-c bg-gris">
+  <div class= "pop-up">
+    <% @friends.each do |friend| %>
+      <div class="flex-b-c card_invite_chatroom">
+        <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
+        <p class="flex-g-1 p-l-20 nunito"> <%= User.find(friend).first_name %> <%= User.find(friend).last_name %> </p>
+        <button data-id="<%= friend %>" class="btn-2 invitation-btn">Inviter</button>
+      </div>
+      <% end %>
+      <%= simple_form_for @chatroom do |f| %>
+      <%= f.input :name%>
+      <%= f.button :submit, "Créer une discussion", class: "btn-1" %>
+      <%end%>
+      <div class="btn-1" id="cancel-button">Annuler</div>
+  </div>
+</div>
+
