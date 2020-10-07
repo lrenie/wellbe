@@ -1,0 +1,37 @@
+.search-btn-chatroom {
+  width: 100%;
+  padding-top: 20px;
+  border-radius: 15px;
+  form {
+    position: relative;
+    &:before {
+      content:"\f002";
+      position: absolute;
+      height: 20px;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #requete {
+      display: block;
+      background-color: $blancfonce;
+      font-size: 1rem;
+      font-weight: 400;
+      color: $grisfonce;
+      border-radius: 50px;
+      padding-left: 35px;
+    }
+  }
+}
+
+.chatroom-card {
+  padding: 12px 15px;
+  &:hover {
+    background-color: $blancfonce;
+  }
+}
