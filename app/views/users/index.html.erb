@@ -2,15 +2,15 @@
 <div class="container-l container-white">
 
   <div class="search-btn">
-  <%= form_tag users_path, method: :get do %>
-  <%= text_field_tag :requete,
+    <%= form_tag users_path, method: :get do %>
+    <%= text_field_tag :requete,
                       params[:requete],
                       placeholder: "Rechercher des amis",
                       class: "form-control"
     %>
+    <%= submit_tag "Search", class: "btn btn-primary d-none" %>
+    <% end %>
   </div>
-  <%= submit_tag "Search", class: "btn btn-primary d-none" %>
-  <% end %>
   <div class="results-search">
     <h2>Résultats pour : <span class="nunito"><%= params[:requete] %></span></h2>
   </div>

@@ -1,15 +1,41 @@
 <%= render "shared/navbar_global" %>
-<div class= "chat-room-container">
-  <% @chatrooms.each do |chatroom| %>
-    <%= link_to chatroom do %>
-  <h2><%= chatroom.name %></h2>
-    <%end%>
-   <small><%= chatroom.user_id %></small>
-  <%end%>
-  <div class="btn-1">Créer une nouvelle discussion</div>
+
+<div class="flex-b-c container-l container-white">
+  <div>
+    <div class="search-btn-chatroom m-b-20">
+      <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :requete,
+                        params[:requete],
+                        placeholder: "Rechercher des conversations",
+                        class: "form-control"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary d-none" %>
+      <% end %>
+    </div>
+    <div class="trait">
+    </div>
+    <div class="chat-room-container">
+      <% @chatrooms.each do |chatroom| %>
+        <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
+          <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
+          <div class="flex-g-1 m">
+            <% @chat_participants.where(chatroom_id: chatroom.id).each do |chat_participant| %>
+              <p><%= chat_participant.user.first_name%> <%= chat_participant.user.last_name%></p>
+            <% end %>
+            <% if chatroom.messages.first %>
+              <p><%= chatroom.messages.last.content %></p>
+            <% else %>
+            <% end %>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+    <%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1"%>
+  </div>
+  <div>
+
+  </div>
 </div>
 
-<div>
-
-
 <%= render "chatrooms/new" %>
+  
