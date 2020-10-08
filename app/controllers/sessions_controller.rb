@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     @friendships = current_user.all_friendships
     # @friends is a tab where we can found all the IDS of the friend of the current user (with it's self id)
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
-
+    
 
     # @fake_session = Session.new
     # @fake_session.difficulty = "intermédiaire"

@@ -1,19 +1,32 @@
 <%= render "shared/navbar_global" %>
-<h1>#<%= @chatroom.name%></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id%>">
-<% @chatroom.messages.each do |message|%>
-  <div class="message-container" id="messages-<%= message.id%>">
-  <i class="author">
-    <span><%= message.user.first_name%><span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p")%></small>
-    
-  </i>
-  <p><%= message.content %><p>
+<div class="flex-b-c">
+  <div>
+    <div class="chat-room-container">
+      <% @chatrooms.each do |chatroom| %>
+        <%= link_to chatroom  do %>
+          <h4><%= chatroom.name %></h4>
+          <%= cl_image_tag @chat_participant.last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo" %>
+        <%end%>
+      <%end%>
+    </div>
+    <%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1"%>
   </div>
-  <%end%>
+  <div>
+      <h1>#<%= @chatroom.name%></h1>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
+      <%@chatroom.messages.each do |message|%>
+        <div class="message-container" id="messages-<%= message.id%>">
+        <i class="author">
+         <span><%=message.user.first_name%></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p")%></small>
+        </i>
+        <p><%= message.content%><p>
+        </div>
+        <% end %>
+    </div>
+    <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message #" %>
+      <%= f.button :submit, class: "btn-1" %>
+    <%end%>
+  </div>
 </div>
-
-<%= simple_form_for [@chatroom, @message], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message #" %>
-  <%= f.button :submit, class: "btn-1" %>
-<%end%>

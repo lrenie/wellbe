@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :friendships, only: [:create, :update, :delete]
   resources :session_participants, only: [:update]
-
-  resources :chatrooms, only: [:show, :index] do
+  
+  resources :chatrooms, only: [:show, :index, :new] do
     resources :messages, only: :create
   end
 
