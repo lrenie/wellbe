@@ -33,7 +33,7 @@
         <a class="nav-link " id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="true">AMIS</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link <%= "active" if @param %> " id="en_attente_1-tab" data-toggle="tab" href="#en_attente_1" role="tab" aria-controls="en_attente_1" aria-selected="true">EN ATTENTE 1</a>
+        <a class="nav-link <%= "active" if @param %> " id="en_attente_1-tab" data-toggle="tab" href="#en_attente_1" role="tab" aria-controls="en_attente_1" aria-selected="true">DEMANDES D'AMIS</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link  " id="en_attente_2-tab" data-toggle="tab" href="#en_attente_2" role="tab" aria-controls="en_attente_2" aria-selected="true">EN ATTENTE 2</a>
@@ -128,7 +128,8 @@
         </div>
       </div>
       <div class="tab-pane fade <%= "show active" if @param %>" id="en_attente_1" role="tabpanel" aria-labelledby="en_attente_1-tab">
-        <h3 class="roboto">En Attente 1</h3>
+        <h3 class="roboto">Demandes d'amis</h3>
+        <%= render "shared/demande_d_ami" %>
       </div>
       <div class="tab-pane fade" id="en_attente_2" role="tabpanel" aria-labelledby="en_attente_2-tab">
         <h3 class="roboto">En Attente 2</h3>
