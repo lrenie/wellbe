@@ -21,4 +21,13 @@ class ChatroomsController < ApplicationController
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
   end
 
+  def create
+    @chatroom = Chatroom.new(chatroom_params)
+  end
+
+  private
+
+  def chatroom_params
+    params.require(:chatroom).permit(:name)
+  end
 end

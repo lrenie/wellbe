@@ -7,11 +7,11 @@
         <button data-id="<%= friend %>" class="btn-2 invitation-btn">Inviter</button>
       </div>
       <% end %>
-      <%= simple_form_for @chatroom do |f| %>
+      <%= simple_form_for @chatroom, html: { class: "form-new-chatroom" } do |f| %>
       <%= f.input :name%>
       <%= f.button :submit, "Créer une discussion", class: "btn-1" %>
       <%end%>
-      <div class="btn-1" id="cancel-button">Annuler</div>
+      <div class="btn-1 cancel-button cursor" id="cancel-button">Annuler</div>
   </div>
 </div>
 
