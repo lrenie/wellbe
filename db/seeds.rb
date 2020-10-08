@@ -173,6 +173,12 @@ friendship4.sender = users[1]
 friendship4.recipient = User.find_by(first_name: "Benoit")
 friendship4.save!
 
+friendship5 = Friendship.new
+friendship5.status = "pending"
+friendship5.sender = users[2]
+friendship5.recipient = User.find_by(first_name: "Eugenie")
+friendship5.save!
+
 
 # User.all.each do |user|
 #   4.times do
