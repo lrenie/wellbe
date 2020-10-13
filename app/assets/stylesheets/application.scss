@@ -33,6 +33,10 @@ body {
   margin-bottom: 20px;
 }
 
+.border-chat {
+  border-bottom: 1px solid rgb(208, 208, 208);
+}
+
 /*classe container*/
 .container-l {
   width: 86%;
@@ -102,6 +106,10 @@ p {
 
 .p-x-20 {
   padding: 20px 0px;
+}
+
+.p-x-15 {
+  padding: 15px 0px;
 }
 
 .p-l-20 {
@@ -176,6 +184,9 @@ p {
 }
 
 // FLEX =====
+.flex {
+  display: flex;
+}
 .flex-g-1 {
   flex-grow: 1;
 }

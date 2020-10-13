@@ -1,32 +1,99 @@
 <%= render "shared/navbar_global" %>
-<div class="flex-b-c">
-  <div>
-    <div class="chat-room-container">
-      <% @chatrooms.each do |chatroom| %>
-        <%= link_to chatroom  do %>
-          <h4><%= chatroom.name %></h4>
-          <%= cl_image_tag @chat_participant.last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo" %>
-        <%end%>
-      <%end%>
-    </div>
-    <%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1"%>
-  </div>
-  <div>
-      <h1>#<%= @chatroom.name%></h1>
-      <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
-      <%@chatroom.messages.each do |message|%>
-        <div class="message-container" id="messages-<%= message.id%>">
-        <i class="author">
-         <span><%=message.user.first_name%></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p")%></small>
-        </i>
-        <p><%= message.content%><p>
-        </div>
+<div class="container-l">
+  <div class="flex-b-c container-white-chatroom">
+<!-- INDEX ****************************************************************** -->
+    <div class="container-chatrooms">
+      <div class="search-btn-chatroom m-b-20">
+        <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :requete,
+                          params[:requete],
+                          placeholder: "Rechercher des conversations",
+                          class: "form-control"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary d-none" %>
         <% end %>
+      </div>
+      <div class="line-chatroom">
+      </div>
+      <div class="chat-room-container">
+        <% @chatrooms.each do |chatroom| %>
+          <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
+            <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
+            <div class="flex-g-1 elips">
+              <div class="flex">
+                <% participants = [] %>
+                <% @chat_participants.where(chatroom_id: chatroom.id).each do |chat_participant| %>
+                  <% if chat_participant.user.first_name == current_user.first_name %>
+                  <% else %>
+                    <% participants << "#{chat_participant.user.first_name}" %>
+                  <% end %>
+                <% end %>
+                  <p class="long-text-hidden"><%= participants.flatten.join(", ") %></p>
+              </div>
+              <% if chatroom.messages.first %>
+                <% if chatroom.messages.last.user == current_user %>
+                  <p class="message-chatroom long-text-hidden">Vous: <%= chatroom.messages.last.content %></p>
+                <% else %>
+                  <p class="message-chatroom long-text-hidden"><%= chatroom.messages.last.user.first_name %>: <%= chatroom.messages.last.content %></p>
+                <% end %>
+              <% else %>
+              <% end %>
+            </div>
+          <%end%>
+        <%end%>
+      </div>
+      <div class="flex-c-c">
+        <%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1 btn-chatroom"%>
+      </div>
     </div>
-    <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message #" %>
-      <%= f.button :submit, class: "btn-1" %>
-    <%end%>
+<!-- PARTICIPANTS ****************************************************************** -->
+    <div class="flex-g-1 p-l-40 container-chatrooms p-r-40">
+      <div class="flex-b-c p-x-15 border-chat">
+        <% participants = [] %>
+        <% @participants.each do |participant| %>
+          <% if participant.user.first_name == current_user.first_name %>
+          <% else %>
+            <% participants << "#{participant.user.first_name}" %>
+            <%= cl_image_tag participant.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo-chat m-r-10" %>
+          <% end %>
+        <% end %>
+        <div class="flex-g-1">
+          <h4><%= participants.flatten.join(", ") %></h4>
+        </div>
+      </div>
+<!-- MESSAGES ****************************************************************** -->
+      <div id="messages" data-chatroom-id="<%= @chatroom.id%>" class="conversation">
+        <% @chatroom.messages.each do |message| %>
+          <% if message.user == current_user %>
+            <div class="message-container-self" id="messages-<%= message.id%>">
+              <i class="author">
+                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p")%></small>
+              </i>
+              <div>
+                <p><%= message.content %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="message-container-received flex" id="messages-<%= message.id%>">
+              <%= cl_image_tag message.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo-message m-r-10" %>
+              <div>
+                <i class="author">
+                  <span><%= message.user.first_name %> -</span>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p><%= message.content %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+<!-- CHAT ****************************************************************** -->
+      <div class="content-chat">
+        <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message #" %>
+          <%= f.button :submit, class: "btn-1" %>
+        <%end%>
+      </div>
+    </div>
   </div>
 </div>
