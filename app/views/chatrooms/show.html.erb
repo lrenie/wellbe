@@ -19,7 +19,7 @@
         <% @chatrooms.each do |chatroom| %>
           <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
             <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
-            <div class="flex-g-1 elips">
+            <div class="flex-g-1 m">
               <div class="flex">
                 <% participants = [] %>
                 <% @chat_participants.where(chatroom_id: chatroom.id).each do |chat_participant| %>
@@ -42,9 +42,8 @@
           <%end%>
         <%end%>
       </div>
-      <div class="flex-c-c">
-        <%= link_to "Créer une discussion", new_chatroom_path, class: "btn-1 btn-chatroom"%>
-      </div>
+      <div class="flex-c-c btn-1 btn-chatroom cursor">Créer une discussion</div>
+      
     </div>
 <!-- PARTICIPANTS ****************************************************************** -->
     <div class="flex-g-1 p-l-40 container-chatrooms p-r-40">
@@ -69,7 +68,7 @@
               <i class="author">
                 <small><%= message.created_at.strftime("%a %b %e at %l:%M%p")%></small>
               </i>
-              <div>
+              <div class="message-content">
                 <p><%= message.content %></p>
               </div>
             </div>
