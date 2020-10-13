@@ -37,23 +37,50 @@
 }
 
 
-.ask-friend {
-  // border: solid 1px rgb(0, 219, 216);
-  border: 2px solid red;
+.friend-invitation {
+  border: solid 1px rgb(0, 219, 216);
   border-radius: 15px;
   padding: 5px 10px;
+  background: white;
+  color: $secondary;
 
   a{
     color: rgb(0, 219, 216);
   }
 }
 
-.friend-asked {
-  border: solid 1px rgb(235, 94, 85);
-  background: rgba(235, 94, 85, 0.2);
-  border-radius: 15px;
+.pending{
+  // border: 1.5px solid $secondary;
+  border: 1.5px solid red;
+
+  border-radius: 50px;
   padding: 5px 10px;
+  text-align: center;
+  // width: 20px ;
+  color: $secondary;
+  font-family: Nunito;
+  // background-size: 200% auto;
+  // &:hover {
+  //   text-decoration: none;
+  //   color: $secondary;
+  // }
+
+}
+
+.we-are-friend{
+  // btn 1
+  background: linear-gradient(90deg, #B67CFF 0%, #7100FF 50%, #B67CFF 100%);
+  background-size: 200% auto;
+  padding: 10px 30px;
+  border-radius: 50px;
   color: white;
+  transition: 0.5s;
+  font-family: Nunito;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-position: right center;
+  }
 }
 
 

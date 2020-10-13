@@ -12,30 +12,38 @@
     <% end %>
   </div>
   <div class="results-search">
-    <h2>Résultats pour : <span class="nunito"><%= params[:requete] %></span></h2>
+    <h2>Résultats pour : <span class="nunito"><%#= params[:requete] %></span></h2>
   </div>
 
   <div class="user-list-index">
     <% @users.each do |user| %>
       <div class="card-amis" data-recipientuser="<%= user.id %>" data-senderuser="<%= current_user.id %>">
-        <%= link_to user_path(user) do %>
-          <%= user.id %>
-          <%= current_user.id %>
-          <%= cl_image_tag user.avatar.key %> <%= user.first_name %>
-          <%= user.last_name  %>
-        <% end %>
-        <%=  %>
-        <%#= link_to "Demande d'ami", friendships_path(params: { sender_id: current_user.id, recipient_id: user.id, status:"pending" }), method: :post,remote: true, class: "ask-friend"  %>
-
-        <%= form_tag friendships_path, remote: true do %>
-          <%= hidden_field_tag 'sender_id', current_user.id  %>
-          <%= hidden_field_tag 'recipient_id', user.id  %>
-          <%= hidden_field_tag 'status', "pending" %>
-          <%= submit_tag "Demande D'ami", class: "ask-friend" %>
-        <% end -%>
-        <%#= link_to 'Amis', { controller: "friendships", action: "create"}, method: :post %>
-        <!-- <div class="ask-friend"><%#= link_to "Amis", "/#" %> -->
-        <!-- </div> -->
+        <div style="width:70%">
+          <%= link_to user_path(user) do %>
+            <div>
+              <%= cl_image_tag user.avatar.key %>
+            </div>
+            <div>
+              <span><%= user.first_name %> <%= user.last_name  %></span>
+            </div>
+          <% end %>
+        </div>
+        <div class="flex-c-c width-50">
+          <% user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id) %>
+          <% commun = (user_fdships & @self_fdships).first %>
+          <% if commun.nil? %>
+            <%= form_tag friendships_path, remote: true do %>
+              <%= hidden_field_tag 'sender_id', current_user.id  %>
+              <%= hidden_field_tag 'recipient_id', user.id  %>
+              <%= hidden_field_tag 'status', "pending" %>
+              <%= submit_tag "Demander en ami", class: "friend-invitation" %>
+            <% end -%>
+          <% elsif Friendship.find(commun).status == "pending"%>
+            <div class="pending">Demande envoyée</div>
+          <% elsif Friendship.find(commun).status == "true"%>
+            <div class="we-are-friend">Amis</div>
+          <% end  %>
+        </div>
       </div>
     <% end %>
   </div>
@@ -43,4 +51,8 @@
 
 
 
+  <%#= link_to "Demande d'ami", friendships_path(params: { sender_id: current_user.id, recipient_id: user.id, status:"pending" }), method: :post,remote: true, class: "ask-friend"  %>
+<!--   Toutes les friendship ou le user 81  y est
+ (User.find(81).friendships).map(&:id)+(User.find(81).recieved_friendships).map(&:id) -->
 
+<!-- Friendship.all.where(status: "pending").destroy_all -->

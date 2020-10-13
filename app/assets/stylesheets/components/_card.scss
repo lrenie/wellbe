@@ -396,7 +396,7 @@
   position: relative;
   border-radius: 15px;
   width: 350px;
-  height: 100px;
+  height: 110px;
   overflow: hidden;
   box-sizing: border-box;
   border: 1px solid #D0D0D0;
@@ -418,10 +418,11 @@
   }
 
   img{
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     object-fit: cover;
     border-radius: 10px;
+    margin-top: 10px;
   }
 
   a {
