@@ -26,14 +26,21 @@ class UsersController < ApplicationController
   end
 
   def index
-    if params[:requete].present?
-      sql_requete = " \
-      users.first_name @@ :requete \
-      OR users.last_name @@ :requete \
-      "
-      @users = User.where(sql_requete, requete: "%#{params[:requete]}%")
-    else
-      @users = User.all
+    # if params[:requete].present?
+    #   sql_requete = " \
+    #   users.first_name @@ :requete \
+    #   OR users.last_name @@ :requete \
+    #   "
+    #   @users = User.where(sql_requete, requete: "%#{params[:requete]}%")
+    # else
+    #   @users = User.all
+    # end
+    @self_fdships = current_user.friendships.map(&:id) + current_user.recieved_friendships.map(&:id)
+
+    @users = User.all
+    User.all.each do |user|
+      @user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id)
     end
+
   end
 end

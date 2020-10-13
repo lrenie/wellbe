@@ -1,14 +1,13 @@
 <div>
-  <% Friendship.all.where(status: "pending").where(recipient_id: current_user.id).each do |friendship| %>
+  <% Friendship.where(status: "pending").where(recipient_id: current_user.id).each do |friendship| %>
     <%#= User.find(friendship.recipient_id).first_name  %>
-
+    <%= friendship.id %>
     <div class="form-to-be-friend">
      <h4>
        <%= User.find(friendship.sender_id).first_name  %> veut nouer des liens d'amitiés
      </h4>
-      <%= link_to 'ouiiii🥰', friendship_path(friendship), method: :patch  %>
-      <button class="oui-je-le-veux">ouiiiiii 🥰</button>
-      <button class="non-jt-aime-pas">vraiment pas 🤮</button>
+      <%= link_to 'ouiiii 😊', friendship_path(friendship.id), method: :patch  %>
+      <%= link_to 'Refuser 🚫', friendship_path(friendship.id), method: :delete, class: ""  %>
     </div>
 
 

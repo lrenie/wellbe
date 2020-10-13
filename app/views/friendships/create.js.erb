@@ -1,10 +1,10 @@
 card = document.querySelector(".card-amis[data-recipientuser='<%= @friendship.recipient_id %>']");
 console.log(card)
-amiButton = card.querySelector(".ask-friend")
+amiButton = card.querySelector(".friend-invitation")
 console.log(amiButton)
 console.log('le bouton est bien selectionné')
-amiButton.classList.remove('ask-friend');
-amiButton.classList.add('friend-asked');
+amiButton.classList.remove('friend-invitation');
+amiButton.classList.add('pending');
 // amiButton.setAttribute("disabled", "");
 amiButton.innerHTML = "Demande Envoyée"
 
