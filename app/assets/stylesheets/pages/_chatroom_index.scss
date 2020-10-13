@@ -52,6 +52,7 @@
   padding: 12px 15px;
   &:hover {
     background-color: $blancfonce;
+    text-decoration: none;
   }
 }
 
@@ -78,4 +79,14 @@
   vertical-align: center;
   color: $blanc;
   padding-top: 45%;
+}
+
+.elips {
+  width: calc(100% - 50px);
+  p {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
 }
