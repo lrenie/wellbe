@@ -28,7 +28,7 @@
             </div>
           <% end %>
         </div>
-        <div class="flex-c-c width-50">
+        <div class="flex-c-c width-64">
           <% user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id) %>
           <% commun = (user_fdships & @self_fdships).first %>
           <% if commun.nil? %>
