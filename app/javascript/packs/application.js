@@ -34,6 +34,7 @@ import { video } from '../components/video';
 import { initChatRoomCable } from '../channels/chatroom_channel';
 import { askingFriend } from 'components/ask_friend';
 import { showNewChatRoom } from "../components/chatroom";
+import { friendsInvitation } from "../components/create_chatroom";
 
 
 
@@ -60,6 +61,7 @@ document.addEventListener('turbolinks:load', () => {
   }
   askingFriend();
   showNewChatRoom();
+  friendsInvitation();
 });
 
 
