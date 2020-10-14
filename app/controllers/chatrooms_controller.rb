@@ -24,6 +24,17 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
+    @user = current_user
+    @chatroom.user = current_user
+    @chatroom.save
+    @chat_participant = ChatParticipant.new(user_id: @user.id, chatroom_id: @chatroom.id)
+    @chat_participant.save
+    
+    if @chatroom.save
+      redirect_to chatrooms_path
+    else
+      redirect_to sessions_choice_path
+    end
   end
 
   private

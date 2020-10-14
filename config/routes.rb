@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :update, :destroy]
   resources :session_participants, only: [:update]
 
-  resources :chatrooms, only: [:show, :index, :new] do
+  resources :chatrooms, only: [:show, :index, :new, :create] do
     resources :messages, only: :create
   end
 
