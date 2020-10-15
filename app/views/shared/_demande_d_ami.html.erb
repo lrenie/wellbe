@@ -1,16 +1,14 @@
-<div>
-  <% Friendship.where(status: "pending").where(recipient_id: current_user.id).each do |friendship| %>
-    <%#= User.find(friendship.recipient_id).first_name  %>
-    <%= friendship.id %>
-    <div class="form-to-be-friend">
-     <h4>
-       <%= User.find(friendship.sender_id).first_name  %> veut nouer des liens d'amitiés
-     </h4>
-      <%= link_to 'ouiiii 😊', friendship_path(friendship.id), method: :patch  %>
-      <%= link_to 'Refuser 🚫', friendship_path(friendship.id), method: :delete, class: ""  %>
+<% Friendship.where(status: "pending").where(recipient_id: current_user.id).each do |friendship| %>
+  <div class="card-invit-to-be-friend">
+    <div class="friend-invit-avatar">
+      <%=  cl_image_tag User.find(friendship.sender_id).avatar.key, width: 80, height: 80, radius: "max", crop: "thumb" %>
     </div>
-
-
-
-  <% end %>
-</div>
+    <div class="friend-invit-id-user-and-button">
+      <h5><%= User.find(friendship.sender_id).first_name %>, <%= User.find(friendship.sender_id).last_name %></h5>
+      <div class="response-to-invit">
+        <%= link_to 'Confirmer', friendship_path(friendship.id), method: :patch, class: "accept button-invit" %>
+        <%= link_to 'Supprimer', friendship_path(friendship.id), method: :delete, class: "refuse button-invit"  %>
+      </div>
+    </div>
+  </div>
+<% end %>
