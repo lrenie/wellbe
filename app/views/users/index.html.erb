@@ -17,34 +17,36 @@
 
   <div class="user-list-index">
     <% @users.each do |user| %>
-      <div class="card-amis" data-recipientuser="<%= user.id %>" data-senderuser="<%= current_user.id %>">
-        <div style="width:70%">
-          <%= link_to user_path(user) do %>
-            <div>
-              <%= cl_image_tag user.avatar.key %>
-            </div>
-            <div>
-              <span><%= user.first_name %> <%= user.last_name  %></span>
-            </div>
-          <% end %>
+      <% if user != current_user %>
+        <div class="card-amis" data-recipientuser="<%= user.id %>" data-senderuser="<%= current_user.id %>">
+          <div style="width:70%">
+            <%= link_to user_path(user) do %>
+              <div>
+                <%= cl_image_tag user.avatar.key %>
+              </div>
+              <div>
+                <span><%= user.first_name %> <%= user.last_name  %></span>
+              </div>
+            <% end %>
+          </div>
+          <div class="flex-c-c width-64">
+            <% user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id) %>
+            <% commun = (user_fdships & @self_fdships).first %>
+            <% if commun.nil? %>
+              <%= form_tag friendships_path, remote: true do %>
+                <%= hidden_field_tag 'sender_id', current_user.id  %>
+                <%= hidden_field_tag 'recipient_id', user.id  %>
+                <%= hidden_field_tag 'status', "pending" %>
+                <%= submit_tag "Demander en ami", class: "friend-invitation" %>
+              <% end -%>
+            <% elsif Friendship.find(commun).status == "pending"%>
+              <div class="pending">Demande envoyée</div>
+            <% elsif Friendship.find(commun).status == "true"%>
+              <div class="we-are-friend">Amis</div>
+            <% end  %>
+          </div>
         </div>
-        <div class="flex-c-c width-64">
-          <% user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id) %>
-          <% commun = (user_fdships & @self_fdships).first %>
-          <% if commun.nil? %>
-            <%= form_tag friendships_path, remote: true do %>
-              <%= hidden_field_tag 'sender_id', current_user.id  %>
-              <%= hidden_field_tag 'recipient_id', user.id  %>
-              <%= hidden_field_tag 'status', "pending" %>
-              <%= submit_tag "Demander en ami", class: "friend-invitation" %>
-            <% end -%>
-          <% elsif Friendship.find(commun).status == "pending"%>
-            <div class="pending">Demande envoyée</div>
-          <% elsif Friendship.find(commun).status == "true"%>
-            <div class="we-are-friend">Amis</div>
-          <% end  %>
-        </div>
-      </div>
+        <% end %>
     <% end %>
   </div>
 </div>
