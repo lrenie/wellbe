@@ -1,0 +1,29 @@
+<div class="flex-c-c bg-gris">
+  <div class= "pop-up">
+    <% @friends.each do |friend| %>
+      <div class="flex-b-c card_invite_chatroom">
+        <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
+        <p class="flex-g-1 p-l-20 nunito"> <%= User.find(friend).first_name %> <%= User.find(friend).last_name %> </p>
+        
+
+        <%# <button data-id="friend" class="btn-2 invitation-btn">Inviter</button> %>
+
+        <%= form_tag chatroom_chat_participants_path(@chatroom_for_new_chat_participants), remote: true do %>
+        <%= hidden_field_tag 'user_id', friend%>
+        <%= hidden_field_tag 'chatroom_id'%> 
+        <%= submit_tag 'Inviter', class:"btn-2 invitation-btn" %>
+        <%raise%>
+        <% end %>
+      </div>
+      <%# raise %>
+      <% end %>
+
+      <%#= simple_form_for @chatroom, html: { class: "form-new-chatroom" } do |f| %>
+      <%#= f.input :name%>
+      <%#= f.button :submit, "Créer une discussion", class: "btn-1" %>
+      <%#end%>
+      <%# <div class="btn-1 cancel-button cursor" id="cancel-button">Ok</div> %>
+      <div class="btn-1 cancel-button cursor" id="cancel-button">OK</div>
+  </div>
+</div>
+
