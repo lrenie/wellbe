@@ -5,6 +5,9 @@ class ChatroomsController < ApplicationController
     @chat_participants = ChatParticipant.all
     @participants = ChatParticipant.where(chatroom_id: @chatroom.id)
     @message = Message.new
+    @friendships = current_user.all_friendships
+    @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+    @chatroom_for_new_chat_participants = Chatroom.last.id + 1
   end
 
   def index

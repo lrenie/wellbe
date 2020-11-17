@@ -23,7 +23,7 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
+import 'bootstrap';
 import { timeOfChrono } from '../components/chrono';
 import { updateTextInput } from '../components/range';
 import { addFriendsParticipants } from '../components/participations';

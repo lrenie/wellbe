@@ -9,8 +9,8 @@ class ChatParticipantsController < ApplicationController
     @user = User.find(params[:user_id])
     @chatroom = Chatroom.find(params[:chatroom_id])
     @chatparticipant = ChatParticipant.new
-    @chatparticipant.user_id = @user
-    @chatparticipant.chatroom_id = @chatroom
+    @chatparticipant.user = @user
+    @chatparticipant.chatroom = @chatroom
     @chatparticipant.save!
 
     # if @chatparticipant.save
