@@ -127,7 +127,7 @@
           <% end %>
         </div>
       </div>
-      <div class="tab-pane fade <%= "show active" if @param %>" id="my-friends" role="tabpanel" aria-labelledby="en_attente_1-tab">
+      <div class="tab-pane fade <%= "show active" if @param %>" id="my-friends" role="tabpanel" aria-labelledby="demande-d-ami-tab">
         <% if Friendship.where(status: "pending").where(recipient_id: current_user.id).empty? %>
           <h4> Vous n'avez pas de nouvelle invitation en attente 🙂</h4>
         <% else %>

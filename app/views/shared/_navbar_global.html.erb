@@ -18,6 +18,11 @@
       <ul class="navbar-nav icone-style">
         <li id="belt">
           <i class="fas fa-bell"></i>
+          <% if @friend_requests %>
+            <div class="red-notif f-c-c">
+              <%= @friend_requests.count %>
+            </div>
+          <% end %>
           <ul class="dropdown-belt notif-container">
             <% if @friend_requests %>
               <% @friend_requests.each do |friendship| %>
