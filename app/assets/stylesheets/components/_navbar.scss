@@ -51,7 +51,7 @@
 }
 
 .icone {
-  width: 200px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,9 +96,71 @@
     text-decoration: none;
   }
 }
-  .avatar-photo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-  }
 
+.avatar-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+#belt {
+  display:flex;
+  flex-direction: column;
+  position: relative;
+}
+
+li {
+  display: block;
+  transition-duration: 0.5s;
+}
+
+li:hover {
+  cursor: graber;
+}
+
+.dropdown-belt {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  right: 0px;
+  top: 15px;
+  display: none;
+}
+
+ul:hover li ul,
+.dropdown-belt:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.notif-container{
+}
+
+.notif-item {
+  border: 1px solid rgba(166, 166, 166, 0.2);
+  border-radius:4px;
+  background: rgba(245, 244, 246, 0.9) ;
+  clear: both;
+  width: 300px;
+  margin: 5px;
+  display: flex;
+  align-item:center;
+  justify-content:space-between;
+  color: rgb(71, 166, 178);
+  padding: 5px;
+}
+
+.red-notif {
+  width:20px;
+  height: 20px;
+  border-radius:50%;
+  background: red;
+  border: 0.2px solid white;
+  color: white;
+  position: relative;
+  font-size: 14px;
+
+}
