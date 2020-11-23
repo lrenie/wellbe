@@ -1,0 +1,16 @@
+<ul class="dropdown-belt notif-container">
+  <% if @friend_requests %>
+    <% @friend_requests.each do |friendship| %>
+      <%= link_to user_path(current_user.id, tab: "ask_friend"), style: "text-decoration: none" do %>
+        <div class="notif-item" data="tobefriend">
+          <%= cl_image_tag User.find(friendship.sender_id).avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
+            <span>
+              <strong><%= User.find(friendship.sender_id).first_name%></strong>
+              <strong><%= User.find(friendship.sender_id).last_name%></strong>
+              vous a envoyé une demande d'ami
+            </span>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>

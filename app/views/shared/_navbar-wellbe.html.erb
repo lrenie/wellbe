@@ -29,20 +29,8 @@
               <%= @friend_requests.count %>
             </div>
           <% end %>
-          <ul class="dropdown-belt notif-container">
-            <% if @friend_requests %>
-              <% @friend_requests.each do |friendship| %>
-                <div class="notif-item" data="tobefriend">
-                  <%= cl_image_tag User.find(friendship.sender_id).avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
-                  <span>
-                    <strong><%= User.find(friendship.sender_id).first_name%></strong>
-                    <strong><%= User.find(friendship.sender_id).last_name%></strong>
-                    vous a envoyé une demande d'ami
-                  </span>
-                </div>
-              <% end %>
-            <% end %>
-          </ul>
+          <%= render "shared/dropdown_notification" %>
+
         </li>
       </ul>
       <!-- ============================================ -->
