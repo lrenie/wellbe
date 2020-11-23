@@ -15,9 +15,12 @@
   </div>
   <div class="name-user">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-
   </div>
 
+  <!-- ===================================================================== -->
+  <!-- =====================   CREATION DES ONGLETS   ====================== -->
+  <!--                           // DASHBBOARD //                            -->
+  <!-- ===================================================================== -->
   <div class="list-user-profil" >
     <ul class="nav nav-tabs flex-b-c" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -40,8 +43,12 @@
       </li>
     </ul>
   </div>
+  <!-- ===================================================================== -->
+  <!-- =====================   CONTENU DES ONGLETS   ======================= -->
+  <!-- ===================================================================== -->
   <div class="container-s container-white m-b-40">
     <div class="tab-content" id="myTabContent">
+      <!-- ================== ONGLET STATISTIQUES ========================== -->
       <div class="tab-pane fade <%= "show active" unless @param %>" id="stat" role="tabpanel" aria-labelledby="stat-tab">
         <h3 class="roboto">Mes statistiques</h3>
         <div class="flex-b-c m-t-20">
@@ -86,6 +93,8 @@
           </div>
         </div>
       </div>
+
+      <!-- ================== ONGLET CALENDRIER ============================ -->
       <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
         <div class="container" data-controller="show-sessions">
           <div class="form-wrapper">
@@ -102,12 +111,15 @@
           <div class="card-session-show-user" data-target="show-sessions.card"></div>
         </div>
       </div>
+      <!-- ================== ONGLET SESSIONS FAVORITES ==================== -->
       <div class="tab-pane fade <%= "show active" if @param %>" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
         <h3 class="roboto">Mes sessions favorites</h3>
         <div class="m-t-20">
             <%= render "shared/card_prev_session_show_user", sessions: @sessions%>
         </div>
       </div>
+
+      <!-- ================== ONGLET LISTE AMIS ============================ -->
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
         <div class="flex-b-c flex-wrap deco-none">
           <% @friends.each do |friend| %>
@@ -127,6 +139,8 @@
           <% end %>
         </div>
       </div>
+
+      <!-- ================== ONGLET DEMANDE D'AMI ========================= -->
       <div class="tab-pane fade <%= "show active" if @param %>" id="my-friends" role="tabpanel" aria-labelledby="demande-d-ami-tab">
         <% if Friendship.where(status: "pending").where(recipient_id: current_user.id).empty? %>
           <h4> Vous n'avez pas de nouvelle invitation en attente 🙂</h4>
