@@ -153,9 +153,9 @@ ul:hover li ul,
   padding: 5px;
 }
 
-.notif-item span:hover {
-  text-decoration:none;
-  color:red;
+.notif-item a:hover {
+  // text-decoration:none;
+  // color:red;
 }
 
 .red-notif {
