@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
-
+    # raise
     @user = User.find(params[:id])
     @param = params[:param]
+    # voir ds session_participants_controller
 
     if @user == current_user
       @time = 0
@@ -18,25 +19,25 @@ class UsersController < ApplicationController
     @sessions = session_participants.map {|s| s.session}
     @session = Session.new
     @sessions_dates = @user.sessions
-    .map { |session| session.date }
-    .uniq
+                           .map { |session| session.date }
+                           .uniq
 
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
     @friend_requests = Friendship.where(recipient_id: current_user.id).where(status: "pending")
-    # raise
+
   end
 
   def index
-    # if params[:requete].present?
-    #   sql_requete = " \
-    #   users.first_name @@ :requete \
-    #   OR users.last_name @@ :requete \
-    #   "
-    #   @users = User.where(sql_requete, requete: "%#{params[:requete]}%")
-    # else
-    #   @users = User.all
-    # end
+    if params[:requete].present?
+      sql_requete = " \
+      users.first_name @@ :requete \
+      OR users.last_name @@ :requete \
+      "
+      @users = User.where(sql_requete, requete: "%#{params[:requete]}%")
+    else
+      @users = User.all
+    end
     @self_fdships = current_user.friendships.map(&:id) + current_user.recieved_friendships.map(&:id)
 
     @users = User.all

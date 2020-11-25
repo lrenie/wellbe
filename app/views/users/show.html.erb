@@ -15,13 +15,16 @@
   </div>
   <div class="name-user">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-
   </div>
 
+  <!-- ===================================================================== -->
+  <!-- =====================   CREATION DES ONGLETS   ====================== -->
+  <!--                           // DASHBBOARD //                            -->
+  <!-- ===================================================================== -->
   <div class="list-user-profil" >
     <ul class="nav nav-tabs flex-b-c" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link <%= "active" unless @param %> " id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">STATISTIQUES</a>
+        <a class="nav-link <%= "active" unless params[:tab] == 'ask_friend' %> " id="stat-tab" data-toggle="tab" href="#stat" role="tab" aria-controls="stat" aria-selected="true">STATISTIQUES</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link " id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="calendar" aria-selected="true">CALENDRIER</a>
@@ -33,16 +36,20 @@
         <a class="nav-link " id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="true">AMIS</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link <%= "active" if @param %> " id="en_attente_1-tab" data-toggle="tab" href="#my-friends" role="tab" aria-controls="en_attente_1" aria-selected="true">DEMANDES D'AMIS</a>
+        <a class="nav-link <%= "active" if params[:tab] == 'ask_friend' %> " id="en_attente_1-tab" data-toggle="tab" href="#my-friends" role="tab" aria-controls="en_attente_1" aria-selected="true">DEMANDES D'AMIS</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link  " id="en_attente_2-tab" data-toggle="tab" href="#en_attente_2" role="tab" aria-controls="en_attente_2" aria-selected="true">EN ATTENTE 2</a>
       </li>
     </ul>
   </div>
+  <!-- ===================================================================== -->
+  <!-- =====================   CONTENU DES ONGLETS   ======================= -->
+  <!-- ===================================================================== -->
   <div class="container-s container-white m-b-40">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade <%= "show active" unless @param %>" id="stat" role="tabpanel" aria-labelledby="stat-tab">
+      <!-- ================== ONGLET STATISTIQUES ========================== -->
+      <div class="tab-pane fade <%= "show active" unless params[:tab] == 'ask_friend' %>" id="stat" role="tabpanel" aria-labelledby="stat-tab">
         <h3 class="roboto">Mes statistiques</h3>
         <div class="flex-b-c m-t-20">
           <div class="stat-card">
@@ -86,6 +93,8 @@
           </div>
         </div>
       </div>
+
+      <!-- ================== ONGLET CALENDRIER ============================ -->
       <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
         <div class="container" data-controller="show-sessions">
           <div class="form-wrapper">
@@ -102,12 +111,15 @@
           <div class="card-session-show-user" data-target="show-sessions.card"></div>
         </div>
       </div>
+      <!-- ================== ONGLET SESSIONS FAVORITES ==================== -->
       <div class="tab-pane fade <%= "show active" if @param %>" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
         <h3 class="roboto">Mes sessions favorites</h3>
         <div class="m-t-20">
             <%= render "shared/card_prev_session_show_user", sessions: @sessions%>
         </div>
       </div>
+
+      <!-- ================== ONGLET LISTE AMIS ============================ -->
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
         <div class="flex-b-c flex-wrap deco-none">
           <% @friends.each do |friend| %>
@@ -127,7 +139,9 @@
           <% end %>
         </div>
       </div>
-      <div class="tab-pane fade <%= "show active" if @param %>" id="my-friends" role="tabpanel" aria-labelledby="demande-d-ami-tab">
+
+      <!-- ================== ONGLET DEMANDE D'AMI ========================= -->
+      <div class="tab-pane fade <%= "show active" if params[:tab] == 'ask_friend' %>" id="my-friends" role="tabpanel" aria-labelledby="demande-d-ami-tab">
         <% if Friendship.where(status: "pending").where(recipient_id: current_user.id).empty? %>
           <h4> Vous n'avez pas de nouvelle invitation en attente 🙂</h4>
         <% else %>
