@@ -7,7 +7,7 @@
 .conversation {
   align-self: flex-end;
   height: 65%;
-  overflow: scroll;
+  overflow: auto;
   i {
     color: $gris;
     font-size: 12px;
@@ -31,8 +31,9 @@
   position: absolute;
   bottom: 0px;
   padding: 20px 0px;
+  width: 100vh;
+  margin: auto;
   textarea.form-control {
-    width: 100%;
     border-radius: 50px;
     border: 1px solid $gris;
     height: 30%;
@@ -58,4 +59,29 @@
   width: 30px;
   height: 30px;
   border-radius: 50px;
+}
+
+#new_message {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#message_content {
+  width: 70vh;
+}
+
+#send{
+  padding: 0px;
+}
+
+.arrow-left {
+  position: absolute;
+  right: 165px;
+  bottom: 57px;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid #B67CFF;
 }
