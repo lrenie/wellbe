@@ -17,41 +17,47 @@
       </div>
       <div class="chat-room-container">
         <% @chatrooms.each do |chatroom| %>
-          <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
-            <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
-            <div class="flex-g-1 m">
-              <div class="flex">
-                <% participants = [] %>
-                <% @chat_participants.where(chatroom_id: chatroom.id).each do |chat_participant| %>
-                  <% if chat_participant.user.first_name == current_user.first_name %>
-                  <% else %>
-                    <% participants << "#{chat_participant.user.first_name}" %>
+          <% if chatroom.chat_participants.where(user_id: current_user).exists?%>
+            <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
+              <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
+              <div class="flex-g-1 m">
+                <div class="flex">
+                  <% participants = [] %>
+                  <% @chat_participants.where(chatroom_id: chatroom.id).each do |chat_participant| %>
+                    <% if chat_participant.user.first_name == current_user.first_name %>
+                    <% else %>
+                      <% participants << "#{chat_participant.user.first_name}" %>
+                    <% end %>
                   <% end %>
-                <% end %>
-                <% if participants.flatten.join(", ").length > 20 %>
-                  <p><%= participants.flatten.join(", ") %> ...</p>
+                  <% if participants.flatten.join(", ").length > 20 %>
+                    <p><%= participants.flatten.join(", ") %> ...</p>
+                  <% else %>
+                    <p><%= participants.flatten.join(", ") %></p>
+                  <% end %>
+                </div>
+                <% if chatroom.messages.first %>
+                  <% if chatroom.messages.last.user == current_user %>
+                    <p class="message-chatroom">Vous: <%= chatroom.messages.last.content %></p>
+                  <% else %>
+                    <p class="message-chatroom"><%= chatroom.messages.last.user.first_name %>: <%= chatroom.messages.last.content %></p>
+                  <% end %>
                 <% else %>
-                  <p><%= participants.flatten.join(", ") %></p>
                 <% end %>
               </div>
-              <% if chatroom.messages.first %>
-                <% if chatroom.messages.last.user == current_user %>
-                  <p class="message-chatroom">Vous: <%= chatroom.messages.last.content %></p>
-                <% else %>
-                  <p class="message-chatroom"><%= chatroom.messages.last.user.first_name %>: <%= chatroom.messages.last.content %></p>
-                <% end %>
-              <% else %>
-              <% end %>
-            </div>
+            <%end%>
+           
           <%end%>
         <%end%>
       </div>
+      
       <%= form_tag chatrooms_path, remote: true do %>
       <%= hidden_field_tag 'user_id', @chatroom.user %>
       <%= hidden_field_tag 'name', @name %>
       <%= hidden_field_tag 'chat_participants', @chat_participant %>
       <%= submit_tag 'Créer une discussion', class: "flex-c-c btn-1 btn-chatroom cursor border-none"%>
       <% end %>
+
+      
     </div>
     <div class="show-off">
       <h4 class="blague">Étire toi bien! Tourne 7 fois ta langue dans ta bouche avant de parler.</h4>

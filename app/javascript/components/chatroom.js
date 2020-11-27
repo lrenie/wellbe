@@ -18,5 +18,11 @@ const showNewChatRoom = () => {
   })
 };
 
+const sendMessage = () => {
+  const submit = document.getElementById("send");
+
+submit.addEventListener("keydown", )
+}
+
 export { showNewChatRoom };
 

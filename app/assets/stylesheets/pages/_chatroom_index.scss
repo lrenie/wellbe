@@ -12,6 +12,10 @@
   border-right: 1px solid $blancfonce;
 }
 
+.chat-room-container {
+  height: 80%;
+  overflow: auto;
+}
 .line-chatroom {
   border-bottom: 1px solid rgb(208, 208, 208);
   margin: 20px 40px;
@@ -65,6 +69,12 @@
   position: absolute;
   bottom: 0px;
   margin: 20px 130px;
+}
+
+.btn-modale-invit {
+  position: absolute;
+  bottom: 60px;
+  left: 230px;
 }
 
 .show-off {
