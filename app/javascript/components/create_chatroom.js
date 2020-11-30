@@ -1,7 +1,7 @@
-const friendsInvitation = () => { 
+const friendsInvitation = () => {
 
   const invitButtons = document.querySelectorAll(".btn-2");
-  console.log(invitButtons);
+  // console.log(invitButtons);
 
   // for ( var index = 0 ; index < invitButtons.length ; index++) {
   //   invitButtons[index].addEventListener("click", () => {
@@ -13,10 +13,10 @@ const friendsInvitation = () => {
     button.addEventListener("click", (event) => {
       console.log(event.currentTarget.dataset.id);
     })
-    
+
   })
 
-  
+
 }
 
 export { friendsInvitation };

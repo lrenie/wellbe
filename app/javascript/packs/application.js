@@ -35,7 +35,7 @@ import { initChatRoomCable } from '../channels/chatroom_channel';
 import { askingFriend } from 'components/ask_friend';
 import { showNewChatRoom } from "../components/chatroom";
 import { friendsInvitation } from "../components/create_chatroom";
-
+import { initNotificationCable } from "../channels/notification_channel";
 
 
 
@@ -51,7 +51,8 @@ document.addEventListener('turbolinks:load', () => {
   video();
   addFriendsParticipants();
   initChatRoomCable();
-  
+  initNotificationCable();
+
   if (document.querySelector('#go')){
     document.querySelector('#go').addEventListener('click', e => {
       document.querySelector('#init').classList.remove('d-none')
