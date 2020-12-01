@@ -5,9 +5,11 @@
 }
 
 .conversation {
+  display: flex;
   align-self: flex-end;
   height: 65%;
   overflow: auto;
+  flex-direction: column-reverse;
   i {
     color: $gris;
     font-size: 12px;

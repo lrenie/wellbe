@@ -16,7 +16,7 @@
       <div class="line-chatroom">
       </div>
       <div class="chat-room-container">
-        <% @chatrooms.each do |chatroom| %>
+        <% @chatrooms.reverse.each do |chatroom| %>
           <% if chatroom.chat_participants.where(user_id: current_user).exists?%>
             <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
               <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
@@ -91,7 +91,7 @@
       </div>
 <!-- MESSAGES ****************************************************************** -->
       <div id="messages" data-chatroom-id="<%= @chatroom.id%>" class="conversation">
-        <% @chatroom.messages.each do |message| %>
+        <% @chatroom.messages.reverse.each do |message| %>
           <% if message.user == current_user %>
             <div class="message-container-self" id="messages-<%= message.id%>">
               <i class="author">

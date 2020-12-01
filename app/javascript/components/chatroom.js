@@ -11,22 +11,24 @@ const showNewChatRoom = () => {
     const showElement = (element) => {
       element.classList.remove("d-none");
     }
+
     hideElement(modale);
+
     btn_new_chatroom.addEventListener("click", (event) => {
       showElement(modale);
     })
-    btn_cancel_new.addEventListener("click", (event) => {
-      hideElement(modale);
-    })
+    // btn_cancel_new.addEventListener("click", (event) => {
+    //   hideElement(modale);
+    // })
 
   }
 };
 
-const sendMessage = () => {
-  const submit = document.getElementById("send");
+// const sendMessage = () => {
+//   const submit = document.getElementById("send");
 
-submit.addEventListener("keydown", )
-}
+// submit.addEventListener("keydown", )
+// }
 
 export { showNewChatRoom };
 
