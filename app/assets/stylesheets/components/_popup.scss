@@ -61,3 +61,27 @@
     color: $secondary;
   }
 }
+
+
+
+.bg-gris-small {
+  z-index: 1;
+  position: absolute;
+  top: 288px;
+  right: 175px;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 50vh;
+  width: 56vw;
+  border-radius: 5px;
+}
+
+.pop-up-add {
+right: 323px;
+height: 385px;
+width: 420px;
+background-color: white;
+border-radius: 15px;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+overflow: auto;
+}
+
