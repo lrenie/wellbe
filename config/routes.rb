@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show, :index, :new, :create, :destroy] do
     get '/chat_participants/new', to: 'chat_participants#new'
     post '/chat_participants', to: 'chat_participants#create'
+    post '/chat_participants/add', to: 'chat_participants#add', as: 'add_chat_participants'
     delete '/chat_participants/:id', to: 'chat_participants#destroy', as: 'delete_chat_participants'
     resources :messages, only: :create
   end

@@ -69,26 +69,32 @@
         <div class="flex-g-1">
           <h4><%= participants.flatten.join(", ") %></h4>
         </div>
-        <div class="nav-item dropdown">
-          <div class="icone-style", id="navbarDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false">
-            <i class="fas fa-cogs"></i>
+        <div class="icone-small">
+          <div class="icone-style" id="add-friends-to-chatroom">
+            <i class="fas fa-user-plus"></i>
           </div>
-          <% if current_user.id == @chatroom.user_id %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "#", class: "dropdown-item flex-b-c", method: :delete do %>
-                  <i class="fas fa-user-edit m-r-10" id="noir"></i>
-                  <p class="flex-g-1">Supprimer la discussion</p>
-                <% end %>
-            <%else%>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <%= link_to chatroom_delete_chat_participants_path(@chatroom), class: "dropdown-item flex-b-c", method: :delete do %>
+          <div class="nav-item dropdown">
+            <div class="icone-style", id="navbarDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <%if current_user.id == @chatroom.user_id%>
+              <div class="dropdown-menu dropdown-menu-right" id="dd-chatroom" aria-labelledby="navbarDropdown">
+                  <%= link_to "#", class: "dropdown-item flex-b-c", method: :delete do %>
                     <i class="fas fa-user-edit m-r-10" id="noir"></i>
-                    <p class="flex-g-1">Quitter la discussion</p>
-                  <%end%>
-            <%end%>
+                    <p class="flex-g-1">Supprimer la discussion</p>
+                  <% end %>
+            <% else %>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <%= link_to chatroom_delete_chat_participants_path(@chatroom), class: "dropdown-item flex-b-c", method: :delete do %>
+                      <i class="fas fa-user-edit m-r-10" id="noir"></i>
+                      <p class="flex-g-1">Quitter la discussion</p>
+                    <%end%>
+              <%end%>
+            </div>
           </div>
         </div>
       </div>
+      
 <!-- MESSAGES ****************************************************************** -->
       <div id="messages" data-chatroom-id="<%= @chatroom.id%>" class="conversation">
         <% @chatroom.messages.reverse.each do |message| %>
@@ -125,3 +131,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'chat_participants/add_friends'%>
