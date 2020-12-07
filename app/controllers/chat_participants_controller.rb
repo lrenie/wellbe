@@ -8,13 +8,7 @@ class ChatParticipantsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @chatrooms = Chatroom.all
-
-    if @chatrooms == []
-      @chatroom = Chatroom.new
-    else
-      @chatroom = Chatroom.last
-    end
-
+    @chatroom = Chatroom.last
     @chatparticipant = ChatParticipant.new
     @chatparticipant.user = @user
     @chatparticipant.chatroom = @chatroom
