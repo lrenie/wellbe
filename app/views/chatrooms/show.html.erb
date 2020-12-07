@@ -51,12 +51,10 @@
       <%= submit_tag 'Créer une discussion', class: "flex-c-c btn-1 btn-chatroom cursor border-none"%>
       <% end %>
 
-
       <%= render "chat_participants/new"%>
-      
     </div>
 <!-- PARTICIPANTS ****************************************************************** -->
-    <div class="flex-g-1 p-l-40 container-chatrooms p-r-40">
+    <div class="flex-g-1 p-l-40 container-chatrooms p-r-40" id="messages-container">
       <div class="flex-b-c p-x-15 border-chat">
         <% participants = [] %>
         <% @participants.each do |participant| %>

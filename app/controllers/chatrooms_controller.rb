@@ -16,7 +16,11 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
-    @chatroom_for_new_chat_participants = Chatroom.last.id
+    if @chatrooms.length > 0
+      @chatroom_for_new_chat_participants = Chatroom.last.id
+    else
+      @chatroom_for_new_chat_participants = Chatroom.new(user_id: current_user.id, name: 'default').save!
+    end
   end
 
   def new
@@ -43,7 +47,4 @@ class ChatroomsController < ApplicationController
 
   private
 
-  # def chatroom_params
-  #   params.require(:chatroom).permit(:name)
-  # end
 end
