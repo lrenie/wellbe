@@ -2,7 +2,7 @@ import { connect } from 'twilio-video';
 
 const video = () => {
   const zoom_area = document.querySelector('.zoom-area');
-  console.log(zoom_area);
+  
   if (!zoom_area){
     return;
   }

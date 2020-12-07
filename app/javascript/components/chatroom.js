@@ -17,23 +17,17 @@ const showNewChatRoom = () => {
     btnNewChatroom.addEventListener("click", (event) => {
       showElement(modale);
     })
-    // btn_cancel_new.addEventListener("click", (event) => {
-    //   hideElement(modale);
-    // })
-
   }
 };
 
 const showAddFriends = () => {
   
-  const containerChatroom = document.querySelector('.container-chatrooms')
+  const containerChatroom = document.getElementById('messages-container')
   if(containerChatroom) {
     const modale = document.querySelector('.bg-gris-small');
-    const dropDown = document.getElementById('dd-chatroom');
     const buttonAddFriends = document.getElementById('add-friends-to-chatroom');
     
     
-
     const hideElement = (element) => {
       element.classList.add("d-none");
     }
@@ -48,12 +42,6 @@ const showAddFriends = () => {
     })
   }
 }
-
-// const sendMessage = () => {
-//   const submit = document.getElementById("send");
-
-// submit.addEventListener("keydown", )
-// }
 
 export { showNewChatRoom };
 export { showAddFriends };
