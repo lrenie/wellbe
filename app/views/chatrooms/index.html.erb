@@ -51,11 +51,11 @@
       <%end%>
       </div>
       <%= form_tag chatrooms_path, remote: true do %>
-      <%= hidden_field_tag 'user_id', @chatroom.user %>
-      <%= hidden_field_tag 'name', @name %>
-      <%= hidden_field_tag 'chat_participants', @chat_participant %>
-      <%= submit_tag 'Créer une discussion', class: "flex-c-c btn-1 btn-chatroom cursor border-none"%>
-      <% end %> 
+        <%= hidden_field_tag 'user_id', @chatroom.user %>
+        <%= hidden_field_tag 'name', @name %>
+        <%= hidden_field_tag 'chat_participants', @chat_participant %>
+        <%= submit_tag 'Créer une discussion', class: "flex-c-c btn-1 btn-chatroom cursor border-none"%>
+      <% end %>
     </div>
     <div class="show-off">
       <h4 class="blague">Étire toi bien! Tourne 7 fois ta langue dans ta bouche avant de parler.</h4>

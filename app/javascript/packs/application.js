@@ -36,6 +36,7 @@ import { showNewChatRoom } from "../components/chatroom";
 import { showAddFriends } from '../components/chatroom';
 import { friendsInvitation } from "../components/create_chatroom";
 import { initNotificationCable } from "../channels/notification_channel";
+import { counterDisappear } from "../components/counter_disapppear";
 
 
 
@@ -53,7 +54,7 @@ document.addEventListener('turbolinks:load', () => {
   addFriendsParticipants();
   initChatRoomCable();
   initNotificationCable();
-
+  counterDisappear();
 
   if (document.querySelector('#go')){
     document.querySelector('#go').addEventListener('click', e => {
