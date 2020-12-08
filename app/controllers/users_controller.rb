@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
     @friend_requests = Friendship.where(recipient_id: current_user.id).where(status: "pending")
-
   end
 
   def index
