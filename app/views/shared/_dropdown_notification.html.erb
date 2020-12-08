@@ -1,4 +1,4 @@
-<ul class="dropdown-belt notif-container">
+<!-- <ul class="dropdown-belt notif-container"> -->
   <% if @friend_requests %>
     <% @friend_requests.each do |friendship| %>
       <%= link_to user_path(current_user.id, tab: "ask_friend"), style: "text-decoration: none" do %>
@@ -13,4 +13,4 @@
       <% end %>
     <% end %>
   <% end %>
-</ul>
+<!-- </ul> -->

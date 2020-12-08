@@ -1,0 +1,14 @@
+<%# Friendship.where(status: "pending").where(recipient_id: current_user.id).each do |friendship| %>
+  <div class="card-invit-to-be-friend">
+    <div class="friend-invit-avatar">
+      <%=  cl_image_tag friendship.sender.avatar.key, width: 80, height: 80, radius: "max", crop: "thumb" %>
+    </div>
+    <div class="friend-invit-id-user-and-button">
+      <h5><%= friendship.sender.first_name %>, <%= friendship.sender.last_name %></h5>
+      <div class="response-to-invit">
+        <%= link_to 'Confirmer', friendship_path(friendship), method: :patch, class: "accept button-invit" %>
+        <%= link_to 'Supprimer', friendship_path(friendship), method: :delete, class: "refuse button-invit"  %>
+      </div>
+    </div>
+  </div>
+<%# end %>

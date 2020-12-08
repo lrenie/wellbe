@@ -5,17 +5,25 @@ class FriendshipsController < ApplicationController
     @friendship.recipient_id = params[:recipient_id]
     @friendship.sender_id = params[:sender_id]
     @friendship.save
-    if @friendship.save
-      # ActionCable.server.broadcast('NotificationChannel', {data: 'voila le vin du soir'})
-      NotificationChannel.broadcast_to(current_user,
-       {content: "voila le vin du soir"})
+    @friend_requests_to_recipient = Friendship.where(recipient_id: @friendship.recipient_id).where(status: "pending")
 
-      # NotificationChannel.broadcast_to(
-      #   { content: "salut"}
-      #   # current_user,
-      #   # data
-      #   # render_to_string(partial: "demande_d_ami", locals: { })
-      #   )
+    if @friendship.save
+
+      NotificationChannel.broadcast_to(
+        @friendship.recipient_id,
+         {
+            friendRequestCard: ApplicationController.render(
+              partial: 'friendships/demande_d_ami',
+              locals: { friendship: @friendship }),
+
+            notifications: {
+              friendship: ApplicationController.render(
+                partial: 'friendships/dropdown_notif',
+                locals: { friendship: @friendship }),
+              count: @friend_requests_to_recipient.count
+            }
+          }
+      )
 
       respond_to do |format|
         format.js

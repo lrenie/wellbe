@@ -12,11 +12,10 @@ module ApplicationCable
 
     def find_verified_user
       puts "ON RENTRE DANS la methode find_verified_user"
-
       # if verified_user = User.find_by(id: cookies.encrypted[:user_id])
-      if verified_user = env['warden'].user
-        verified_user
+      if current_user = env['warden'].user
         puts "ATTENTION app/channels/applicationCable/connections C'EST TOUT BON"
+        current_user
       else
         puts "ATTENTION app/channels/applicationCable/connections C'EST PAS BON"
         reject_unauthorized_connection
