@@ -71,18 +71,18 @@ User1 = { email: "stephanie@gmail.com", password: "123456", first_name: "Stephan
 User2 = { email: "loulou@gmail.com", password: "123456", first_name: "Loulou", last_name: "Leaddev" }
 User3 = { email: "corentin@gmail.com", password: "123456", first_name: "Corentin", last_name: "leLeaddev" }
 User4 = { email: "benou@gmail.com", password: "123456", first_name: "Benoit", last_name: "Graziani" }
-User5 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Johan" }
+User5 = { email: "eugenie@gmail.com", password: "123456", first_name: "Eugenie", last_name: "Jolie" }
 User6 = { email: "lomig@gmail.com", password: "123456", first_name: "Lomig", last_name: "TheBestTeacher" }
 
 users = []
 
 
 photos = [
-"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599209388/c8nl3gpfrpqhyyxspx0yj9nzyr1n.jpg",
+"https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
 "https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211135/louis_ro7uoa.jpg",
 "https://www.fredporez.com/wp-content/uploads/portfolio/2017/portrait-matt-nash.jpg",
 "https://res.cloudinary.com/dax8lsbkx/image/upload/v1599211528/IMG-20200822-WA0016_ynhhxl.jpg",
-"https://fr.web.img2.acsta.net/pictures/19/03/14/11/10/0992674.jpg",
+"https://res.cloudinary.com/dax8lsbkx/image/upload/v1599209388/c8nl3gpfrpqhyyxspx0yj9nzyr1n.jpg",
 "https://pbs.twimg.com/profile_images/1144264532812079106/92QOzKKG_400x400.jpg"
 ]
 covers = [
@@ -90,7 +90,7 @@ covers = [
   "https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
   "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
   "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
-  "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg",
+  "https://www.google.com/imgres?imgurl=http%3A%2F%2Flesincontournablesduvar.fr%2Fimages%2Fpanorama%2520sans%2520titre1%25202.jpg&imgrefurl=http%3A%2F%2Flesincontournablesduvar.fr%2Frando-cuves-du-destel---ollioules.html&tbnid=ljmt2imfhFSXKM&vet=12ahUKEwi2sISl-77tAhUr1eAKHeYxCOUQMygAegUIARCYAQ..i&docid=psDppZzdkZBDKM&w=2103&h=882&q=image%20destel&ved=2ahUKEwi2sISl-77tAhUr1eAKHeYxCOUQMygAegUIARCYAQ",
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
@@ -106,29 +106,29 @@ covers = [
 end
 
 
-pictures = [
-  "https://i.pinimg.com/236x/6e/ae/6b/6eae6bdc37b5ed5701aca9d38d71c825--freckles-islamic-fashion.jpg",
-  "https://i.pinimg.com/736x/ef/9d/80/ef9d800e07a159dec21bd4bdf45d9a6d.jpg",
-  "https://www.joancanto.com/wp-content/uploads/2017/04/H10B1582-Edit.jpg",
-  "https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg",
-  "https://www4.pictures.zimbio.com/gi/39th+Annual+People+Choice+Awards+Portraits+lza8vaU_QsZx.jpg"
-]
-5.times do
-  i = 0
-  fake_user = User.new
-  fake_user.email = Faker::Internet.email
-  fake_user.password = "123456"
-  fake_user.first_name = Faker::Name.first_name
-  fake_user.last_name = Faker::Name.last_name
-  file_avatar = URI.open(pictures[0])
-  file_cover = URI.open("https://source.unsplash.com/800x200/?landscape")
-  fake_user.avatar.attach(io: file_avatar, filename: 'image.jpg', content_type: 'image/jpg')
-  fake_user.cover.attach(io: file_cover, filename: 'image.jpg', content_type: 'image/jpg')
-  fake_user.save
-  puts "#{fake_user.first_name} created"
-  puts "#{User.count}"
-  i += 1
-end
+# pictures = [
+#   "https://i.pinimg.com/236x/6e/ae/6b/6eae6bdc37b5ed5701aca9d38d71c825--freckles-islamic-fashion.jpg",
+#   "https://i.pinimg.com/736x/ef/9d/80/ef9d800e07a159dec21bd4bdf45d9a6d.jpg",
+#   "https://www.joancanto.com/wp-content/uploads/2017/04/H10B1582-Edit.jpg",
+#   "https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg",
+#   "https://www4.pictures.zimbio.com/gi/39th+Annual+People+Choice+Awards+Portraits+lza8vaU_QsZx.jpg"
+# ]
+# 5.times do
+#   i = 0
+#   fake_user = User.new
+#   fake_user.email = Faker::Internet.email
+#   fake_user.password = "123456"
+#   fake_user.first_name = Faker::Name.first_name
+#   fake_user.last_name = Faker::Name.last_name
+#   file_avatar = URI.open(pictures[0])
+#   file_cover = URI.open("https://source.unsplash.com/800x200/?landscape")
+#   fake_user.avatar.attach(io: file_avatar, filename: 'image.jpg', content_type: 'image/jpg')
+#   fake_user.cover.attach(io: file_cover, filename: 'image.jpg', content_type: 'image/jpg')
+#   fake_user.save
+#   puts "#{fake_user.first_name} created"
+#   puts "#{User.count}"
+#   i += 1
+# end
 
 puts "Created #{User.count} users"
 
