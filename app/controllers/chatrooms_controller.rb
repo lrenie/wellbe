@@ -23,11 +23,11 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  def new
-    @chatroom = Chatroom.new
-    @friendships = current_user.all_friendships
-    @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
-  end
+  # def new
+  #   @chatroom = Chatroom.new
+  #   @friendships = current_user.all_friendships
+  #   @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+  # end
 
   def create
     @chatroom = Chatroom.new
