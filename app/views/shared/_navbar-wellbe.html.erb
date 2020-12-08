@@ -24,12 +24,12 @@
       <ul class="navbar-nav icone-style home">
         <li id="belt">
           <i class="fas fa-bell"></i>
-          <% if @friend_requests %>
-            <div class="red-notif f-c-c">
-              <%= @friend_requests.count %>
-            </div>
-          <% end %>
-          <%= render "shared/dropdown_notification" %>
+          <div class="red-notif <%= 'd-none' if @friend_requests&.count < 1 %>">
+            <span id="counter"><%= @friend_requests&.count || 0 %></span>
+          </div>
+          <ul class="dropdown-belt notif-container">
+            <%= render "shared/dropdown_notification" %>
+          </ul>
 
         </li>
       </ul>

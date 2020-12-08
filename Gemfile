@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'cloudinary', '~> 1.12.0'
 gem 'twilio-ruby', '~> 5.40.0'
 gem 'faker'
+gem 'turbolinks_render'
 
 
 group :development, :test do

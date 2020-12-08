@@ -143,9 +143,23 @@
       <!-- ================== ONGLET DEMANDE D'AMI ========================= -->
       <div class="tab-pane fade <%= "show active" if params[:tab] == 'ask_friend' %>" id="my-friends" role="tabpanel" aria-labelledby="demande-d-ami-tab">
         <% if Friendship.where(status: "pending").where(recipient_id: current_user.id).empty? %>
-          <h4> Vous n'avez pas de nouvelle invitation en attente 🙂</h4>
+          <h4 id="no-invit"> Vous n'avez pas de nouvelle invitation en attente 🙂</h4>
         <% else %>
-          <%= render "shared/demande_d_ami" %>
+          <% @friend_requests.each do |friendship| %>
+            <%#= render "friendships/demande_d_ami" %>
+              <div class="card-invit-to-be-friend">
+                <div class="friend-invit-avatar">
+                  <%=  cl_image_tag User.find(friendship.sender_id).avatar.key, width: 80, height: 80, radius: "max", crop: "thumb" %>
+                </div>
+                <div class="friend-invit-id-user-and-button">
+                  <h5><%= User.find(friendship.sender_id).first_name %>, <%= User.find(friendship.sender_id).last_name %></h5>
+                  <div class="response-to-invit">
+                    <%= link_to 'Confirmer', friendship_path(friendship.id), method: :patch, class: "accept button-invit" %>
+                    <%= link_to 'Supprimer', friendship_path(friendship.id), method: :delete, class: "refuse button-invit"  %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
         <% end %>
       </div>
       <div class="tab-pane fade" id="en_attente_2" role="tabpanel" aria-labelledby="en_attente_2-tab">

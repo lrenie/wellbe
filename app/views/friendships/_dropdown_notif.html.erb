@@ -1,0 +1,15 @@
+  <%# if @friend_requests %>
+    <%# @friend_requests.each do |friendship| %>
+<%= link_to user_path(friendship.recipient, tab: "ask_friend"), style: "text-decoration: none" do %>
+  <div class="notif-item" data="tobefriend">
+    <%= cl_image_tag friendship.sender.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
+      <span>
+        <strong><%= friendship.sender.first_name%></strong>
+        <strong><%= friendship.sender.last_name%></strong>
+        vous a envoyé une demande d'ami
+      </span>
+  </div>
+<% end %>
+    <%# end %>
+  <%# end %>
+

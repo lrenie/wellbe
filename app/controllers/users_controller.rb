@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    # raise
+
     @user = User.find(params[:id])
     @param = params[:param]
     # voir ds session_participants_controller
@@ -25,11 +25,11 @@ class UsersController < ApplicationController
     @friendships = current_user.all_friendships
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
     @friend_requests = Friendship.where(recipient_id: current_user.id).where(status: "pending")
-    NotificationChannel.broadcast_to(current_user, {content: "voila la vin du soir"})
 
   end
 
   def index
+
     if params[:requete].present?
       sql_requete = " \
       users.first_name @@ :requete \
