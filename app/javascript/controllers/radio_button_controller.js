@@ -21,12 +21,7 @@ export default class extends Controller {
       el.classList.remove('level-selected');
     })
     event.currentTarget.classList.add('level-selected')
-    console.log(this.inputTarget.selectedIndex)
-    console.log('blablablabl')
-
   }
-
-
 
   inputSelecte(event) {
     this.inputTarget.selectedIndex = parseInt(event.currentTarget.dataset.id);
@@ -34,6 +29,5 @@ export default class extends Controller {
       el.classList.remove('body-selected');
     })
     event.currentTarget.classList.add('body-selected')
-    console.log(this.inputTarget.selectedIndex)
   }
 }

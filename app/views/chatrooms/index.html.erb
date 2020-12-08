@@ -16,9 +16,9 @@
       <div class="line-chatroom">
       </div>
       <div class="chat-room-container">
-        <% @chatrooms.each do |chatroom| %>
+        <% @chatrooms.reverse.each do |chatroom| %>
           <% if chatroom.chat_participants.where(user_id: current_user).exists?%>
-            <%= link_to chatroom, class: "flex-b-c chatroom-card"  do %>
+            <%= link_to chatroom, class: "flex-b-c chatroom-card" do %>
               <%= cl_image_tag @chat_participants.where(chatroom_id: chatroom.id).last.user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo m-r-10" %>
               <div class="flex-g-1 m">
                 <div class="flex">
@@ -45,26 +45,19 @@
                 <% end %>
               </div>
             <%end%>
-           
           <%end%>
         <%end%>
       </div>
-      
       <%= form_tag chatrooms_path, remote: true do %>
       <%= hidden_field_tag 'user_id', @chatroom.user %>
       <%= hidden_field_tag 'name', @name %>
       <%= hidden_field_tag 'chat_participants', @chat_participant %>
       <%= submit_tag 'Créer une discussion', class: "flex-c-c btn-1 btn-chatroom cursor border-none"%>
-      <% end %>
-
-      
+      <% end %> 
     </div>
     <div class="show-off">
       <h4 class="blague">Étire toi bien! Tourne 7 fois ta langue dans ta bouche avant de parler.</h4>
     </div>
-
-   
-
 </div>
 
 <%= render "chat_participants/new" %>

@@ -1,18 +1,19 @@
-<div class="flex-c-c bg-gris">
-  <div class= "pop-up">
+<div class="flex-c-c bg-gris-small">
+  <div class="pop-up-add">
+    <div class="pop-up-add container">
     <% @friends.each do |friend| %>
       <div class="flex-b-c card_invite_chatroom">
         <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
         <p class="flex-g-1 p-l-20 nunito"> <%= User.find(friend).first_name %> <%= User.find(friend).last_name %> </p>
-          <%= form_tag chatroom_chat_participants_path(@chatroom_for_new_chat_participants), remote: true do %>
-          <%= hidden_field_tag 'user_id', friend%>
-          <%= submit_tag 'Inviter', class:"btn-2 invitation-btn" %>
-          <% end %>
+        <%= form_tag chatroom_add_chat_participants_path(@chatroom), remote: true do %>
+        <%= hidden_field_tag 'user_id', friend%>
+        <%= submit_tag 'Inviter', class:"btn-2 invitation-btn" %>
+        <% end %>
       </div>
-        <% end %>      
-    <%= link_to chatrooms_path do %>
+      <% end %>
+    </div> 
+    <%= link_to chatroom_path do %>
       <div class="btn-modale-invit btn-1 cursor border-none">OK</div>
     <%end%>
   </div>
 </div>
-
