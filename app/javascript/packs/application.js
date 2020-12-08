@@ -63,7 +63,7 @@ document.addEventListener('turbolinks:load', () => {
       timeOfChrono();
     })
   }
-  askingFriend();
+  
   showNewChatRoom();
   showAddFriends();
   friendsInvitation();

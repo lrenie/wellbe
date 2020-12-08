@@ -16,6 +16,7 @@
       <div class="line-chatroom">
       </div>
       <div class="chat-room-container">
+      <% if @chatrooms %>
         <% @chatrooms.reverse.each do |chatroom| %>
           <% if chatroom.chat_participants.where(user_id: current_user).exists?%>
             <%= link_to chatroom, class: "flex-b-c chatroom-card" do %>
@@ -47,6 +48,7 @@
             <%end%>
           <%end%>
         <%end%>
+      <%end%>
       </div>
       <%= form_tag chatrooms_path, remote: true do %>
       <%= hidden_field_tag 'user_id', @chatroom.user %>
