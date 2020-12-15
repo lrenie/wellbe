@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_135013) do
+ActiveRecord::Schema.define(version: 2020_12_15_125744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_135013) do
     t.bigint "recipient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index "GREATEST(sender_id, recipient_id), LEAST(sender_id, recipient_id)", name: "index_friendships_on_interchangable_sender_id_and_recipient_id", unique: true
+    t.index "LEAST(sender_id, recipient_id), GREATEST(sender_id, recipient_id)", name: "index_friendships_on_interchangable_recipient_id_and_sender_id", unique: true
     t.index ["recipient_id"], name: "index_friendships_on_recipient_id"
     t.index ["sender_id"], name: "index_friendships_on_sender_id"
   end
