@@ -90,7 +90,7 @@ covers = [
   "https://res.cloudinary.com/drk3m3rkb/image/upload/v1599150021/Louis_renie_osia6f.jpg",
   "https://www.noizikidz.com/17984-large_nzk3/batterie-enfant-3-futs-12-rouge.jpg",
   "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
-  "https://www.google.com/imgres?imgurl=http%3A%2F%2Flesincontournablesduvar.fr%2Fimages%2Fpanorama%2520sans%2520titre1%25202.jpg&imgrefurl=http%3A%2F%2Flesincontournablesduvar.fr%2Frando-cuves-du-destel---ollioules.html&tbnid=ljmt2imfhFSXKM&vet=12ahUKEwi2sISl-77tAhUr1eAKHeYxCOUQMygAegUIARCYAQ..i&docid=psDppZzdkZBDKM&w=2103&h=882&q=image%20destel&ved=2ahUKEwi2sISl-77tAhUr1eAKHeYxCOUQMygAegUIARCYAQ",
+  "https://www.altituderando.com/local/cache-vignettes/L1024xH575/randoon4932-a898c.jpg",
   "https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/02/wc3-reforged-1280x720.jpg"
 ]
 
@@ -134,61 +134,62 @@ puts "Created #{User.count} users"
 
 puts "Creating friendship ..."
 
-friendship2 = Friendship.new
-friendship2.status = "true"
-friendship2.sender = users[0]
-friendship2.recipient = users[1]
-friendship2.save!
-puts "friendship2 ok"
+# friendship2 = Friendship.new
+# friendship2.status = "true"
+# friendship2.sender = users[0]
+# friendship2.recipient = users[1]
+# friendship2.save!
+# puts "friendship2 ok"
 
-friendship2 = Friendship.new
-friendship2.status = "true"
-friendship2.sender = users[0]
-friendship2.recipient = users[2]
-friendship2.save!
+# friendship2 = Friendship.new
+# friendship2.status = "true"
+# friendship2.sender = users[0]
+# friendship2.recipient = users[2]
+# friendship2.save!
 
-friendship5 = Friendship.new
-friendship5.status = "true"
-friendship5.sender = users[0]
-friendship5.recipient = users[3]
-friendship5.save!
+# friendship5 = Friendship.new
+# friendship5.status = "true"
+# friendship5.sender = users[0]
+# friendship5.recipient = users[3]
+# friendship5.save!
 
-friendship6 = Friendship.new
-friendship6.status = "true"
-friendship6.sender = users[0]
-friendship6.recipient = users[4]
-friendship6.save!
-
-
-
-friendship3 = Friendship.new
-friendship3.status = "true"
-friendship3.sender = users[1]
-friendship3.recipient = User.find_by(first_name: "Corentin")
-friendship3.save!
-
-friendship4 = Friendship.new
-friendship4.status = "true"
-friendship4.sender = users[1]
-friendship4.recipient = User.find_by(first_name: "Benoit")
-friendship4.save!
-
-friendship5 = Friendship.new
-friendship5.status = "pending"
-friendship5.sender = users[2]
-friendship5.recipient = User.find_by(first_name: "Eugenie")
-friendship5.save!
+# friendship6 = Friendship.new
+# friendship6.status = "true"
+# friendship6.sender = users[0]
+# friendship6.recipient = users[4]
+# friendship6.save!
 
 
-# User.all.each do |user|
-#   4.times do
-#     friendship = Friendship.new
-#     friendship.status = "true"
-#     friendship.sender = user
-#     friendship.recipient = User.all.sample
-#     friendship.save if (friendship.sender != friendship.recipient)
-#   end
-# end
+
+# friendship3 = Friendship.new
+# friendship3.status = "true"
+# friendship3.sender = users[1]
+# friendship3.recipient = User.find_by(first_name: "Corentin")
+# friendship3.save!
+
+# friendship4 = Friendship.new
+# friendship4.status = "true"
+# friendship4.sender = users[1]
+# friendship4.recipient = User.find_by(first_name: "Benoit")
+# friendship4.save!
+
+# friendship5 = Friendship.new
+# friendship5.status = "pending"
+# friendship5.sender = users[2]
+# friendship5.recipient = User.find_by(first_name: "Eugenie")
+# friendship5.save!
+
+puts "creating random friendships"
+
+User.all.each do |user|
+  10.times do
+    friendship = Friendship.new
+    friendship.status = "true"
+    friendship.sender = user
+    friendship.recipient = User.all.sample
+    friendship.save
+  end
+end
 
 
 
