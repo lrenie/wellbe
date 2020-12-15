@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :stats, dependent: :destroy
   has_many :session_participants, dependent: :destroy
   has_many :sessions, through: :session_participants, dependent: :destroy
+  has_many :sessions, dependent: :destroy
   has_many :chat_participants, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :chatrooms, dependent: :destroy
