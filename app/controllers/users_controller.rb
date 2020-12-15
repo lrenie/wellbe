@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-
     @user = User.find(params[:id])
     @param = params[:param]
     # voir ds session_participants_controller
@@ -28,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def index
-
     if params[:requete].present?
       sql_requete = " \
       users.first_name @@ :requete \
@@ -44,6 +42,11 @@ class UsersController < ApplicationController
     User.all.each do |user|
       @user_fdships = user.friendships.map(&:id) + user.recieved_friendships.map(&:id)
     end
+  end
 
+  def update_cover
+    @user = current_user
+    @user.cover = params[:cover]
+    @user.save
   end
 end

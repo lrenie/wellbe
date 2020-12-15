@@ -2,20 +2,41 @@
 <div class="body"></div>
 <div class="container-l">
   <div class="cover-user">
-    <%= cl_image_tag @user.cover.key %>
+    <% if @user.cover.attached? %>
+      <%= cl_image_tag @user.cover.key %>
+    <% else %>
+      <%= image_tag "coverlarbin", alt: "coverlarbin" %>
+    <% end %>
     <div class="avatar-user width-100">
       <div class="flex-c-c width-100">
-       <%= cl_image_tag @user.avatar.key %>
+        <% if @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar.key %>
+        <% else %>
+          <%= image_tag "mrlarbin", alt: "mrlarbin" %>
+        <% end %>
       </div>
     </div>
-    <div class="text-cover-home flex-b-c">
-      <i class="fas fa-camera m-r-10"></i>
-      <p class="flex-g-1">Changer la photo de couverture</h2>
+    <div class="text-cover-home" id="change-cover">
+      <div class="flex-b-c">
+        <i class="fas fa-camera m-r-10"></i>
+        <p class="flex-g-1">Changer la photo de couverture</p>
+      </div>
+      <div class="hide-form" id="cover-form" >
+        <%= form_with( url: cover_update_path, method: "patch", id: "form") do |f| %>
+          <%= f.file_field :cover %>
+          <%#= f.submit  %>
+        <% end %>
+      </div>
     </div>
+
+
   </div>
   <div class="name-user">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
   </div>
+
+
+
 
   <!-- ===================================================================== -->
   <!-- =====================   CREATION DES ONGLETS   ====================== -->

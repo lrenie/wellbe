@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :num_in_notif
-  # before_action :counter_broadcasting
+  before_action :configure_permited_parameters, if: :devise_controller?
 
   def num_in_notif
     if user_signed_in?
@@ -9,22 +9,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def counter_broadcasting
-  #   if user_signed_in?
-  #     CounterNotificationChannel.broadcast_to(
-  #       current_user,
-  #       # render_to_string(partial: "red_counter", locals: {friend_requests: @friend_requests })
-  #       { friend_requests: @friend_requests}
-  #     )
-  #   end
-  # end
-
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-
-
+  def configure_permited_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar, :cover])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :avatar, :cover, :email, :password])
+  end
 
 
 end

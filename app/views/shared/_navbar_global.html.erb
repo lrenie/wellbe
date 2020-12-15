@@ -6,12 +6,12 @@
     <div class="icone">
       <!-- ============================================ -->
       <%= link_to current_user, style: "text-decoration: none" do %>
-        <% if current_user%>
+        <% if current_user.avatar.attached?%>
           <div class="flex-b-c">
             <%= cl_image_tag current_user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
           </div>
         <% else %>
-          <% cl_image_tag "lourd.jpg" %>
+            <%= image_tag "mrlarbin", alt: "mrlarbin", width: 160, height: 160, crop: :thumb, class: "avatar-photo" %>
         <% end %>
       <% end %>
       <!-- ============================================ -->
