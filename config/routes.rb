@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   post '/sessions/fetch', to: 'sessions#fetch'
 
   patch '/cover_update', to: 'users#update_cover'
-
+  patch '/avatar_update', to: 'users#update_avatar'
 end

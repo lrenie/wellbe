@@ -1,19 +1,49 @@
+<!-- ici 2 manieres differentes pour updater ses images de profils(avatar et cover)
+pour la cover, on a un fichier js change_cover.js avec une vue en js.erb
+  qui elle va avoir pour fonction d'éviter de recharger la page pour voir la modif
+pour l'avatar, on utilise stimulus. POur le coup nous permet de tout faire dans le controlleur pictures_controler.js
+ -->
+
 <%= render "shared/navbar_global" %>
 <div class="body"></div>
 <div class="container-l">
-  <div class="cover-user">
+  <div class="banner-user" data-controller="pictures">
     <% if @user.cover.attached? %>
-      <%= cl_image_tag @user.cover.key %>
+      <%= cl_image_tag @user.cover.key, id: "cover-user" %>
     <% else %>
-      <%= image_tag "coverlarbin", alt: "coverlarbin" %>
+      <%= image_tag "coverlarbin", alt: "coverlarbin", id: "cover-user"%>
     <% end %>
     <div class="avatar-user width-100">
       <div class="flex-c-c width-100">
         <% if @user.avatar.attached? %>
-          <%= cl_image_tag @user.avatar.key %>
+        <!-- element que l'on veut updater -->
+          <%= cl_image_tag @user.avatar.key, id: "avatar-user", data: { "pictures-target": "avatarUser"} %>
         <% else %>
-          <%= image_tag "mrlarbin", alt: "mrlarbin" %>
+        <!-- element que l'on veut updater -->
+          <%= image_tag "mrlarbin", alt: "mrlarbin", id: "avatar-user" %>
         <% end %>
+        <!-- element ECOUTANT le click -->
+        <!-- ici ligne 26 syntaxe pour stimulus version 2 -->
+        <div id="avatar-img" data-pictures-target="avatarImg" >
+            <i class="fas fa-camera" data-action="click->pictures#choosePicture"></i>
+            <!-- element form à submit  -->
+            <%= form_with(
+              url: avatar_update_path,
+              method: "patch",
+              class: "hide-form",
+              remote: true,
+              data: {
+                target: "pictures.avatarForm",
+                action: "change->pictures#submitForm ajax:success->pictures#majAvatar"
+                # on ecoute ici le fait que qd le form est envoyer en est censé avoir une reponse ajax
+                # due au remote:true
+              }) do |f| %>
+              <!-- bouton à ouvrir pour charger le fichier -->
+              <%= f.file_field :avatar,
+                id: "charge-avatar-file",
+                data: { target: "pictures.avatarChargeBtn"} %>
+            <% end %>
+        </div>
       </div>
     </div>
     <div class="text-cover-home" id="change-cover">
@@ -22,14 +52,11 @@
         <p class="flex-g-1">Changer la photo de couverture</p>
       </div>
       <div class="hide-form" id="cover-form" >
-        <%= form_with( url: cover_update_path, method: "patch", id: "form") do |f| %>
-          <%= f.file_field :cover %>
-          <%#= f.submit  %>
+        <%= form_with( url: cover_update_path, method: "patch", id: "form", remote: true) do |f| %>
+          <%= f.file_field :cover , id: "charge-cover-file"%>
         <% end %>
       </div>
     </div>
-
-
   </div>
   <div class="name-user">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>

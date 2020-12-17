@@ -1,24 +1,19 @@
-const btnChangeCover = document.querySelector('#change-cover');
-const coverForm = document.querySelector('#cover-form');
-const cover = document.querySelector('#cover')
-const form = document.querySelector('#form')
+import Rails from "@rails/ujs";
 
-const updateCover = () => {
-  console.log('toto')
-  coverForm.classList.remove('hide-form');
+const chargeImageCover = () => {
+  const btnToChargeCoverFile = document.querySelector('#charge-cover-file');
+  btnToChargeCoverFile.click();
 }
 
-
 const changeCover = () => {
+  const btnChangeCover = document.querySelector('#change-cover');
+  const form = document.querySelector('#form');
 
   if (!btnChangeCover) return;
 
-  btnChangeCover.addEventListener('click', updateCover);
-  btnChangeCover.addEventListener('change', (e) => {
-    console.log(form);
-    console.log(cover.value);
-    form.submit();
-    coverForm.classList.add('hide-form');
+  btnChangeCover.addEventListener('click', chargeImageCover);
+  btnChangeCover.addEventListener('change', () => {
+    Rails.fire(form, "submit");
   })
 }
 
