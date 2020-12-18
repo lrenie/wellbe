@@ -179,17 +179,17 @@ puts "Creating friendship ..."
 # friendship5.recipient = User.find_by(first_name: "Eugenie")
 # friendship5.save!
 
-puts "creating random friendships"
+# puts "creating random friendships"
 
-User.all.each do |user|
-  10.times do
-    friendship = Friendship.new
-    friendship.status = "true"
-    friendship.sender = user
-    friendship.recipient = User.all.sample
-    friendship.save
-  end
-end
+# User.all.each do |user|
+#   10.times do
+#     friendship = Friendship.new
+#     friendship.status = "true"
+#     friendship.sender = user
+#     friendship.recipient = User.all.sample
+#     friendship.save
+#   end
+# end
 
 
 
