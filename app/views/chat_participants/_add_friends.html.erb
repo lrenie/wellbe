@@ -3,8 +3,8 @@
     <div class="pop-up-add container">
     <% @friends.each do |friend| %>
       <div class="flex-b-c card_invite_chatroom">
-        <% if friend.avatar.attached? %>
-          <%= cl_image_tag friend.avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
+        <% if User.find(friend).avatar.attached? %>
+          <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
         <% else %>
           <%= image_tag "mrlarbin", alt: "mrlarbin" %>
         <% end %>
