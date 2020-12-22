@@ -19,8 +19,6 @@ export default class extends Controller {
   }
 
   majAvatar(e){
-    const navAvatar = document.querySelector('#nav-avatar');
-    console.log(navAvatar);
     // l'envent en question est ajax:succes cf users/show ligne 35
     console.log(e)
     this.avatarUserTarget.src = e.detail[0].urlImg;
