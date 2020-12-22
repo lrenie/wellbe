@@ -17,7 +17,10 @@ pour l'avatar, on utilise stimulus. POur le coup nous permet de tout faire dans 
       <div class="flex-c-c width-100">
         <% if @user.avatar.attached? %>
         <!-- element que l'on veut updater -->
-          <%= cl_image_tag @user.avatar.key, id: "avatar-user", data: { "pictures-target": "avatarUser"} %>
+          <%= cl_image_tag @user.avatar.key,
+              id: "avatar-user",
+              width: 160, height: 160, crop: :thumb,
+              data: { "pictures-target": "avatarUser"} %>
         <% else %>
         <!-- element que l'on veut updater -->
           <%= image_tag "mrlarbin", alt: "mrlarbin", id: "avatar-user" %>
@@ -94,7 +97,7 @@ pour l'avatar, on utilise stimulus. POur le coup nous permet de tout faire dans 
   <!-- ===================================================================== -->
   <!-- =====================   CONTENU DES ONGLETS   ======================= -->
   <!-- ===================================================================== -->
-  <div class="container-s container-white m-b-40">
+  <div class="container-s container-white m-b-40" >
     <div class="tab-content" id="myTabContent">
       <!-- ================== ONGLET STATISTIQUES ========================== -->
       <div class="tab-pane fade <%= "show active" unless params[:tab] == 'ask_friend' %>" id="stat" role="tabpanel" aria-labelledby="stat-tab">
