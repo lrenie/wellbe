@@ -79,7 +79,7 @@ class SessionsController < ApplicationController
     @session_participant.session = @session
     #@session_participant.user
 
-    raise
+    
     if @session.save!
      redirect_to my_session_path(@session)
     else
@@ -101,7 +101,7 @@ class SessionsController < ApplicationController
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
     @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
 
-    raise
+   
     # @session.session_exercise_ids.each do |id|
     #     @names << Exercise.find(id).name
     #     if Exercise.find(id).id != @session.session_exercise_ids.last
