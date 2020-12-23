@@ -17,8 +17,9 @@ export default class extends Controller {
   }
 
   inputSelect(event) {
-    
+
     this.inputTarget.selectedIndex = parseInt(event.currentTarget.dataset.id);
+    console.log(this.inputTarget.selectedIndex);
     this.levelBtnTargets.forEach((el) => {
       el.classList.remove('level-selected');
     })
