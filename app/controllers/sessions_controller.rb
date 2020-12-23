@@ -9,11 +9,18 @@ class SessionsController < ApplicationController
     end
   end
 
-  def new_multi
-    @session = Session.new
-    @friendships = current_user.all_friendships
-    # @friends is a tab where we can found all the IDS of the friend of the current user (with its self-id)
-    @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+  def new
+    # @session = Session.new
+    # # @session.video = "true"
+    # @session.date = Date.today
+    # @session.user = current_user
+    # @session.save!
+    # if @session.save!
+    #  redirect_to edit_session_path(@session)
+    # else
+    #   alert("something goes wrong")
+    # end
+
 
 
     # @fake_session = Session.new
@@ -64,26 +71,44 @@ class SessionsController < ApplicationController
     # @default_session_exercise2.save!
   end
 
-  def create_multi
+  def create
     @session = Session.new
     @session.video = "true"
-    @session.mode = "multi"
+    @session.mode = params[:mode]
     @session.date = Date.today
     @session.user = current_user
-    # @session.body_area = BodyArea.find_by(name: session_params["body_area"])
-    # @session.total_time = session_params["total_time"]
-    # @session.difficulty = session_params["difficulty"]
+    @session.save!
+
+    if @session.save!
+     redirect_to edit_session_path(@session)
+    else
+      alert("something goes wrong")
+    end
+  end
+
+  def edit
+    @session = Session.find(params[:id])
+    @session.user = current_user
+    @friendships = current_user.all_friendships
+    # @friends is a tab where we can found all the IDS of the friend of the current user (with its self-id)
+    @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
+  end
+
+  def update
+    @session = Session.find(params[:id])
+    binding.pry
+    @session.body_area_id = BodyArea.find_by(name: session_params["body_area"])
+    @session.total_time = session_params["total_time"]
+    @session.difficulty = session_params["difficulty"]
     @session.save!
 
     # @session_participant = SessionParticipant.new
     # @session_participant.session = @session
     # #@session_participant.user
 
-    
+
     if @session.save!
-
-     redirect_to new_multi_session_path(user_id: current_user.id)
-
+     redirect_to session_path(@session)
     else
       alert("something goes wrong")
     end
@@ -103,7 +128,7 @@ class SessionsController < ApplicationController
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
     @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
 
-   
+
     # @session.session_exercise_ids.each do |id|
     #     @names << Exercise.find(id).name
     #     if Exercise.find(id).id != @session.session_exercise_ids.last
@@ -128,7 +153,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:difficulty, :total_time, :body_area)
+    params.require(:session).permit(:difficulty, :total_time, :body_area_id)
   end
 end
 
