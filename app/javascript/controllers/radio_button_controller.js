@@ -31,6 +31,5 @@ export default class extends Controller {
       el.classList.remove('body-selected');
     })
     event.currentTarget.classList.add('body-selected')
-    console.log(this.inputTarget.value);
   }
 }
