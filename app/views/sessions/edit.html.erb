@@ -45,9 +45,9 @@
       <!--**********************************************************************-->
       <div class="right-part">
         <h3 class="p-b-20">Fixez vos objectifs</h3>
-          <div data-controller="radio-button">
+
           <%= simple_form_for(@session) do |f| %>
-            <div class="flex-b-e">
+            <div class="flex-b-e" data-controller="radio-button">
               <%= f.input :total_time,
                           label: "Temps total",
                           as: :range,
@@ -62,7 +62,7 @@
                           } %>
               <span class="range-slider__value"><input type="text" id="textInput" value="30" class="time-input">min</span>
             </div>
-
+            <div data-controller="radio-button">
               <%= f.input :difficulty,
                           label: "Votre niveau",
                           label_method: ->(item) {tag.span item, class: "d-none"},
@@ -92,6 +92,7 @@
                 </div>
               </div>
             </div>
+
             <div data-controller="radio-button">
               <%= f.input :body_area_id,
                           label: "Votre objectif",
