@@ -41,16 +41,32 @@ BodyArea2 = { name: "bas du corps"}
 BodyArea3 = { name: "général"}
 bodyareas = []
 [BodyArea1, BodyArea2, BodyArea3].each_with_index do |attributes, index|
-    current_bodyarea = BodyArea.create!(attributes)
-    bodyareas << current_bodyarea
+   p current_bodyarea = BodyArea.create!(attributes)
+   p bodyareas << current_bodyarea
 end
 puts "Created #{BodyArea.count} BodyAreas"
 
 puts "Creating exercices..."
-Incendie = { name: "Incendie", time: 20, diff_coef: 8, kcal: 250, body_area: bodyareas[2]}
-Ciseau = { name: "Ciseau", time: 20, diff_coef: 5, kcal: 450, body_area: bodyareas[2]}
-Planche = { name: "Planche", time: 20, diff_coef: 2, kcal: 150, body_area: bodyareas[2]}
-Araignee = { name: "Araignée", time: 20, diff_coef: 2, kcal: 150, body_area: bodyareas[0]}
+incendie = { name: "Incendie", time: 20, rep: 10, diff_coef: 8, kcal: 250, body_area: bodyareas[2], rest_time: 1}
+ciseau = { name: "Ciseau", time: 1, rep: 20, diff_coef: 40, kcal: 30, body_area: bodyareas[2], rest_time: 1}
+planche = { name: "Planche", time: 1, rep: 1, diff_coef: 50, kcal: 30, body_area: bodyareas[2], rest_time: 1}
+araignee = { name: "Araignée", time: 20, rep: 10, diff_coef: 2, kcal: 150, body_area: bodyareas[0], rest_time: 1}
+pushups_on_knees = { name: "PushUps on Knees", time: 1, rep: 10, diff_coef: 20, kcal: 20, body_area: bodyareas[0], rest_time: 1}
+pushups_classic = { name: "PushUps Classic", time: 1, rep: 10, diff_coef: 50, kcal: 40, body_area: bodyareas[0], rest_time: 1}
+pushups_hard_time = { name: "PushUps Classic enduro", time: 2, rep: 20, diff_coef: 70, kcal: 50, body_area: bodyareas[0], rest_time: 1}
+pushups_heart = { name: "PushUps Heart", time: 1, rep: 10, diff_coef: 80, kcal: 40, body_area: bodyareas[0], rest_time: 1}
+hs_pushups = { name: "HandStand PushUps", time: 1, rep: 10, diff_coef: 95, kcal: 60, body_area: bodyareas[0], rest_time: 1}
+squat_classic = { name: "Squat Classic", time: 1, rep: 20, diff_coef: 30, kcal: 20, body_area: bodyareas[1], rest_time: 1}
+squat_enduro = { name: "Squat Enduro", time: 2, rep: 50, diff_coef: 50, kcal: 50, body_area: bodyareas[1], rest_time: 2}
+squat_pistols = { name: "Squat Pistols", time: 1, rep: 10, diff_coef: 80, kcal: 50, body_area: bodyareas[1], rest_time: 1}
+planche_on_knees = { name: "Planche on Knees", time: 1, rep: 1, diff_coef: 20, kcal: 10, body_area: bodyareas[2], rest_time: 1}
+planche_hard_time = { name: "Planche Enduro", time: 2, rep: 1, diff_coef: 70, kcal: 50, body_area: bodyareas[2], rest_time: 1}
+sit_up = { name: "SitUp", time: 1, rep: 20, diff_coef: 50, kcal: 30, body_area: bodyareas[1], rest_time: 1}
+sit_up_enduro = { name: "SitUp Enduro", time: 3, rep: 50, diff_coef: 80, kcal: 50, body_area: bodyareas[1], rest_time: 2}
+v_up = { name: "vUp", time: 1, rep: 15, diff_coef: 70, kcal: 30, body_area: bodyareas[1], rest_time: 1}
+burpees_on_knees = { name: "Burpees on knees", time: 1, rep: 10, diff_coef: 20, kcal: 30, body_area: bodyareas[2], rest_time: 1}
+burpees = { name: "Burpees", time: 1, rep: 10, diff_coef: 40, kcal: 50, body_area: bodyareas[2], rest_time: 1}
+jumping_jack = { name: "Jumping Jack", time: 1, rep: 20, diff_coef: 30, kcal: 25, body_area: bodyareas[2], rest_time: 1}
 exercises = []
 photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945451-hydrantsfix2.gif",
@@ -58,10 +74,12 @@ photos = [
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945187-planktoforearmfix2.gif",
   "https://cache.cosmopolitan.fr/data/fichiers/4i/1416945948-alternatingkneefix21.gif"
 ]
-[Incendie, Ciseau, Planche, Araignee].each_with_index do |attributes, index|
+[incendie, ciseau, planche, araignee, pushups_on_knees, pushups_classic, pushups_hard_time, pushups_heart, hs_pushups,
+squat_classic, squat_enduro, squat_pistols, planche_on_knees, planche_hard_time, sit_up, sit_up_enduro, v_up, burpees_on_knees, 
+burpees, jumping_jack].each_with_index do |attributes, index|
     current_exercise = Exercise.create!(attributes)
-    p exercise_photo = URI.open(photos[index])
-    current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
+    # p exercise_photo = URI.open(photos[index])
+    # current_exercise.photo.attach(io: exercise_photo, filename: 'image.png', content_type: 'image/png')
     exercises << current_exercise
 end
 puts "Created #{Exercise.count} Exercises"
@@ -194,16 +212,16 @@ puts "Creating friendship ..."
 
 
 puts "Creating sessions..."
-Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-21 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 120, date: "2020-08-30 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0], body_area: bodyareas[1] }
-Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0], body_area: bodyareas[0] }
-Session7 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 12, date: "2020-08-03 19:30:00", user: users[1], body_area: bodyareas[2] }
-Session8 = { difficulty: "confirmé", mode: "multi", video: "true", total_time: 5, date: "2020-07-18 19:30:00", user: users[1], body_area: bodyareas[2] }
-Session9 = { difficulty: "intermédiaire", mode: "solo", video: "false", total_time: 36, date: "2020-08-30 19:30:00", user: users[1], body_area: bodyareas[1] }
-Session10 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 40, date: "2020-09-02 19:30:00", user: users[1], body_area: bodyareas[0] }
-Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-07-15 19:30:00", user: users[1], body_area: bodyareas[2] }
+Session1 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 15, date: "2020-08-21 17:00:00", user: users[0] }
+Session2 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 120, date: "2020-08-30 17:00:00", user: users[0] }
+Session3 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 20, date: "2020-08-15 17:00:00", user: users[0] }
+Session4 = { difficulty: "débutant", mode: "multi", video: "true", total_time: 20, date: "2020-09-20 17:00:00", user: users[0] }
+Session5 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 20, date: "2020-09-08 17:00:00", user: users[0] }
+Session7 = { difficulty: "débutant", mode: "solo", video: "false", total_time: 12, date: "2020-08-03 19:30:00", user: users[1] }
+Session8 = { difficulty: "confirmé", mode: "multi", video: "true", total_time: 5, date: "2020-07-18 19:30:00", user: users[1] }
+Session9 = { difficulty: "intermédiaire", mode: "solo", video: "false", total_time: 36, date: "2020-08-30 19:30:00", user: users[1] }
+Session10 = { difficulty: "avancé", mode: "multi", video: "true", total_time: 40, date: "2020-09-02 19:30:00", user: users[1] }
+Session6 = { difficulty: "intermédiaire", mode: "multi", video: "true", total_time: 25, date: "2020-07-15 19:30:00", user: users[1] }
 
 sessions = []
 [Session1, Session2, Session3, Session4, Session5, Session7, Session8, Session9, Session10, Session6].each_with_index do |attributes, index|

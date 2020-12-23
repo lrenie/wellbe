@@ -8,6 +8,7 @@
 // </div>
 
 import { Controller } from "stimulus"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = [ "input", "levelBtn", "bodyBtn" ]
@@ -16,6 +17,7 @@ export default class extends Controller {
   }
 
   inputSelect(event) {
+    
     this.inputTarget.selectedIndex = parseInt(event.currentTarget.dataset.id);
     this.levelBtnTargets.forEach((el) => {
       el.classList.remove('level-selected');

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :friendships, only: [:create, :update, :destroy]
   resources :session_participants, only: [:update]
+  
 
 
   resources :chatrooms, only: [:show, :index, :new, :create, :destroy] do
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create_multi'
   get '/sessions/:id', to: 'sessions#show', as: 'my_session'
   post '/sessions/fetch', to: 'sessions#fetch'
+  patch '/sessions', to: 'sessions#update', as:'update_session'
 
   patch '/cover_update', to: 'users#update_cover'
   patch '/avatar_update', to: 'users#update_avatar'
