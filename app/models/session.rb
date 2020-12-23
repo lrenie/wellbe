@@ -14,7 +14,9 @@ class Session < ApplicationRecord
   has_many :session_participants, dependent: :destroy
 
   # validates :difficulty, presence: true
+
   validates :mode, presence: true
+
   # validates :total_time, presence: true
   after_create :create_twilio_room
 

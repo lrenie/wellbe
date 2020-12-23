@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
   def new_multi
     @session = Session.new
     @friendships = current_user.all_friendships
-    # @friends is a tab where we can found all the IDS of the friend of the current user (with it's self id)
+    # @friends is a tab where we can found all the IDS of the friend of the current user (with its self-id)
     @friends = @friendships.map { |fs| fs.sender == current_user ? fs.recipient.id : fs.sender.id }
-    
+
 
     # @fake_session = Session.new
     # @fake_session.difficulty = "intermédiaire"
@@ -79,9 +79,11 @@ class SessionsController < ApplicationController
     # @session_participant.session = @session
     # #@session_participant.user
 
-
+    
     if @session.save!
+
      redirect_to new_multi_session_path(user_id: current_user.id)
+
     else
       alert("something goes wrong")
     end
@@ -90,6 +92,7 @@ class SessionsController < ApplicationController
   def show
 
     @session = Session.find(params[:id])
+
 
     @times = []
     @names = []
@@ -100,6 +103,7 @@ class SessionsController < ApplicationController
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
     @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
 
+   
     # @session.session_exercise_ids.each do |id|
     #     @names << Exercise.find(id).name
     #     if Exercise.find(id).id != @session.session_exercise_ids.last

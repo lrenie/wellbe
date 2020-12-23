@@ -49,4 +49,16 @@ class UsersController < ApplicationController
     @user.cover = params[:cover]
     @user.save
   end
+
+  def update_avatar
+    @user = current_user
+    @user.avatar = params[:avatar]
+    @user.save
+    render json: { urlImg: Cloudinary::Utils.cloudinary_url(@user.avatar.key)}
+    # pour plus de renseignement voir la recherche
+    # "How generate a cloudinary URL from the rails controller"
+  end
 end
+# on aurait pu mettre la ligne suivante pour transmettre l'url de l'cl_image_path
+# urlIMG: view_context.cl_image_path(@user.avatar.key)}
+# mais c'était surtout emplyé à Rails3

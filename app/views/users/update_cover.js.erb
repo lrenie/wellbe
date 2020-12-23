@@ -1,0 +1,5 @@
+const imgCover = document.querySelector('#cover-user');
+
+imgCover.src = "<%= cl_image_path(@user.cover.key) %>";
+
+// ici on a une vue en js.erb

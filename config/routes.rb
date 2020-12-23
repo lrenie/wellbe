@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   patch '/sessions', to: 'sessions#update', as:'update_session'
 
   patch '/cover_update', to: 'users#update_cover'
-
+  patch '/avatar_update', to: 'users#update_avatar'
 end
