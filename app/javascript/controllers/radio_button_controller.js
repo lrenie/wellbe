@@ -8,19 +8,22 @@
 // </div>
 
 import { Controller } from "stimulus"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "input", "levelBtn", "bodyBtn" ]
+  static targets = [ "input", "levelBtn", "bodyBtn", "sessionForm" ]
 
   connect() {
   }
 
   inputSelect(event) {
+    
     this.inputTarget.selectedIndex = parseInt(event.currentTarget.dataset.id);
     this.levelBtnTargets.forEach((el) => {
       el.classList.remove('level-selected');
     })
     event.currentTarget.classList.add('level-selected')
+    console.log(this.inputTarget.selectedIndex);
   }
 
   inputSelecte(event) {
@@ -29,5 +32,6 @@ export default class extends Controller {
       el.classList.remove('body-selected');
     })
     event.currentTarget.classList.add('body-selected')
+    console.log(this.inputTarget.value);
   }
 }

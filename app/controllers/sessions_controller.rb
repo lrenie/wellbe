@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def choice
     @last_sessions = current_user.sessions.order(date: :desc)
-
+    @last_sessions = @last_sessions.where.not(body_area_id: nil)
     @fav_session_participants = current_user.session_participants.where(favorite_status: true)
     @fav_sessions = []
     @fav_session_participants.each do |fav|
@@ -70,18 +70,18 @@ class SessionsController < ApplicationController
     @session.mode = "multi"
     @session.date = Date.today
     @session.user = current_user
-    @session.body_area = BodyArea.find_by(name: session_params["body_area"])
-    @session.total_time = session_params["total_time"]
-    @session.difficulty = session_params["difficulty"]
+    # @session.body_area = BodyArea.find_by(name: session_params["body_area"])
+    # @session.total_time = session_params["total_time"]
+    # @session.difficulty = session_params["difficulty"]
     @session.save!
 
-    @session_participant = SessionParticipant.new
-    @session_participant.session = @session
-    #@session_participant.user
+    # @session_participant = SessionParticipant.new
+    # @session_participant.session = @session
+    # #@session_participant.user
 
 
     if @session.save!
-     redirect_to my_session_path(Session.last)
+     redirect_to new_multi_session_path(user_id: current_user.id)
     else
       alert("something goes wrong")
     end
@@ -112,6 +112,7 @@ class SessionsController < ApplicationController
     #   end
   end
 
+
   def fetch
     @user = User.find(params[:user])
     @date = Date.parse(params[:date])
@@ -127,6 +128,3 @@ class SessionsController < ApplicationController
   end
 end
 
-# # def fav?
-#   @session = session.favorite_status
-# # end

@@ -3,9 +3,9 @@
   <div>
 
     <div class="card-prev-session flex-b-c position-relative m-r-10 m-b-20">
-      <% if session.body_area.name == "général" %>
+      <% if session.body_area_id.name == "général" %>
         <div class="photo gen">
-      <% elsif session.body_area.name == "haut du corps"%>
+      <% elsif session.body_area_id.name == "haut du corps"%>
         <div class="photo hdc b-p-x">
       <% else %>
         <div class="photo bdc">
@@ -14,7 +14,7 @@
       </div>
       <div class="content stretch">
         <div>
-          <h4><%= session.body_area.name.capitalize %></h4>
+          <h4><%= session.body_area_id.name.capitalize %></h4>
           <div class="flex-b-c">
             <i class="far fa-clock"></i>
             <p class="flex-g-1 p-l-5"><%= session.total_time%> min | <%= translate_date(session.date) %></p>

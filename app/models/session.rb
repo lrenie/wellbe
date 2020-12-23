@@ -5,7 +5,7 @@ class Session < ApplicationRecord
   DIFFICULTY = ["Débutant", "Intermédiaire", "Avancé", "Confirmé"]
 
   belongs_to :user
-  belongs_to :body_area
+  
 
   has_many :session_exercises, dependent: :destroy
   has_many :exercises, through: :session_exercises
@@ -13,9 +13,9 @@ class Session < ApplicationRecord
   # has_many :users, through: :session_participant, dependent: :destroy
   has_many :session_participants, dependent: :destroy
 
-  validates :difficulty, presence: true
+  # validates :difficulty, presence: true
   validates :mode, presence: true
-  validates :total_time, presence: true
+  # validates :total_time, presence: true
   after_create :create_twilio_room
 
   def create_twilio_room

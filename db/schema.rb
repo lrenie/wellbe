@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_125744) do
+ActiveRecord::Schema.define(version: 2020_12_21_122828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2020_12_15_125744) do
     t.bigint "body_area_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rest_time"
+    t.integer "rep"
     t.index ["body_area_id"], name: "index_exercises_on_body_area_id"
   end
 
@@ -120,8 +122,8 @@ ActiveRecord::Schema.define(version: 2020_12_15_125744) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "body_area_id"
     t.string "room_sid"
+    t.bigint "body_area_id"
     t.index ["body_area_id"], name: "index_sessions_on_body_area_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
