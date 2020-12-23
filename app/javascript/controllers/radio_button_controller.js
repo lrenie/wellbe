@@ -11,7 +11,7 @@ import { Controller } from "stimulus"
 import Rails from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "input", "levelBtn", "bodyBtn", "sessionForm" ]
+  static targets = [ "input", "levelBtn", "bodyBtn" ]
 
   connect() {
   }
@@ -23,7 +23,6 @@ export default class extends Controller {
       el.classList.remove('level-selected');
     })
     event.currentTarget.classList.add('level-selected')
-    console.log(this.inputTarget.selectedIndex);
   }
 
   inputSelecte(event) {
