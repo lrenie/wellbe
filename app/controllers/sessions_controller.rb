@@ -96,7 +96,6 @@ class SessionsController < ApplicationController
 
   def update
     @session = Session.find(params[:id])
-    binding.pry
     @session.body_area_id = BodyArea.find_by(name: session_params["body_area"])
     @session.total_time = session_params["total_time"]
     @session.difficulty = session_params["difficulty"]
@@ -105,6 +104,9 @@ class SessionsController < ApplicationController
     # @session_participant = SessionParticipant.new
     # @session_participant.session = @session
     # #@session_participant.user
+
+
+    # calculator_algo =>  @exercises
 
 
     if @session.save!
@@ -154,6 +156,10 @@ class SessionsController < ApplicationController
 
   def session_params
     params.require(:session).permit(:difficulty, :total_time, :body_area_id)
+  end
+
+  def calculator_algo
+    # return exercices = [2, 5 , 6]
   end
 end
 
