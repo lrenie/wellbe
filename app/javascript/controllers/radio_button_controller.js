@@ -28,6 +28,7 @@ export default class extends Controller {
 
   inputSelecte(event) {
     this.inputTarget.selectedIndex = parseInt(event.currentTarget.dataset.id);
+    console.log(this.inputTarget.selectedIndex);
     this.bodyBtnTargets.forEach((el) => {
       el.classList.remove('body-selected');
     })
