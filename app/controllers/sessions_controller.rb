@@ -96,7 +96,9 @@ class SessionsController < ApplicationController
 
   def update
     @session = Session.find(params[:id])
-    @session.body_area_id = BodyArea.find_by(name: session_params["body_area"])
+
+    @session.body_area.id = BodyArea.find_by(name: session_params["body_area"])
+
     @session.total_time = session_params["total_time"]
     @session.difficulty = session_params["difficulty"]
     @session.save!
@@ -110,7 +112,7 @@ class SessionsController < ApplicationController
 
 
     if @session.save!
-     redirect_to session_path(@session)
+     redirect_to my_session_path(@session)
     else
       alert("something goes wrong")
     end

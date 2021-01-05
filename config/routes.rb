@@ -17,16 +17,14 @@ Rails.application.routes.draw do
   end
 
   get '/sessions/choice', to: 'sessions#choice'
-  resources :sessions, except: :destroy
+  # resources :sessions, except: :destroy
   post '/sessions/fetch', to: 'sessions#fetch'
-  # get '/sessions/multi/new', to: 'sessions#new_multi', as: 'new_multi_session'
+  # get '/sessions/new', to: 'sessions#new_multi', as: 'new_multi_session'
   # get '/sessions/solo/new', to: 'sessions#new_solo', as: 'new_solo_session'
-  # post '/sessions', to: 'sessions#create_multi'
-  # get '/sessions/multi/:id/edit', to: 'sessions#edit_multi', as: 'edit_multi_session'
-  # get '/sessions/solo/:id/edit', to: 'sessions#edit_solo', as: 'edit_solo_session'
-  # patch '/sessions/multi/:id', to: 'sessions#update_multi', as: 'update_multi_session'
-  # patch '/sessions/solo/:id', to: 'sessions#update_solo', as: 'update_solo_session'
-  # get '/sessions/:id', to: 'sessions#show', as: 'my_session'
+  post '/sessions', to: 'sessions#create'
+  get '/sessions/:id/edit', to: 'sessions#edit', as: 'edit_session'
+  patch '/sessions/:id', to: 'sessions#update', as: 'update_session'
+  get '/sessions/:id', to: 'sessions#show', as: 'my_session'
 
   patch '/cover_update', to: 'users#update_cover'
   patch '/avatar_update', to: 'users#update_avatar'

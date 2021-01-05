@@ -45,8 +45,7 @@
       <!--**********************************************************************-->
       <div class="right-part">
         <h3 class="p-b-20">Fixez vos objectifs</h3>
-
-          <%= simple_form_for(@session) do |f| %>
+          <%= simple_form_for(@session, url: update_session_path) do |f| %>
             <div class="flex-b-e" data-controller="radio-button">
               <%= f.input :total_time,
                           label: "Temps total",
