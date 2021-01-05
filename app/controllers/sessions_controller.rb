@@ -96,7 +96,7 @@ class SessionsController < ApplicationController
 
   def update
     @session = Session.find(params[:id])
-    @session.body_area.id = BodyArea.find_by(name: session_params["body_area"])
+    @session.body_area_id = BodyArea.find_by(name: session_params["body_area"])
     @session.total_time = session_params["total_time"]
     @session.difficulty = session_params["difficulty"]
     @session.save!
