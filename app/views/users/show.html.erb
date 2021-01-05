@@ -11,7 +11,7 @@ pour l'avatar, on utilise stimulus. POur le coup nous permet de tout faire dans 
     <% if @user.cover.attached? %>
       <%= cl_image_tag @user.cover.key, id: "cover-user" %>
     <% else %>
-      <%= image_tag "coverlarbin", alt: "coverlarbin", id: "cover-user"%>
+      <%= image_tag "coverlarbin.jpg", alt: "coverlarbin", id: "cover-user"%>
     <% end %>
     <div class="avatar-user width-100">
       <div class="flex-c-c width-100">
@@ -23,7 +23,7 @@ pour l'avatar, on utilise stimulus. POur le coup nous permet de tout faire dans 
               data: { "pictures-target": "avatarUser"} %>
         <% else %>
         <!-- element que l'on veut updater -->
-          <%= image_tag "mrlarbin", alt: "mrlarbin", id: "avatar-user" %>
+          <%= image_tag "mrlarbin.jpg", alt: "mrlarbin", id: "avatar-user" %>
         <% end %>
         <!-- element ECOUTANT le click -->
         <!-- ici ligne 26 syntaxe pour stimulus version 2 -->

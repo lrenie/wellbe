@@ -17,7 +17,7 @@
             <% if current_user.avatar.attached? %>
               <%= cl_image_tag current_user.avatar.key, width: 160, height: 160, crop: :thumb, class: "avatar-photo"%>
             <% else %>
-              <%= image_tag "mrlarbin", alt: "mrlarbin", width: 160, height: 160, crop: :thumb, class: "avatar-photo" %>
+              <%= image_tag "mrlarbin.jpg", alt: "mrlarbin", width: 160, height: 160, crop: :thumb, class: "avatar-photo" %>
             <% end %>
           </div>
         <% else %>

@@ -5,7 +5,7 @@
         <% if User.find(friend).avatar.attached? %>
           <%= cl_image_tag User.find(friend).avatar.key, width: 120, height: 120, crop: :fill, class: "photo invitation-avatar" %>
         <% else %>
-          <%= image_tag "mrlarbin", alt: "mrlarbin" %>
+          <%= image_tag "mrlarbin.jpg", alt: "mrlarbin" %>
         <% end %>
         <p class="flex-g-1 p-l-20 nunito"> <%= User.find(friend).first_name %> <%= User.find(friend).last_name %> </p>
           <%= form_tag chatroom_chat_participants_path(@chatroom_for_new_chat_participants), remote: true do %>
