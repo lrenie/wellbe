@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+
+
   def choice
     @last_sessions = current_user.sessions.order(date: :desc)
     @last_sessions = @last_sessions.where.not(body_area_id: nil)
@@ -98,6 +100,7 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
 
     @session.body_area_id = BodyArea.find_by(name: session_params["body_area_id"]).id
+    
 
     @session.total_time = session_params["total_time"]
     @session.difficulty = session_params["difficulty"]
@@ -112,6 +115,42 @@ class SessionsController < ApplicationController
 
 
     if @session.save!
+      if @session.difficulty == "Débutant"
+        @moyenne_max = 40
+        @max_difficulty = 40
+        @counter = 1
+        
+        
+        @exercise_count = Exercise.all.length
+        @all_exercises = []
+        @exercises = Exercise.where("diff_coef <= #{@max_difficulty} and body_area_id = #{@session.body_area_id}").sample(@exercise_count)
+
+        @first_exercise = @exercises.sample(1)
+        @first_exercise_id = @first_exercise[0].id
+        @average = @first_exercise[0].diff_coef
+        @time = @first_exercise[0].time
+
+        @session_exercise = SessionExercise.new
+        @session_exercise.session_id = @session.id
+        @session_exercise.exercise_id = @first_exercise_id
+        @session_exercise.save!
+        @all_exercises << Exercise.find(@session_exercise.exercise_id)
+        
+
+        @exercises.each do |exercise|
+          while @time <= @session.total_time && @average <= @moyenne_max
+            @session_exercise = SessionExercise.new
+            @session_exercise.session_id = @session.id
+            @session_exercise.exercise_id = exercise.id
+            @session_exercise.save!
+            @counter += 1
+            @average = (@average + exercise.diff_coef) / @counter
+            @time += exercise.time
+            @all_exercises << exercise
+          end
+        end
+        raise
+      end
      redirect_to my_session_path(@session)
     else
       alert("something goes wrong")
@@ -130,7 +169,7 @@ class SessionsController < ApplicationController
     exercises = @session.exercises.all
     @names = exercises.flat_map { |exo| [exo.name, "Repos"] }.tap(&:pop)
     @times = exercises.flat_map { |exo| [exo.time, 10] }.tap(&:pop)
-    @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
+    # @images = exercises.map.with_index { |exo, i| i == 0 ? @images << exo.photo.key : [exo.photo.key, exo.photo.key] }.flatten
 
 
     # @session.session_exercise_ids.each do |id|

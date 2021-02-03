@@ -4,7 +4,7 @@ const friendsInvitation = () => {
   invitChatroom.forEach( (invit) => {
     
     const invitButton = invit.querySelector('.btn-2');
-    
+    console.log(invitButton);
     invitButton.addEventListener('click', (event) => {
       invitButton.value = 'invité !';
       invitButton.classList.add('btn-1');
