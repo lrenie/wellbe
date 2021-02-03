@@ -149,7 +149,6 @@ class SessionsController < ApplicationController
             @all_exercises << exercise
           end
         end
-        raise
       end
      redirect_to my_session_path(@session)
     else
